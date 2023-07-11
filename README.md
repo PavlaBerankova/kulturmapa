@@ -11,7 +11,7 @@ Welcome to the Futured Dev Academy!
 - Marie Re, iOS developer, <marie.re@futured.app>
 
 ### Future Graduate:
-- ~~Jan Novak, <jan.novak@futured.app>~~
+- Pavla Beránková
 
 ### Tools
 
