@@ -85,12 +85,15 @@ class DataService {
     var data: Result<Features, Error>?
     
     func fetchData(completion: @escaping (Result<Features, Error>) -> Void) {
-        Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { [weak self] timer in
-            guard let data = self?.data else {
-                return
-            }
+        if let data = data {
             completion(data)
-            self?.data = .success(DataService.mockData)
+            return
+        }
+        
+        Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { [weak self] _ in
+            let newData = DataService.mockData
+            self?.data = .success(newData)
+            completion(.success(newData))
         }
     }
 }
