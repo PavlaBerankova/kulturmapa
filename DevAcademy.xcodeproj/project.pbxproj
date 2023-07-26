@@ -7,7 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		44D716CA2A66C759003BB2D9 /* SwiftBasics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D716C92A66C759003BB2D9 /* SwiftBasics.swift */; };
+		4483CD5B2A700352004614DF /* PlacesScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4483CD5A2A700352004614DF /* PlacesScene.swift */; };
+		4483CD5D2A7004E3004614DF /* PlacesRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4483CD5C2A7004E3004614DF /* PlacesRow.swift */; };
+		4499C7902A71061F007F6C1C /* Features.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4499C78F2A71061F007F6C1C /* Features.swift */; };
+		4499C7922A71062F007F6C1C /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4499C7912A71062F007F6C1C /* Feature.swift */; };
+		4499C7942A710643007F6C1C /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4499C7932A710643007F6C1C /* Point.swift */; };
+		4499C7962A71064E007F6C1C /* Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4499C7952A71064E007F6C1C /* Properties.swift */; };
+		4499C7982A7106FA007F6C1C /* Kind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4499C7972A7106FA007F6C1C /* Kind.swift */; };
+		4499C79A2A710712007F6C1C /* PossibleKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4499C7992A710712007F6C1C /* PossibleKind.swift */; };
+		4499C7A32A710839007F6C1C /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4499C7A22A710839007F6C1C /* DataService.swift */; };
 		C05610492A5C78CA007FB970 /* DevAcademyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05610482A5C78CA007FB970 /* DevAcademyApp.swift */; };
 		C056104B2A5C78CA007FB970 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C056104A2A5C78CA007FB970 /* ContentView.swift */; };
 		C056104D2A5C78CB007FB970 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C056104C2A5C78CB007FB970 /* Assets.xcassets */; };
@@ -15,7 +23,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		44D716C92A66C759003BB2D9 /* SwiftBasics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftBasics.swift; sourceTree = "<group>"; };
+		4483CD5A2A700352004614DF /* PlacesScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesScene.swift; sourceTree = "<group>"; };
+		4483CD5C2A7004E3004614DF /* PlacesRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesRow.swift; sourceTree = "<group>"; };
+		4499C78F2A71061F007F6C1C /* Features.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features.swift; sourceTree = "<group>"; };
+		4499C7912A71062F007F6C1C /* Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
+		4499C7932A710643007F6C1C /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
+		4499C7952A71064E007F6C1C /* Properties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Properties.swift; sourceTree = "<group>"; };
+		4499C7972A7106FA007F6C1C /* Kind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kind.swift; sourceTree = "<group>"; };
+		4499C7992A710712007F6C1C /* PossibleKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PossibleKind.swift; sourceTree = "<group>"; };
+		4499C7A22A710839007F6C1C /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		C05610452A5C78CA007FB970 /* DevAcademy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevAcademy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C05610482A5C78CA007FB970 /* DevAcademyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevAcademyApp.swift; sourceTree = "<group>"; };
 		C056104A2A5C78CA007FB970 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -34,6 +50,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4483CD582A7002C7004614DF /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				4483CD5E2A700C64004614DF /* Places */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		4483CD5E2A700C64004614DF /* Places */ = {
+			isa = PBXGroup;
+			children = (
+				4483CD5A2A700352004614DF /* PlacesScene.swift */,
+				4483CD5C2A7004E3004614DF /* PlacesRow.swift */,
+			);
+			path = Places;
+			sourceTree = "<group>";
+		};
+		4499C78E2A7105AF007F6C1C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4499C7912A71062F007F6C1C /* Feature.swift */,
+				4499C78F2A71061F007F6C1C /* Features.swift */,
+				4499C7972A7106FA007F6C1C /* Kind.swift */,
+				4499C7932A710643007F6C1C /* Point.swift */,
+				4499C7992A710712007F6C1C /* PossibleKind.swift */,
+				4499C7952A71064E007F6C1C /* Properties.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4499C7A12A71080B007F6C1C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				4499C7A22A710839007F6C1C /* DataService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		C056103C2A5C78CA007FB970 = {
 			isa = PBXGroup;
 			children = (
@@ -55,7 +109,9 @@
 			children = (
 				C05610482A5C78CA007FB970 /* DevAcademyApp.swift */,
 				C056104A2A5C78CA007FB970 /* ContentView.swift */,
-				44D716C92A66C759003BB2D9 /* SwiftBasics.swift */,
+				4499C78E2A7105AF007F6C1C /* Model */,
+				4483CD582A7002C7004614DF /* Scenes */,
+				4499C7A12A71080B007F6C1C /* Services */,
 				C056104C2A5C78CB007FB970 /* Assets.xcassets */,
 				C056104E2A5C78CB007FB970 /* Preview Content */,
 			);
@@ -140,9 +196,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4499C7962A71064E007F6C1C /* Properties.swift in Sources */,
+				4499C79A2A710712007F6C1C /* PossibleKind.swift in Sources */,
+				4499C7942A710643007F6C1C /* Point.swift in Sources */,
+				4499C7902A71061F007F6C1C /* Features.swift in Sources */,
+				4499C7922A71062F007F6C1C /* Feature.swift in Sources */,
 				C056104B2A5C78CA007FB970 /* ContentView.swift in Sources */,
-				44D716CA2A66C759003BB2D9 /* SwiftBasics.swift in Sources */,
+				4483CD5B2A700352004614DF /* PlacesScene.swift in Sources */,
 				C05610492A5C78CA007FB970 /* DevAcademyApp.swift in Sources */,
+				4499C7A32A710839007F6C1C /* DataService.swift in Sources */,
+				4483CD5D2A7004E3004614DF /* PlacesRow.swift in Sources */,
+				4499C7982A7106FA007F6C1C /* Kind.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
