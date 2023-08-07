@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		445DBDD82A82755400B01FAA /* PlacesViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445DBDD72A82755400B01FAA /* PlacesViewState.swift */; };
+		445DBDDB2A82789900B01FAA /* PlacesObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445DBDDA2A82789900B01FAA /* PlacesObservableObject.swift */; };
+		445DBDDD2A827D3600B01FAA /* PlaceDetailViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445DBDDC2A827D3600B01FAA /* PlaceDetailViewState.swift */; };
+		445DBDDF2A8283D800B01FAA /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445DBDDE2A8283D800B01FAA /* Coordinator.swift */; };
 		446531592A7AC912001DF5C4 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446531582A7AC912001DF5C4 /* MapView.swift */; };
 		4465315C2A7ACE58001DF5C4 /* ActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 4465315B2A7ACE58001DF5C4 /* ActivityIndicatorView */; };
 		4483CD5B2A700352004614DF /* PlacesScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4483CD5A2A700352004614DF /* PlacesScene.swift */; };
@@ -27,6 +31,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		445DBDD72A82755400B01FAA /* PlacesViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesViewState.swift; sourceTree = "<group>"; };
+		445DBDDA2A82789900B01FAA /* PlacesObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesObservableObject.swift; sourceTree = "<group>"; };
+		445DBDDC2A827D3600B01FAA /* PlaceDetailViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewState.swift; sourceTree = "<group>"; };
+		445DBDDE2A8283D800B01FAA /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		446531582A7AC912001DF5C4 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		4483CD5A2A700352004614DF /* PlacesScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesScene.swift; sourceTree = "<group>"; };
 		4483CD5C2A7004E3004614DF /* PlacesRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesRow.swift; sourceTree = "<group>"; };
@@ -58,6 +66,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		445DBDD92A82787500B01FAA /* ObservableObject */ = {
+			isa = PBXGroup;
+			children = (
+				445DBDDA2A82789900B01FAA /* PlacesObservableObject.swift */,
+				445DBDDE2A8283D800B01FAA /* Coordinator.swift */,
+			);
+			path = ObservableObject;
+			sourceTree = "<group>";
+		};
 		4483CD582A7002C7004614DF /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -71,8 +88,10 @@
 			isa = PBXGroup;
 			children = (
 				4483CD5A2A700352004614DF /* PlacesScene.swift */,
+				445DBDD72A82755400B01FAA /* PlacesViewState.swift */,
 				4483CD5C2A7004E3004614DF /* PlacesRow.swift */,
 				44C93BCC2A79335A00DD287B /* PlaceDetail.swift */,
+				445DBDDC2A827D3600B01FAA /* PlaceDetailViewState.swift */,
 				44EA42802A7AE502008DB6C3 /* PlacesFavorite.swift */,
 			);
 			path = Places;
@@ -120,6 +139,7 @@
 			children = (
 				C05610482A5C78CA007FB970 /* DevAcademyApp.swift */,
 				C056104A2A5C78CA007FB970 /* ContentView.swift */,
+				445DBDD92A82787500B01FAA /* ObservableObject */,
 				4499C78E2A7105AF007F6C1C /* Model */,
 				4483CD582A7002C7004614DF /* Scenes */,
 				4499C7A12A71080B007F6C1C /* Services */,
@@ -216,13 +236,17 @@
 				44C93BCD2A79335A00DD287B /* PlaceDetail.swift in Sources */,
 				4499C7962A71064E007F6C1C /* Properties.swift in Sources */,
 				4499C79A2A710712007F6C1C /* PossibleKind.swift in Sources */,
+				445DBDD82A82755400B01FAA /* PlacesViewState.swift in Sources */,
 				4499C7942A710643007F6C1C /* Point.swift in Sources */,
 				446531592A7AC912001DF5C4 /* MapView.swift in Sources */,
 				4499C7902A71061F007F6C1C /* Features.swift in Sources */,
 				4499C7922A71062F007F6C1C /* Feature.swift in Sources */,
+				445DBDDF2A8283D800B01FAA /* Coordinator.swift in Sources */,
+				445DBDDD2A827D3600B01FAA /* PlaceDetailViewState.swift in Sources */,
 				C056104B2A5C78CA007FB970 /* ContentView.swift in Sources */,
 				4483CD5B2A700352004614DF /* PlacesScene.swift in Sources */,
 				C05610492A5C78CA007FB970 /* DevAcademyApp.swift in Sources */,
+				445DBDDB2A82789900B01FAA /* PlacesObservableObject.swift in Sources */,
 				4499C7A32A710839007F6C1C /* DataService.swift in Sources */,
 				4483CD5D2A7004E3004614DF /* PlacesRow.swift in Sources */,
 				4499C7982A7106FA007F6C1C /* Kind.swift in Sources */,

@@ -19,8 +19,8 @@ struct PlacesFavorite: View {
     }
 }
 
-struct PlacesFavorite_Previews: PreviewProvider {
-    static var previews: some View {
-        PlacesFavorite()
-    }
-}
+//struct PlacesFavorite_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PlacesFavorite()
+//    }
+//}

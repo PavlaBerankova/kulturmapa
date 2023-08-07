@@ -9,16 +9,16 @@ import ActivityIndicatorView
 import SwiftUI
 
 struct PlaceDetail: View {
-    let feature: Feature
+    let state: PlaceDetailViewState
     
     var body: some View {
         NavigationStack {
             VStack(alignment: .leading) {
-                Text(feature.properties.nazev)
+                Text(state.placesName)
                     .font(.title2)
                     .fontWeight(.semibold)
                     .lineLimit(1)
-                AsyncImage(url: feature.properties.obrId1) {
+                AsyncImage(url: state.placesImage) {
                     image in
                     image
                         .resizable()
@@ -38,9 +38,9 @@ struct PlaceDetail: View {
     }
 }
 
-struct PlaceDetail_Previews: PreviewProvider {
-    static var previews: some View {
-        PlaceDetail(feature: Features.mock.features[0])
-    }
-}
+//struct PlaceDetail_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PlaceDetail(state: PlaceDetailViewState(feature: Features.mock.features[0]))
+//    }
+//}
 

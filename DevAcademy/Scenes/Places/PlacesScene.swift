@@ -9,22 +9,23 @@ import SwiftUI
 import ActivityIndicatorView
 
 struct PlacesScene: View {
-    @State var features: [Feature] = [] //Features.mock.features
-    @State var showFavorites = false
+    
+    @EnvironmentObject private var coordinator: Coordinator
+    let state = PlacesViewState()
     
     var body: some View {
         NavigationStack {
             Group {
-                if !features.isEmpty {
-                    List(features, id: \.properties.ogcFid) { feature in
+                if !state.featuresAreLoaded {
+                    List(state.features, id: \.properties.ogcFid) { feature in
                         NavigationLink {
-                            PlaceDetail(feature: feature)
+                            PlaceDetail(state: PlaceDetailViewState(feature: feature))
                         } label: {
                             PlacesRow(feature: feature)
 
                         }
                     }
-                    .animation(.default, value: features)
+                    .animation(.default, value: state.features)
                     .listStyle(.plain)
                 } else {
                     VStack {
@@ -39,7 +40,7 @@ struct PlacesScene: View {
                     .toolbar {
                         ToolbarItem(placement: .navigationBarTrailing) {
                             Button {
-                                showFavorites.toggle()
+                                state.showFavorites.toggle()
                             } label: {
                                 Image(systemName: "star")
                                     .foregroundColor(.accentColor)
@@ -47,30 +48,20 @@ struct PlacesScene: View {
                         }
                     }
         }
-        .onAppear(perform: fetch)
-        .sheet(isPresented: $showFavorites) {
+        .onAppear(perform: state.fetch)
+        .sheet(isPresented: state.$showFavorites) {
             PlacesFavorite()
                 .presentationDetents([.large])
                 .presentationDragIndicator(.visible)
         }
     }
     
-  
-    func fetch() {
-        DataService.shared.fetchData { result in
-            switch result {
-            case .success(let features):
-                self.features = features.features
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
+    
 }
 
 
-struct PlacesScene_Previews: PreviewProvider {
-    static var previews: some View {
-        PlacesScene()
-    }
-}
+//struct PlacesScene_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PlacesScene()
+//    }
+//}
