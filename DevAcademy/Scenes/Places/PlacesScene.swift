@@ -21,9 +21,7 @@ struct PlacesScene: View {
                             PlaceDetail(feature: feature)
                         } label: {
                             PlacesRow(feature: feature)
-//                                .onTapGesture {
-//                                    onFeatureTapped(feature: feature)
-//                                }
+
                         }
                     }
                     .animation(.default, value: features)
@@ -57,10 +55,7 @@ struct PlacesScene: View {
         }
     }
     
-    func onFeatureTapped(feature: Feature) {
-        features.removeAll(where: { $0.properties.ogcFid == feature.properties.ogcFid})
-    }
-    
+  
     func fetch() {
         DataService.shared.fetchData { result in
             switch result {
