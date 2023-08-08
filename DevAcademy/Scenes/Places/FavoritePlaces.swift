@@ -9,9 +9,9 @@ import SwiftUI
 
 struct FavoritePlaces: View {
     var body: some View {
-        VStack {
+       
             Text("Zatím tady nic není")
-        }
+        
     }
 }
 
