@@ -7,20 +7,21 @@
 
 import SwiftUI
 
-struct PlacesFavorite: View {
+struct FavoritePlacesView: View {
     var body: some View {
         ZStack {
-            Color.accentColor
+            Color.theme.accent
             Text("Oblíbená místa")
                 .font(.largeTitle)
                 .foregroundColor(.white)
         }
-        .ignoresSafeArea()
+        .ignoresSafeArea(edges: .top)
+        
     }
 }
 
-//struct PlacesFavorite_Previews: PreviewProvider {
-//    static var previews: some View {
-//        PlacesFavorite()
-//    }
-//}
+struct FavoritePlacesView_Previews: PreviewProvider {
+    static var previews: some View {
+        FavoritePlacesView()
+    }
+}

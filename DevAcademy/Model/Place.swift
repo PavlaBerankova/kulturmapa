@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct Feature: Equatable {
-    static func == (lhs: Feature, rhs: Feature) -> Bool {
+struct Place: Equatable {
+    static func == (lhs: Place, rhs: Place) -> Bool {
         lhs.properties.ogcFid == rhs.properties.ogcFid
     }
     

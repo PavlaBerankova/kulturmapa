@@ -1,24 +1,17 @@
-//
-//  PlaceDetail.swift
-//  DevAcademy
-//
-//  Created by Pavla Beránková on 01.08.2023.
-//
-
 import ActivityIndicatorView
 import SwiftUI
 
-struct PlaceDetail: View {
-    let state: PlaceDetailViewState
+struct PlaceDetailView: View {
+    let model: PlaceDetailViewModel
     
     var body: some View {
         NavigationStack {
             VStack(alignment: .leading) {
-                Text(state.placesName)
+                Text(model.placeName)
                     .font(.title2)
                     .fontWeight(.semibold)
                     .lineLimit(1)
-                AsyncImage(url: state.placesImage) {
+                AsyncImage(url: model.placeImage) {
                     image in
                     image
                         .resizable()
@@ -38,9 +31,9 @@ struct PlaceDetail: View {
     }
 }
 
-//struct PlaceDetail_Previews: PreviewProvider {
-//    static var previews: some View {
-//        PlaceDetail(state: PlaceDetailViewState(feature: Features.mock.features[0]))
-//    }
-//}
+struct PlaceDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        PlaceDetailView(model: PlaceDetailViewModel(place: Places.mock.places.first!))
+    }
+}
 

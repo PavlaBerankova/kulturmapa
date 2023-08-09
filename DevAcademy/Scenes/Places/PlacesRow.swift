@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct PlacesRow: View {
-    let feature: Feature
+    let place: Place
     
     var body: some View {
         HStack {
-            AsyncImage(url: feature.properties.obrId1) {
+            AsyncImage(url: place.properties.obrId1) {
                 image in
                 image
                     .resizable()
@@ -25,12 +25,12 @@ struct PlacesRow: View {
             }
                 
             VStack(alignment: .leading) {
-                Text(feature.properties.nazev)
+                Text(place.properties.nazev)
                     .font(.title2)
                     .fontWeight(.semibold)
                     .lineLimit(1)
-                Text(feature.properties.druh.rawValue)
-                    .foregroundColor((.secondary))
+                Text(place.properties.druh.rawValue)
+                    .foregroundColor(Color.theme.secondaryTextColor)
                     .font(.subheadline)
             }
         }
@@ -39,6 +39,6 @@ struct PlacesRow: View {
 
 struct PlacesRow_Previews: PreviewProvider {
     static var previews: some View {
-        PlacesRow(feature: Features.mock.features[0])
+        PlacesRow(place: Places.mock.places.first!)
     }
 }

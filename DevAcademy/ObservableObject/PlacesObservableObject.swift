@@ -1,14 +1,16 @@
 import Foundation
 
-class PlacesObservableObject: ObservableObject {
+final class PlacesObservableObject: ObservableObject {
     
-    @Published var features: [Feature] = []
+    @Published var places: [Place] = []
     
-    func fetchFeatures() {
+    private let dataService: DataService = DataService.shared
+    
+    func fetchPlaces() {
             DataService.shared.fetchData { result in
                 switch result {
-                case .success(let features):
-                    self.features = features.features
+                case .success(let places):
+                    self.places = places.places
                 case .failure(let error):
                     print(error)
                 }
