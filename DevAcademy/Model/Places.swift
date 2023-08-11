@@ -24,7 +24,7 @@ extension Places {
                 )
             ),
             Place(
-                geometry: Point(latitude: 49.2006, longitude: 16.6097),
+                geometry: Point(latitude: 49.1933497630688, longitude: 16.6084633834713),
                 properties: Properties(
                     ogcFid: 2,
                     obrId1: URL(string: "https://picsum.photos/200")!,
@@ -33,7 +33,7 @@ extension Places {
                 )
             ),
             Place(
-                geometry: Point(latitude: 49.2019, longitude: 16.6151),
+                geometry: Point(latitude: 49.1916199895607, longitude: 16.6089013382922),
                 properties: Properties(
                     ogcFid: 3,
                     obrId1: URL(string: "https://picsum.photos/200")!,
@@ -51,7 +51,7 @@ extension Places {
                 )
             ),
             Place(
-                geometry: Point(latitude: 49.2072, longitude: 16.6061),
+                geometry: Point(latitude: 49.1956226179833, longitude: 49.1956226179833),
                 properties: Properties(
                     ogcFid: 5,
                     obrId1: URL(string: "https://picsum.photos/200")!,
@@ -60,7 +60,7 @@ extension Places {
                 )
             ),
             Place(
-                geometry: Point(latitude: 49.1894, longitude: 165602),
+                geometry: Point(latitude: 49.2086480342581, longitude: 16.5940280296871),
                 properties: Properties(
                     ogcFid: 6,
                     obrId1: URL(string: "https://picsum.photos/200")!,
@@ -69,7 +69,7 @@ extension Places {
                 )
             ),
             Place(
-                geometry: Point(latitude: 49.1914, longitude: 16.6126),
+                geometry: Point(latitude: 49.1982348632408, longitude: 16.6110429873691),
                 properties: Properties(
                     ogcFid: 7,
                     obrId1: URL(string: "https://picsum.photos/200")!,
@@ -78,7 +78,7 @@ extension Places {
                 )
             ),
             Place(
-                geometry: Point(latitude: 49.2182, longitude: 16.5893),
+                geometry: Point(latitude: 49.1948461200546, longitude: 16.5993413922382),
                 properties: Properties(
                     ogcFid: 8,
                     obrId1: URL(string: "https://picsum.photos/200")!,
@@ -105,7 +105,7 @@ extension Places {
                 )
             ),
             Place(
-                geometry: Point(latitude: 49.1925, longitude: 16.6112),
+                geometry: Point(latitude: 49.1932761716046, longitude: 49.1932761716046),
                 properties: Properties(
                     ogcFid: 11,
                     obrId1: URL(string: "https://picsum.photos/200")!,
@@ -114,7 +114,7 @@ extension Places {
                 )
             ),
             Place(
-                geometry: Point(latitude: 49.1925, longitude: 16.6112),
+                geometry: Point(latitude: 49.1974013176813, longitude: 16.6080967817),
                 properties: Properties(
                     ogcFid: 12,
                     obrId1: URL(string: "https://picsum.photos/200")!,
@@ -123,7 +123,7 @@ extension Places {
                 )
             ),
             Place(
-                geometry: Point(latitude: 49.1925, longitude: 16.6112),
+                geometry: Point(latitude: 49.190277250277, longitude: 16.6206264473469),
                 properties: Properties(
                     ogcFid: 13,
                     obrId1: URL(string: "https://picsum.photos/200")!,
@@ -132,7 +132,7 @@ extension Places {
                 )
             ),
             Place(
-                geometry: Point(latitude: 49.1925, longitude: 16.6112),
+                geometry: Point(latitude: 49.2071644259188, longitude: 16.6160599462378),
                 properties: Properties(
                     ogcFid: 14,
                     obrId1: URL(string: "https://picsum.photos/200")!,
@@ -141,7 +141,7 @@ extension Places {
                 )
             ),
             Place(
-                geometry: Point(latitude: 49.1925, longitude: 16.6112),
+                geometry: Point(latitude: 49.1877267709582, longitude: 16.5822648213652),
                 properties: Properties(
                     ogcFid: 15,
                     obrId1: URL(string: "https://picsum.photos/200")!,
@@ -152,4 +152,5 @@ extension Places {
         ]
     )
 }
+
 

@@ -7,7 +7,9 @@
 
 import Foundation
 
-struct Properties {
+struct Properties: Identifiable {
+    var id = UUID()
+    
     let ogcFid: Int
     let obrId1: URL
     let druh: PossibleKind

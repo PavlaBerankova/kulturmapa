@@ -1,10 +1,3 @@
-//
-//  PlacesFavorite.swift
-//  DevAcademy
-//
-//  Created by Pavla Beránková on 02.08.2023.
-//
-
 import SwiftUI
 
 struct FavoritePlacesView: View {

@@ -7,10 +7,13 @@ struct PlaceDetailView: View {
     var body: some View {
         NavigationStack {
             VStack(alignment: .leading) {
+                // MARK: Title
                 Text(model.placeName)
                     .font(.title2)
                     .fontWeight(.semibold)
                     .lineLimit(1)
+                
+                // MARK: Image
                 AsyncImage(url: model.placeImage) {
                     image in
                     image
@@ -24,9 +27,22 @@ struct PlaceDetailView: View {
                 } placeholder: {
                    ProgressView()
                 }
+                if !model.arrayFavoritesPlaces.isEmpty {
+                    Text(model.arrayFavoritesPlaces[0].properties.nazev)
+                }
             }
             .padding(.horizontal)
             .padding(.bottom, 100)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        model.addPlaceToFavorites()
+                    } label: {
+                        Image(systemName: model.placeInFavorites ? "star.fill" : "star")
+                    }
+
+                }
+            }
         }
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		44145C5E2A86880E007D4265 /* PlaceMapAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44145C5D2A86880E007D4265 /* PlaceMapAnnotationView.swift */; };
 		445DBDD82A82755400B01FAA /* PlacesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445DBDD72A82755400B01FAA /* PlacesViewModel.swift */; };
 		445DBDDB2A82789900B01FAA /* PlacesObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445DBDDA2A82789900B01FAA /* PlacesObservableObject.swift */; };
 		445DBDDD2A827D3600B01FAA /* PlaceDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445DBDDC2A827D3600B01FAA /* PlaceDetailViewModel.swift */; };
@@ -23,7 +24,6 @@
 		4499C79A2A710712007F6C1C /* PossibleKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4499C7992A710712007F6C1C /* PossibleKind.swift */; };
 		4499C7A32A710839007F6C1C /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4499C7A22A710839007F6C1C /* DataService.swift */; };
 		44B4300B2A83DAF9005D9326 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B4300A2A83DAF9005D9326 /* Color.swift */; };
-		44B4300F2A83E279005D9326 /* PlacesMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B4300E2A83E279005D9326 /* PlacesMapViewModel.swift */; };
 		44B430112A83E41B005D9326 /* ObservableObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B430102A83E41B005D9326 /* ObservableObjects.swift */; };
 		44B430132A83E427005D9326 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B430122A83E427005D9326 /* Environment.swift */; };
 		44C93BCD2A79335A00DD287B /* PlaceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C93BCC2A79335A00DD287B /* PlaceDetailView.swift */; };
@@ -36,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		44145C5D2A86880E007D4265 /* PlaceMapAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceMapAnnotationView.swift; sourceTree = "<group>"; };
 		445DBDD72A82755400B01FAA /* PlacesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesViewModel.swift; sourceTree = "<group>"; };
 		445DBDDA2A82789900B01FAA /* PlacesObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesObservableObject.swift; sourceTree = "<group>"; };
 		445DBDDC2A827D3600B01FAA /* PlaceDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewModel.swift; sourceTree = "<group>"; };
@@ -51,7 +52,6 @@
 		4499C7992A710712007F6C1C /* PossibleKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PossibleKind.swift; sourceTree = "<group>"; };
 		4499C7A22A710839007F6C1C /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		44B4300A2A83DAF9005D9326 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		44B4300E2A83E279005D9326 /* PlacesMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesMapViewModel.swift; sourceTree = "<group>"; };
 		44B430102A83E41B005D9326 /* ObservableObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableObjects.swift; sourceTree = "<group>"; };
 		44B430122A83E427005D9326 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		44C93BCC2A79335A00DD287B /* PlaceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailView.swift; sourceTree = "<group>"; };
@@ -87,9 +87,9 @@
 		4483CD582A7002C7004614DF /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				44B4300D2A83E18E005D9326 /* Favorites */,
-				44B4300C2A83E182005D9326 /* Map */,
 				4483CD5E2A700C64004614DF /* Places */,
+				44B4300C2A83E182005D9326 /* Map */,
+				44B4300D2A83E18E005D9326 /* Favorites */,
 				44B430082A83D9A0005D9326 /* PlaceDetail */,
 			);
 			path = Scenes;
@@ -148,7 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				446531582A7AC912001DF5C4 /* PlacesMapView.swift */,
-				44B4300E2A83E279005D9326 /* PlacesMapViewModel.swift */,
+				44145C5D2A86880E007D4265 /* PlaceMapAnnotationView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -300,10 +300,10 @@
 				445DBDDF2A8283D800B01FAA /* Coordinator.swift in Sources */,
 				445DBDDD2A827D3600B01FAA /* PlaceDetailViewModel.swift in Sources */,
 				C056104B2A5C78CA007FB970 /* RootView.swift in Sources */,
-				44B4300F2A83E279005D9326 /* PlacesMapViewModel.swift in Sources */,
 				44B4300B2A83DAF9005D9326 /* Color.swift in Sources */,
 				4483CD5B2A700352004614DF /* PlacesView.swift in Sources */,
 				C05610492A5C78CA007FB970 /* DevAcademyApp.swift in Sources */,
+				44145C5E2A86880E007D4265 /* PlaceMapAnnotationView.swift in Sources */,
 				445DBDDB2A82789900B01FAA /* PlacesObservableObject.swift in Sources */,
 				4499C7A32A710839007F6C1C /* DataService.swift in Sources */,
 				4483CD5D2A7004E3004614DF /* PlacesRow.swift in Sources */,

@@ -37,11 +37,6 @@ struct PlacesView: View {
                     .navigationBarTitleDisplayMode(.inline)
         }
         .onAppear(perform: model.fetch)
-        .sheet(isPresented: model.$showFavorites) {
-            coordinator.favoritesScene
-                .presentationDetents([.large])
-                .presentationDragIndicator(.visible)
-        }
     }
 }
 
