@@ -1,7 +1,3 @@
-//
-//  PlacesScene.swift
-//  DevAcademy
-//
 import SwiftUI
 import ActivityIndicatorView
 

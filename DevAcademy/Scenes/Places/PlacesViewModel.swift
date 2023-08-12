@@ -5,6 +5,8 @@ struct PlacesViewModel: DynamicProperty {
     
     @EnvironmentObject private var placesObject: PlacesObservableObject
     
+    @State var selectedPlace: Place?
+    
     // Brno coordinates
     @State var region = MKCoordinateRegion(
         center: CLLocationCoordinate2D(

@@ -8,7 +8,6 @@ struct PlacesMapView: View {
     @EnvironmentObject private var coordinator: Coordinator
     
     let model = PlacesViewModel()
-    @State var selectedPlace: Place?
     
     var body: some View {
         NavigationStack {
@@ -17,17 +16,17 @@ struct PlacesMapView: View {
                     place in
                     MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: CLLocationDegrees(place.geometry.latitude) , longitude: CLLocationDegrees(place.geometry.longitude))) {
                         PlaceMapAnnotationView(placeSymbol: "building.columns")
-                            .scaleEffect(selectedPlace == place ? 1 : 0.7)
+                            .scaleEffect(model.selectedPlace == place ? 1 : 0.7)
                             .animation(.easeInOut)
                             .onTapGesture {
-                                selectedPlace = place
+                                model.selectedPlace = place
                             }
                     }
                 })
                 .ignoresSafeArea(edges: .top)
             }
             .onAppear(perform: model.fetch)
-            .sheet(item: $selectedPlace) { place in
+            .sheet(item: model.$selectedPlace) { place in
                 coordinator.placeDetailScene(with: place)
                     .presentationDetents([.medium])
                     .presentationDragIndicator(.visible)

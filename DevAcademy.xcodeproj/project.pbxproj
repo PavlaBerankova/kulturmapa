@@ -80,6 +80,8 @@
 			isa = PBXGroup;
 			children = (
 				445DBDDA2A82789900B01FAA /* PlacesObservableObject.swift */,
+				445DBDDE2A8283D800B01FAA /* Coordinator.swift */,
+				44B430102A83E41B005D9326 /* ObservableObjects.swift */,
 			);
 			path = ObservableObject;
 			sourceTree = "<group>";
@@ -165,8 +167,6 @@
 			isa = PBXGroup;
 			children = (
 				44B430122A83E427005D9326 /* Environment.swift */,
-				445DBDDE2A8283D800B01FAA /* Coordinator.swift */,
-				44B430102A83E41B005D9326 /* ObservableObjects.swift */,
 			);
 			path = Environment;
 			sourceTree = "<group>";

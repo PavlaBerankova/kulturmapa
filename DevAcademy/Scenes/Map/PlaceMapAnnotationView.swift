@@ -1,14 +1,7 @@
-//
-//  PlaceMapAnnotationView.swift
-//  DevAcademy
-//
-//  Created by Pavla Beránková on 11.08.2023.
-//
-
 import SwiftUI
 
 struct PlaceMapAnnotationView: View {
-    
+    @Environment(\.colorScheme) var colorScheme
     let placeSymbol: String
     
     var body: some View {
@@ -23,14 +16,12 @@ struct PlaceMapAnnotationView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 25, height: 25)
-//                        .font(.headline)
-                        .foregroundColor(.white)
+                        .foregroundColor(
+                            Color(colorScheme == .dark ? .black : .white))
                         .padding(7)
                         .background(Color.theme.accent)
                         .cornerRadius(36)
                         .shadow(radius: 8)
-                    
-                   
                 }
             }
     }

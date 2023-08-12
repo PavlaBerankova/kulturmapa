@@ -16,7 +16,7 @@ final class Coordinator: ObservableObject {
         FavoritePlacesView()
     }
     
-    // MARK: Places map scenes
+    // MARK: Map scenes
     var placesMapScene: some View {
         PlacesMapView()
     }

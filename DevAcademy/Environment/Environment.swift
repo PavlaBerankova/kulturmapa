@@ -3,7 +3,7 @@ import SwiftUI
 private struct Environment: ViewModifier {
     let objects: ObservableObjects
     let coordinator: Coordinator
-    
+ 
     func body(content: Content) -> some View {
         content
         .environmentObject(objects.places)

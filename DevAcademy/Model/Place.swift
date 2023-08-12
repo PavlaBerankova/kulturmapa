@@ -16,4 +16,5 @@ struct Place: Equatable, Identifiable {
     
     let geometry: Point
     let properties: Properties
+    var isFavorite = false
 }
