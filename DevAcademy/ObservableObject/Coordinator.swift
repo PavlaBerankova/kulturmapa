@@ -9,6 +9,9 @@ final class Coordinator: ObservableObject {
     
     func placeDetailScene(with place: Place) -> some View {
         PlaceDetailView(model: PlaceDetailViewModel(place: place))
+            .presentationDetents([.medium])
+            .presentationDragIndicator(.visible)
+        
     }
     
     // MARK: Favorite scenes
