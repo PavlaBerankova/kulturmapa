@@ -29,7 +29,6 @@ struct PlaceMapAnnotationView: View {
 
 struct PlaceMapAnnotationView_Previews: PreviewProvider {
     static var previews: some View {
-        PlaceMapAnnotationView(placeSymbol: "building.columns")
-            .previewLayout(.sizeThatFits)
+            PlaceMapAnnotationView(placeSymbol: "building.columns")
     }
 }

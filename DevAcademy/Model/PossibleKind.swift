@@ -1,10 +1,3 @@
-//
-//  PossibleKind.swift
-//  DevAcademy
-//
-//  Created by Pavla Beránková on 26.07.2023.
-//
-
 import Foundation
 
 enum PossibleKind: RawRepresentable {

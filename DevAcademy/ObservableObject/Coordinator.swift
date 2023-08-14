@@ -1,12 +1,12 @@
 import SwiftUI
 
 final class Coordinator: ObservableObject {
-
+    
     // MARK: Places scenes
     var placesScene: some View {
         PlacesView()
     }
-
+    
     func placeDetailScene(with place: Place) -> some View {
         PlaceDetailView(model: PlaceDetailViewModel(place: place))
     }
