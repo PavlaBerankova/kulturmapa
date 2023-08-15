@@ -11,11 +11,11 @@ struct PlaceDetailViewModel: DynamicProperty {
     }
     
     var placeName: String {
-        place.properties.nazev
+        place.attributes.title
     }
     
     var placeImage: URL {
-        place.properties.obrId1
+        place.attributes.imageURL
     }
     
     func addFavorites() {

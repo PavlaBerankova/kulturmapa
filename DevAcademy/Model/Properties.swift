@@ -1,10 +1,19 @@
 import Foundation
 
-struct Properties: Identifiable {
+struct Properties: Decodable {
     var id = UUID()
-    
     let ogcFid: Int
-    let obrId1: URL
-    let druh: PossibleKind
-    let nazev: String
+    let imageURL: URL
+    let kind: PossibleKind
+    let title: String
+    
+    enum CodingKeys: String, CodingKey {
+        typealias RawValue = String
+        case ogcFid = "ogc_fid"
+        case imageURL = "obr_id1"
+        case kind = "druh"
+        case title = "nazev"
+        
+        
+    }
 }

@@ -1,13 +1,12 @@
 import Foundation
 
-struct Place: Equatable, Identifiable {
+struct Place: Decodable, Equatable, Identifiable {
     static func == (lhs: Place, rhs: Place) -> Bool {
-        lhs.properties.ogcFid == rhs.properties.ogcFid
+        lhs.attributes.ogcFid == rhs.attributes.ogcFid
     }
     
     var id = UUID()
-    
     let geometry: Point
-    let properties: Properties
-    var isFavorite = false
+    let attributes: Properties
+    
 }

@@ -23,7 +23,7 @@ struct PlacesRow_Previews: PreviewProvider {
 
 extension PlacesRow {
     private var placeImage: some View {
-      AsyncImage(url: place.properties.obrId1) { image in
+      AsyncImage(url: place.attributes.imageURL) { image in
             image
                 .resizable()
                 .aspectRatio(contentMode: .fill)
@@ -36,14 +36,14 @@ extension PlacesRow {
     }
     
     private var placeTitle: some View {
-        Text(place.properties.nazev)
+        Text(place.attributes.title)
             .font(.title2)
             .fontWeight(.semibold)
             .lineLimit(1)
     }
     
     private var placeKind: some View {
-        Text(place.properties.druh.rawValue)
+        Text(place.attributes.kind.rawValue)
             .foregroundColor(Color.theme.secondaryTextColor)
             .font(.subheadline)
     }

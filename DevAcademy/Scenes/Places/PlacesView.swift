@@ -11,7 +11,7 @@ struct PlacesView: View {
         NavigationStack {
             Group {
                 if model.placesAreFetched {
-                    List(model.places, id: \.properties.ogcFid) { place in
+                    List(model.places, id: \.attributes.ogcFid) { place in
                         NavigationLink {
                             coordinator.placeDetailScene(with: place)
                         } label: {
