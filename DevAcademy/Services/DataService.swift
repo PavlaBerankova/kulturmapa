@@ -1,10 +1,3 @@
-//
-//  DataService.swift
-//  DevAcademy
-//
-//  Created by Pavla Beránková on 26.07.2023.
-//
-
 import Foundation
 
 class DataService {
@@ -12,9 +5,9 @@ class DataService {
     
     static var shared = DataService.init()
     
-    var data: Result<Features, Error>?
+    var data: Result<Places, Error>?
     
-    func fetchData(completion: @escaping (Result<Features, Error>) -> Void) {
+    func fetchData(completion: @escaping (Result<Places, Error>) -> Void) {
         if let data = data {
             completion(data)
             return
@@ -29,5 +22,5 @@ class DataService {
 }
 
 extension DataService {
-    private static let mockData = Features.mock
+    private static let mockData = Places.mock
 }
