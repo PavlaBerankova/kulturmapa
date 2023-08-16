@@ -1,9 +1,10 @@
 import SwiftUI
 
 struct PlaceMapAnnotationView: View {
-    @Environment(\.colorScheme) var colorScheme
+    // MARK: PROPERTIES
     let placeSymbol: String
     
+    // MARK: BODY
     var body: some View {
             VStack(spacing: 0) {
                 ZStack {
@@ -16,8 +17,7 @@ struct PlaceMapAnnotationView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 25, height: 25)
-                        .foregroundColor(
-                            Color(colorScheme == .dark ? .black : .white))
+                        .foregroundColor(Color.theme.ink)
                         .padding(7)
                         .background(Color.theme.accent)
                         .cornerRadius(36)
@@ -27,6 +27,7 @@ struct PlaceMapAnnotationView: View {
     }
 }
 
+// MARK: PREVIEW
 struct PlaceMapAnnotationView_Previews: PreviewProvider {
     static var previews: some View {
             PlaceMapAnnotationView(placeSymbol: "building.columns")

@@ -14,21 +14,8 @@ final class PlacesObservableObject: ObservableObject {
     func fetchPlacesData() async {
         do {
             places = try await service.fetchPlaces().places
-//            let result = try await service.fetchPlaces()
-//            self.places = result.places
         } catch {
             print(error)
         }
     }
-    
-//    func fetchPlaces() {
-//            dataService.fetchData { result in
-//                switch result {
-//                case .success(let places):
-//                    self.places = places.places
-//                case .failure(let error):
-//                    print(error)
-//                }
-//            }
-//    }
 }

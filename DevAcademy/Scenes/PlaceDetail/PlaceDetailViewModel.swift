@@ -2,7 +2,7 @@ import SwiftUI
 
 struct PlaceDetailViewModel: DynamicProperty {
     
-    @EnvironmentObject private var placesObject: PlacesObservableObject
+    @EnvironmentObject private var placesObservableObject: PlacesObservableObject
     @State var isTappedFavorite = false
     
     var place: Place

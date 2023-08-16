@@ -2,8 +2,10 @@ import ActivityIndicatorView
 import SwiftUI
 
 struct PlaceDetailView: View {
+    // MARK: PROPERTIES
     let model: PlaceDetailViewModel
     
+    // MARK: BODY
     var body: some View {
         NavigationStack {
             VStack(alignment: .leading) {
@@ -29,13 +31,9 @@ struct PlaceDetailView: View {
     }
 }
 
-struct PlaceDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        PlaceDetailView(model: PlaceDetailViewModel(place: Places.mock.places.first!))
-    }
-}
-
+// MARK: EXTENSION
 extension PlaceDetailView {
+    
     private var placeTitle: some View {
         Text(model.placeName)
             .font(.title2)
@@ -66,3 +64,9 @@ extension PlaceDetailView {
     }
 }
 
+// MARK: PREVIEW
+struct PlaceDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        PlaceDetailView(model: PlaceDetailViewModel(place: Places.mock.places.first!))
+    }
+}
