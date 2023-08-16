@@ -19,7 +19,8 @@ struct PlacesMapView: View {
 struct PlacesMapView_Previews: PreviewProvider {
     static var previews: some View {
         PlacesMapView()
-            .injectPreviewEnvironment()
+            .environmentObject(PlacesObservableObject())
+            .environmentObject(Coordinator())
     }
 }
 

@@ -18,7 +18,8 @@ struct RootView: View {
 struct RootView_Previews: PreviewProvider {
     static var previews: some View {
         RootView()
-            .injectPreviewEnvironment()
+            .environmentObject(PlacesObservableObject())
+            .environmentObject(Coordinator())
     }
 }
 

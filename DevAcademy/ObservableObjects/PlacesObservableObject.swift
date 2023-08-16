@@ -7,7 +7,7 @@ final class PlacesObservableObject: ObservableObject {
     private let dataService: DataService = DataService.shared
     
     func fetchPlaces() {
-            DataService.shared.fetchData { result in
+            dataService.fetchData { result in
                 switch result {
                 case .success(let places):
                     self.places = places.places

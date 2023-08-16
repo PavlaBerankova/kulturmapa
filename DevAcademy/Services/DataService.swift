@@ -3,7 +3,7 @@ import Foundation
 class DataService {
     private init() {}
     
-    static var shared = DataService.init()
+    static var shared = DataService()
     
     var data: Result<Places, Error>?
     

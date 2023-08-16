@@ -10,7 +10,6 @@ struct FavoritePlacesView: View {
                         .font(.title)
                         .fontWeight(.medium)
                         .lineLimit(1)
-                        .shadow(color: Color.theme.ink, radius: 1)
                         
                     Image(systemName: "star")
                         .resizable()

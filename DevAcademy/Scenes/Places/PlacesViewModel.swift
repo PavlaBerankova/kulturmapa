@@ -3,7 +3,7 @@ import MapKit
 
 struct PlacesViewModel: DynamicProperty {
     
-    @EnvironmentObject private var placesObject: PlacesObservableObject
+    @EnvironmentObject private var placesObservableObject: PlacesObservableObject
     
     @State var selectedPlace: Place?
     
@@ -17,7 +17,7 @@ struct PlacesViewModel: DynamicProperty {
             longitudeDelta: 0.1))
     
     var places: [Place] {
-        placesObject.places
+        placesObservableObject.places
     }
     
     var placesAreFetched: Bool {
@@ -25,7 +25,7 @@ struct PlacesViewModel: DynamicProperty {
         }
     
     func fetch() {
-        placesObject.fetchPlaces()
+        placesObservableObject.fetchPlaces()
     }
 }
 
