@@ -1,10 +1,10 @@
 import Foundation
 
-struct Properties: Codable {
-    let ogcFid: Int
+struct Attributes: Codable {
+    var ogcFid: Int
     var imageURL: URL?
-    let kind: PossibleKind
-    let title: String
+    var kind: PossibleKind
+    var title: String
     var email: String?
     var web: URL?
     var programme: URL?

@@ -32,7 +32,9 @@ struct PlacesView: View {
                     .navigationTitle("Kultůrmapa")
                     .navigationBarTitleDisplayMode(.inline)
         }
-        .onAppear(perform: model.fetch)
+        .task {
+            await model.fetchData()
+        }
     }
 }
 
@@ -40,7 +42,7 @@ struct PlacesView: View {
 struct PlacesView_Previews: PreviewProvider {
     static var previews: some View {
         PlacesView()
-            .environmentObject(PlacesObservableObject())
+            .environmentObject(PlacesObservableObject(service: ProductionPlacesService()))
             .environmentObject(Coordinator())
     }
 }

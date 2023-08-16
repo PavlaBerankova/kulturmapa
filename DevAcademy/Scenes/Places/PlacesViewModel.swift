@@ -24,8 +24,8 @@ struct PlacesViewModel: DynamicProperty {
             !places.isEmpty
         }
     
-    func fetch() {
-        placesObservableObject.fetchPlaces()
+    func fetchData() async {
+        await placesObservableObject.fetchPlacesData()
     }
 }
 

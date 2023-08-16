@@ -5,7 +5,7 @@ struct DevAcademyApp: App {
     var body: some Scene {
         WindowGroup {
             RootView()
-                .environmentObject(PlacesObservableObject())
+                .environmentObject(PlacesObservableObject(service: ProductionPlacesService()))
                 .environmentObject(Coordinator())
         }
     }
