@@ -10,8 +10,7 @@ struct PlaceDetailView: View {
                 placeTitle
                 placeImage
                 placeEmail
-                
-                
+                Text(model.placeKind)
             }
             .padding(30)
             

@@ -3,7 +3,7 @@ import SwiftUI
 enum APIError: Error {
     case InvalidURL
     case InvalidResponse
-    case InvalidData
+    case decodingError(Error)
 }
 
 protocol PlacesService {
@@ -31,7 +31,8 @@ class ProductionPlacesService: PlacesService {
         do {
             return try JSONDecoder().decode(Places.self, from: data)
         } catch {
-            throw APIError.InvalidData
+            print("Error decode: \(error)")
+            throw APIError.decodingError(error)
         }
     }
 }

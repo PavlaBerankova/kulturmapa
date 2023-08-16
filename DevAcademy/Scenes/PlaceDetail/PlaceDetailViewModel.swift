@@ -22,6 +22,11 @@ struct PlaceDetailViewModel: DynamicProperty {
         place.attributes.email
     }
     
+    var placeKind: String {
+        place.attributes.kind.rawValue
+    }
+    
+    
     func addFavorites() {
         isTappedFavorite.toggle()
     }
