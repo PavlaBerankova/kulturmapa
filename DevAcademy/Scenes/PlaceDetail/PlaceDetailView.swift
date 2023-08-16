@@ -9,6 +9,8 @@ struct PlaceDetailView: View {
             VStack(alignment: .leading) {
                 placeTitle
                 placeImage
+                placeEmail
+                
                 
             }
             .padding(30)
@@ -56,6 +58,12 @@ extension PlaceDetailView {
         } placeholder: {
             ProgressView()
         }
+    }
+    
+    private var placeEmail: some View {
+        Text(model.placeEmail ?? "")
+            .font(.headline)
+            .lineLimit(1)
     }
 }
 

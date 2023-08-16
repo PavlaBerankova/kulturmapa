@@ -1,6 +1,8 @@
 import Foundation
-
-struct Places: Decodable {
+/*
+ https://gis.brno.cz/ags1/rest/services/OMI/omi_ok_kulturni_instituce/FeatureServer/0/query?where=1%3D1&outFields=nazev,druh,web,program,ulice,cp_co,email,telefon,obr_id1&outSR=4326&f=json
+*/
+struct Places: Codable {
     let places: [Place]
     
     enum CodingKeys: String, CodingKey {
@@ -16,8 +18,10 @@ extension Places {
                 attributes: Properties(
                     ogcFid: 1,
                     imageURL: URL(string: "https://picsum.photos/200")!,
-                    kind: .kind(.divadlo),
-                    title: "Národní divadlo Brno"
+                    kind: .kind(.theatre),
+                    title: "Národní divadlo Brno",
+                    email: "example@email.cz"
+                    
                 )
             ),
             Place(
@@ -25,8 +29,9 @@ extension Places {
                 attributes: Properties(
                     ogcFid: 2,
                     imageURL: URL(string: "https://picsum.photos/200")!,
-                    kind: .kind(.kino),
-                    title: "Kino Art Brno"
+                    kind: .kind(.cinema),
+                    title: "Kino Art Brno",
+                    email: "example@email.cz"
                 )
             ),
             Place(
@@ -34,8 +39,9 @@ extension Places {
                 attributes: Properties(
                     ogcFid: 3,
                     imageURL: URL(string: "https://picsum.photos/200")!,
-                    kind: .kind(.muzeum),
-                    title: "Moravské zemské muzeum"
+                    kind: .kind(.museum),
+                    title: "Moravské zemské muzeum",
+                    email: "example@email.cz"
                 )
             ),
             Place(
@@ -43,8 +49,9 @@ extension Places {
                 attributes: Properties(
                     ogcFid: 4,
                     imageURL: URL(string: "https://picsum.photos/200")!,
-                    kind: .kind(.kulturniCentrum),
-                    title: "BOUFOU Prostějovská Brno"
+                    kind: .kind(.culturalCentrum),
+                    title: "BOUFOU Prostějovská Brno",
+                    email: "example@email.cz"
                 )
             ),
             Place(
@@ -52,8 +59,9 @@ extension Places {
                 attributes: Properties(
                     ogcFid: 5,
                     imageURL: URL(string: "https://picsum.photos/200")!,
-                    kind: .kind(.hudebniKlub),
-                    title: "Kabinet múz"
+                    kind: .kind(.musicClub),
+                    title: "Kabinet múz",
+                    email: "example@email.cz"
                 )
             ),
             Place(
@@ -61,8 +69,9 @@ extension Places {
                 attributes: Properties(
                     ogcFid: 6,
                     imageURL: URL(string: "https://picsum.photos/200")!,
-                    kind: .kind(.knihovna),
-                    title: "Moravská zemská knihovna"
+                    kind: .kind(.library),
+                    title: "Moravská zemská knihovna",
+                    email: "example@email.cz"
                 )
             ),
             Place(
@@ -70,8 +79,9 @@ extension Places {
                 attributes: Properties(
                     ogcFid: 7,
                     imageURL: URL(string: "https://picsum.photos/200")!,
-                    kind: .kind(.koncertniHala),
-                    title: "Janáčkovo divadlo"
+                    kind: .kind(.concertHall),
+                    title: "Janáčkovo divadlo",
+                    email: "example@email.cz"
                 )
             ),
             Place(
@@ -79,8 +89,9 @@ extension Places {
                 attributes: Properties(
                     ogcFid: 8,
                     imageURL: URL(string: "https://picsum.photos/200")!,
-                    kind: .kind(.kulturniPamatka),
-                    title: "Špilberk Brno"
+                    kind: .kind(.culturalMonument),
+                    title: "Špilberk Brno",
+                    email: "example@email.cz"
                 )
             ),
             Place(
@@ -88,8 +99,9 @@ extension Places {
                 attributes: Properties(
                     ogcFid: 9,
                     imageURL: URL(string: "https://picsum.photos/200")!,
-                    kind: .kind(.letniKino),
-                    title: "Letní kino Lužánky"
+                    kind: .kind(.summerCinema),
+                    title: "Letní kino Lužánky",
+                    email: "example@email.cz"
                 )
             ),
             Place(
@@ -97,8 +109,9 @@ extension Places {
                 attributes: Properties(
                     ogcFid: 10,
                     imageURL: URL(string: "https://picsum.photos/200")!,
-                    kind: .kind(.podnikSKulturnimProgramem),
-                    title: "Bar, který neexistuje"
+                    kind: .kind(.entrepriseWithCulturalProgramme),
+                    title: "Bar, který neexistuje",
+                    email: "example@email.cz"
                 )
             ),
             Place(
@@ -106,8 +119,9 @@ extension Places {
                 attributes: Properties(
                     ogcFid: 11,
                     imageURL: URL(string: "https://picsum.photos/200")!,
-                    kind: .kind(.kino),
-                    title: "Cinema City"
+                    kind: .kind(.cinema),
+                    title: "Cinema City",
+                    email: "example@email.cz"
                 )
             ),
             Place(
@@ -115,8 +129,9 @@ extension Places {
                 attributes: Properties(
                     ogcFid: 12,
                     imageURL: URL(string: "https://picsum.photos/200")!,
-                    kind: .kind(.kino),
-                    title: "Univerzitní kino Scala"
+                    kind: .kind(.cinema),
+                    title: "Univerzitní kino Scala",
+                    email: "example@email.cz"
                 )
             ),
             Place(
@@ -125,7 +140,8 @@ extension Places {
                     ogcFid: 13,
                     imageURL: URL(string: "https://picsum.photos/200")!,
                     kind: .kind(.hub),
-                    title: "Impact Hub"
+                    title: "Impact Hub",
+                    email: "example@email.cz"
                 )
             ),
             Place(
@@ -133,8 +149,9 @@ extension Places {
                 attributes: Properties(
                     ogcFid: 14,
                     imageURL: URL(string: "https://picsum.photos/200")!,
-                    kind: .kind(.kulturniPamatka),
-                    title: "Villa Tugendhat"
+                    kind: .kind(.culturalMonument),
+                    title: "Villa Tugendhat",
+                    email: "example@email.cz"
                 )
             ),
             Place(
@@ -142,8 +159,9 @@ extension Places {
                 attributes: Properties(
                     ogcFid: 15,
                     imageURL: URL(string: "https://picsum.photos/200")!,
-                    kind: .kind(.vystaviste),
-                    title: "Brněnské výstaviště"
+                    kind: .kind(.exhibitionCentre),
+                    title: "Brněnské výstaviště",
+                    email: "example@email.cz"
                 )
             )
         ]

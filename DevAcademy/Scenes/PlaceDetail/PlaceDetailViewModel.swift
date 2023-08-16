@@ -15,7 +15,11 @@ struct PlaceDetailViewModel: DynamicProperty {
     }
     
     var placeImage: URL {
-        place.attributes.imageURL
+        place.attributes.imageURL!
+    }
+    
+    var placeEmail: String? {
+        place.attributes.email
     }
     
     func addFavorites() {
