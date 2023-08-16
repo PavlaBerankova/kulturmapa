@@ -1,28 +1,20 @@
 import SwiftUI
 
 struct RootView: View {
-    
+    // MARK: PROPERTIES
     @EnvironmentObject private var coordinator: Coordinator
     
+    // MARK: BODY
     var body: some View {
         TabView {
             placesTab
-            
             mapTab
-            
             favoritesTab
         }
     }
 }
 
-struct RootView_Previews: PreviewProvider {
-    static var previews: some View {
-        RootView()
-            .environmentObject(PlacesObservableObject(service: ProductionPlacesService()))
-            .environmentObject(Coordinator())
-    }
-}
-
+// MARK: EXTENSION
 extension RootView {
     private var placesTab: some View {
         coordinator.placesScene
@@ -55,3 +47,11 @@ extension RootView {
     }
 }
 
+// MARK: PREVIEW
+struct RootView_Previews: PreviewProvider {
+    static var previews: some View {
+        RootView()
+            .environmentObject(PlacesObservableObject(service: ProductionPlacesService()))
+            .environmentObject(Coordinator())
+    }
+}

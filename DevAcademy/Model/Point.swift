@@ -1,7 +1,6 @@
 import Foundation
 
-struct Point: Codable, Identifiable {
-    var id = UUID()
+struct Point: Codable {
     var latitude: Double
     var longitude: Double
     

@@ -3,10 +3,13 @@ import ActivityIndicatorView
 
 struct PlacesView: View {
     
+    // MARK: PROPERTIES
     @EnvironmentObject private var coordinator: Coordinator
     
     let model = PlacesViewModel()
     
+    
+    // MARK: BODY
     var body: some View {
         NavigationStack {
             Group {
@@ -38,7 +41,7 @@ struct PlacesView: View {
     }
 }
 
-
+// MARK: PREVIEW
 struct PlacesView_Previews: PreviewProvider {
     static var previews: some View {
         PlacesView()

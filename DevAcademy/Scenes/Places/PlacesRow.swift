@@ -1,8 +1,10 @@
 import SwiftUI
 
 struct PlacesRow: View {
+    // MARK: PROPERTIES
     let place: Place
     
+    // MARK: BODY
     var body: some View {
         HStack {
            placeImage
@@ -15,12 +17,7 @@ struct PlacesRow: View {
     }
 }
 
-struct PlacesRow_Previews: PreviewProvider {
-    static var previews: some View {
-        PlacesRow(place: Places.mock.places.first!)
-    }
-}
-
+// MARK: EXTENSION
 extension PlacesRow {
     private var placeImage: some View {
       AsyncImage(url: place.attributes.imageURL) { image in
@@ -46,5 +43,12 @@ extension PlacesRow {
         Text(place.attributes.kind.rawValue)
             .foregroundColor(Color.theme.secondaryTextColor)
             .font(.subheadline)
+    }
+}
+
+// MARK: PREVIEW
+struct PlacesRow_Previews: PreviewProvider {
+    static var previews: some View {
+        PlacesRow(place: Places.mock.places.first!)
     }
 }

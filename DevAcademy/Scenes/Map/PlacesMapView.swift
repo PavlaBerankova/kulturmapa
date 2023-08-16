@@ -4,11 +4,11 @@ import SwiftUI
 import MapKit
 
 struct PlacesMapView: View {
-    
+    // MARK: PROPERTIES
     @EnvironmentObject private var coordinator: Coordinator
-    
     let model = PlacesViewModel()
     
+    // MARK: BODY
     var body: some View {
         NavigationStack {
            mapViewWithAnnotations
@@ -16,14 +16,7 @@ struct PlacesMapView: View {
     }
 }
 
-struct PlacesMapView_Previews: PreviewProvider {
-    static var previews: some View {
-        PlacesMapView()
-            .environmentObject(PlacesObservableObject(service: ProductionPlacesService()))
-            .environmentObject(Coordinator())
-    }
-}
-
+// MARK: EXTENSION
 extension PlacesMapView {
     private var mapViewWithAnnotations: some View {
         Map(coordinateRegion: model.$region, annotationItems: model.places, annotationContent: {
@@ -43,9 +36,15 @@ extension PlacesMapView {
         }
         .sheet(item: model.$selectedPlace) { place in
             coordinator.placeDetailScene(with: place)
-                .presentationDetents([.medium])
-                .presentationDragIndicator(.visible)
-                
         }
+    }
+}
+
+// MARK: PREVIEW
+struct PlacesMapView_Previews: PreviewProvider {
+    static var previews: some View {
+        PlacesMapView()
+            .environmentObject(PlacesObservableObject(service: ProductionPlacesService()))
+            .environmentObject(Coordinator())
     }
 }
