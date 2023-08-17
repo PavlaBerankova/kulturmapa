@@ -20,7 +20,7 @@ extension RootView {
         coordinator.placesScene
             .tabItem {
                 VStack {
-                    Image(systemName: "list.bullet")
+                    Image.tabSymbol.list
                     Text("Místa")
                 }
             }
@@ -30,7 +30,7 @@ extension RootView {
         coordinator.placesMapScene
             .tabItem {
                 VStack {
-                    Image(systemName: "map")
+                    Image.tabSymbol.map
                     Text("Mapa")
                 }
             }
@@ -40,7 +40,7 @@ extension RootView {
         coordinator.favoritesScene
             .tabItem {
                 VStack {
-                    Image(systemName: "star")
+                    Image.tabSymbol.star
                     Text("Oblíbené")
                 }
             }

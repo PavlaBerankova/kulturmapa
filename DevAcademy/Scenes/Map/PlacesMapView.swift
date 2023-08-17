@@ -22,7 +22,7 @@ extension PlacesMapView {
         Map(coordinateRegion: model.$region, annotationItems: model.places, annotationContent: {
             place in
             MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: CLLocationDegrees(place.geometry?.latitude ?? 0.0) , longitude: CLLocationDegrees(place.geometry?.longitude ?? 0.0))) {
-                PlaceMapAnnotationView(placeSymbol: "building.columns")
+                PlaceMapAnnotationView(kindSymbol: place.symbol)
                     .scaleEffect(model.selectedPlace == place ? 1 : 0.7)
                     .animation(.easeInOut)
                     .onTapGesture {
