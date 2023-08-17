@@ -2,7 +2,7 @@ import SwiftUI
 
 struct PlaceMapAnnotationView: View {
     // MARK: PROPERTIES
-    let placeSymbol: String
+    let kindSymbol: Image
     
     // MARK: BODY
     var body: some View {
@@ -12,7 +12,7 @@ struct PlaceMapAnnotationView: View {
                         .frame(width: 45, height: 45)
                         .foregroundColor(.black)
                     
-                    Image(systemName: placeSymbol)
+                    kindSymbol
                         .renderingMode(.template)
                         .resizable()
                         .scaledToFit()
@@ -30,6 +30,7 @@ struct PlaceMapAnnotationView: View {
 // MARK: PREVIEW
 struct PlaceMapAnnotationView_Previews: PreviewProvider {
     static var previews: some View {
-            PlaceMapAnnotationView(placeSymbol: "building.columns")
+        PlaceMapAnnotationView(kindSymbol: Image.pinSymbol.cinema)
+            .previewLayout(.sizeThatFits)
     }
 }
