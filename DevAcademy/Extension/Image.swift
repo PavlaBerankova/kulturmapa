@@ -3,14 +3,22 @@ import SwiftUI
 extension Image {
     static let pinSymbol = CustomImageSymbol()
     static let tabSymbol = TabViewImageSymbol()
+    static let contactsSymbol = ContactsImageSymbol()
 }
 
 struct TabViewImageSymbol {
-    let list = Image("list")
-    let map = Image("map")
-    let star = Image("star")
+    let list = Image(systemName: "list.bullet")
+    let map = Image(systemName: "map")
+    let star = Image(systemName: "star")
 }
 
+struct ContactsImageSymbol {
+    let web = Image(systemName: "network")
+    let phone = Image(systemName: "phone")
+    let email = Image(systemName: "envelope")
+}
+
+// symbol for map pin
 struct CustomImageSymbol {
     let cinema = Image("cinema")
     let theatre = Image("theater")
@@ -29,6 +37,7 @@ struct CustomImageSymbol {
     let unknown = Image("other")
 }
 
+// symbol for map pin in version SF symbol, current not in use
 struct SFImageSymbol {
     let cinema = Image(systemName: "film")
     let theatre = Image(systemName: "theatermasks.fill")

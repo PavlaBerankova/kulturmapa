@@ -6,8 +6,8 @@ struct Attributes: Codable {
     var kind: PossibleKind
     var title: String
     var email: String?
-//    var web: URL?
-    var programme: URL?
+    var web: String?
+    var programme: String?
     var street: String?
     var streetNo: String?
     var phone: String?
@@ -17,8 +17,8 @@ struct Attributes: Codable {
         case imageURL = "obr_id1"
         case kind = "druh"
         case title = "nazev"
-        case email = "email"
-//        case web = "web"
+        case email
+        case web
         case programme = "program"
         case street = "ulice"
         case streetNo = "cp_co"

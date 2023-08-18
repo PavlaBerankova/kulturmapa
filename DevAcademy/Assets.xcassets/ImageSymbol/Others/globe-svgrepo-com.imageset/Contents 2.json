@@ -1,12 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "phone-svgrepo-com.svg",
+      "filename" : "globe-svgrepo-com.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "phone-svgrepo-com 2.svg",
       "idiom" : "universal",
       "scale" : "2x"
     },

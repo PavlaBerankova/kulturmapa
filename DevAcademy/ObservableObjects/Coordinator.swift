@@ -22,7 +22,7 @@ final class Coordinator: ObservableObject {
     // MARK: Map scenes
     var placesMapScene: some View {
         PlacesMapView()
-            .presentationDetents([.medium])
+            .presentationDetents([.large])
             .presentationDragIndicator(.visible)
     }
 }

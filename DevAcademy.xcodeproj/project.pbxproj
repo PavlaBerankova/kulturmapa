@@ -26,8 +26,10 @@
 		4499C7982A7106FA007F6C1C /* Kind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4499C7972A7106FA007F6C1C /* Kind.swift */; };
 		4499C79A2A710712007F6C1C /* PossibleKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4499C7992A710712007F6C1C /* PossibleKind.swift */; };
 		44B4300B2A83DAF9005D9326 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B4300A2A83DAF9005D9326 /* Color.swift */; };
+		44C649D72A9087DD00A5369F /* PlaceInfoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C649D62A9087DD00A5369F /* PlaceInfoRow.swift */; };
 		44C93BCD2A79335A00DD287B /* PlaceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C93BCC2A79335A00DD287B /* PlaceDetailView.swift */; };
 		44EA42812A7AE502008DB6C3 /* FavoritesPlacesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EA42802A7AE502008DB6C3 /* FavoritesPlacesView.swift */; };
+		44EEE52C2A8F8BF9002105BE /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EEE52B2A8F8BF9002105BE /* ButtonView.swift */; };
 		C05610492A5C78CA007FB970 /* DevAcademyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05610482A5C78CA007FB970 /* DevAcademyApp.swift */; };
 		C056104B2A5C78CA007FB970 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C056104A2A5C78CA007FB970 /* RootView.swift */; };
 		C056104D2A5C78CB007FB970 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C056104C2A5C78CB007FB970 /* Assets.xcassets */; };
@@ -53,8 +55,10 @@
 		4499C7972A7106FA007F6C1C /* Kind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kind.swift; sourceTree = "<group>"; };
 		4499C7992A710712007F6C1C /* PossibleKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PossibleKind.swift; sourceTree = "<group>"; };
 		44B4300A2A83DAF9005D9326 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		44C649D62A9087DD00A5369F /* PlaceInfoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceInfoRow.swift; sourceTree = "<group>"; };
 		44C93BCC2A79335A00DD287B /* PlaceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailView.swift; sourceTree = "<group>"; };
 		44EA42802A7AE502008DB6C3 /* FavoritesPlacesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPlacesView.swift; sourceTree = "<group>"; };
+		44EEE52B2A8F8BF9002105BE /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		C05610452A5C78CA007FB970 /* DevAcademy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevAcademy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C05610482A5C78CA007FB970 /* DevAcademyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevAcademyApp.swift; sourceTree = "<group>"; };
 		C056104A2A5C78CA007FB970 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -131,6 +135,8 @@
 			children = (
 				44C93BCC2A79335A00DD287B /* PlaceDetailView.swift */,
 				445DBDDC2A827D3600B01FAA /* PlaceDetailViewModel.swift */,
+				44EEE52B2A8F8BF9002105BE /* ButtonView.swift */,
+				44C649D62A9087DD00A5369F /* PlaceInfoRow.swift */,
 			);
 			path = PlaceDetail;
 			sourceTree = "<group>";
@@ -278,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				440639732A8CB15000EDB546 /* PlacesService.swift in Sources */,
+				44EEE52C2A8F8BF9002105BE /* ButtonView.swift in Sources */,
 				44C93BCD2A79335A00DD287B /* PlaceDetailView.swift in Sources */,
 				4499C7962A71064E007F6C1C /* Attributes.swift in Sources */,
 				4499C79A2A710712007F6C1C /* PossibleKind.swift in Sources */,
@@ -298,6 +305,7 @@
 				445DBDDB2A82789900B01FAA /* PlacesObservableObject.swift in Sources */,
 				4483CD5D2A7004E3004614DF /* PlacesRow.swift in Sources */,
 				4499C7982A7106FA007F6C1C /* Kind.swift in Sources */,
+				44C649D72A9087DD00A5369F /* PlaceInfoRow.swift in Sources */,
 				44EA42812A7AE502008DB6C3 /* FavoritesPlacesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -442,7 +450,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = kulturmapa.app;
+				PRODUCT_BUNDLE_IDENTIFIER = "berankovap-hotmail.com";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -473,7 +481,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = kulturmapa.app;
+				PRODUCT_BUNDLE_IDENTIFIER = "berankovap-hotmail.com";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

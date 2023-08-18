@@ -18,7 +18,11 @@ extension Places {
                     imageURL: URL(string: "https://picsum.photos/200")!,
                     kind: .kind(.theatre),
                     title: "Národní divadlo Brno",
-                    email: "example@email.cz"
+                    email: "example@email.cz",
+                    web: "https://www.ndbrno.cz/",
+                    programme: "https://www.ndbrno.cz/program/",
+                    street: "Brněnská",
+                    streetNo: "240/7"
                     
                 )
             ),

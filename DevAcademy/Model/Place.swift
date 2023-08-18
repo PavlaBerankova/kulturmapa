@@ -10,7 +10,6 @@ struct Place: Codable, Equatable, Identifiable {
     }
     
     // read only - computed properties, not decoding from API
-    // i need this id for MapView with custom pin
     var id: Int {
             attributes.ogcFid
         }

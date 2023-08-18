@@ -34,15 +34,15 @@ extension PlacesRow {
     
     private var placeTitle: some View {
         Text(place.attributes.title)
-            .font(.title2)
+            .font(.title3)
             .fontWeight(.semibold)
-            .lineLimit(1)
+            .lineLimit(3)
     }
     
     private var placeKind: some View {
         Text(place.attributes.kind.rawValue)
-            .foregroundColor(Color.theme.secondaryTextColor)
-            .font(.subheadline)
+            .font(.footnote)
+            .opacity(0.7)
     }
 }
 
