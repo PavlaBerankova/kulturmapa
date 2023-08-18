@@ -27,7 +27,6 @@
 		44B4300B2A83DAF9005D9326 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B4300A2A83DAF9005D9326 /* Color.swift */; };
 		44C93BCD2A79335A00DD287B /* PlaceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C93BCC2A79335A00DD287B /* PlaceDetailView.swift */; };
 		44EA42812A7AE502008DB6C3 /* FavoritesPlacesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EA42802A7AE502008DB6C3 /* FavoritesPlacesView.swift */; };
-		44EDEAC52A8E4C47007833FC /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EDEAC42A8E4C47007833FC /* Image.swift */; };
 		C05610492A5C78CA007FB970 /* DevAcademyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05610482A5C78CA007FB970 /* DevAcademyApp.swift */; };
 		C056104B2A5C78CA007FB970 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C056104A2A5C78CA007FB970 /* RootView.swift */; };
 		C056104D2A5C78CB007FB970 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C056104C2A5C78CB007FB970 /* Assets.xcassets */; };
@@ -54,7 +53,6 @@
 		44B4300A2A83DAF9005D9326 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		44C93BCC2A79335A00DD287B /* PlaceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailView.swift; sourceTree = "<group>"; };
 		44EA42802A7AE502008DB6C3 /* FavoritesPlacesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPlacesView.swift; sourceTree = "<group>"; };
-		44EDEAC42A8E4C47007833FC /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		C05610452A5C78CA007FB970 /* DevAcademy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevAcademy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C05610482A5C78CA007FB970 /* DevAcademyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevAcademyApp.swift; sourceTree = "<group>"; };
 		C056104A2A5C78CA007FB970 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -139,7 +137,6 @@
 			isa = PBXGroup;
 			children = (
 				44B4300A2A83DAF9005D9326 /* Color.swift */,
-				44EDEAC42A8E4C47007833FC /* Image.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -286,7 +283,6 @@
 				446531592A7AC912001DF5C4 /* PlacesMapView.swift in Sources */,
 				440639752A8CC24400EDB546 /* IdentifiableCoordinate.swift in Sources */,
 				4499C7902A71061F007F6C1C /* Places.swift in Sources */,
-				44EDEAC52A8E4C47007833FC /* Image.swift in Sources */,
 				4499C7922A71062F007F6C1C /* Place.swift in Sources */,
 				445DBDDF2A8283D800B01FAA /* Coordinator.swift in Sources */,
 				445DBDDD2A827D3600B01FAA /* PlaceDetailViewModel.swift in Sources */,
