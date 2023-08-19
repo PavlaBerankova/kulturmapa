@@ -3,7 +3,8 @@ import SwiftUI
 struct PlaceInfoRow: View {
     // MARK: PROPERTIES
     let header: String
-    let actionLink: String
+    let link: String
+    let linkPlaceholder: String
     
     // MARK: BODY
     var body: some View {
@@ -11,17 +12,20 @@ struct PlaceInfoRow: View {
             Text(header)
                 .font(.footnote)
                 .foregroundColor(Color.theme.secondaryTextColor)
-            Text(actionLink)
-                .foregroundColor(Color.theme.accent)
+            Link(destination: URL(link),
+                 label: {
+                Text(linkPlaceholder)
+                    .foregroundColor(Color.theme.accent)
+            })
             Divider()
-                .padding(.bottom, 5)
         }
+        .padding(.bottom, 5)
     }
 }
 
 // MARK: PREVIEW
 struct PlaceInfoRow_Previews: PreviewProvider {
     static var previews: some View {
-        PlaceInfoRow(header: "Web", actionLink: "https://www.example.com")
+        PlaceInfoRow(header: "Web", link: "https://www.example.com", linkPlaceholder: "example.com")
     }
 }

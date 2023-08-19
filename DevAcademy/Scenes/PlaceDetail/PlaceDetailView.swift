@@ -15,7 +15,7 @@ struct PlaceDetailView: View {
                         mainInformation
                         buttonShowOnMap
                         ScrollView {
-                            placeLinks
+                          placeLinks
                         }
                     }
                     .padding(.horizontal)
@@ -89,7 +89,7 @@ extension PlaceDetailView {
                 .stroke(lineWidth: 1)
                 .foregroundColor(Color.theme.accent)
                 .frame(maxWidth: .infinity)
-                .frame(height: 55)
+                .frame(height: 50)
                 .foregroundColor(Color.theme.ink)
                 .overlay(
                     HStack {
@@ -101,19 +101,21 @@ extension PlaceDetailView {
         .padding(.vertical)
     }
     
-    
     private var placeLinks: some View {
         VStack {
-            PlaceInfoRow(header: "Web", actionLink: model.placeWeb)
-            PlaceInfoRow(header: "Telefon", actionLink: model.placePhone)
-            PlaceInfoRow(header: "E-mail", actionLink: model.placeEmail)
+            PlaceInfoRow(header: "Web", link: model.placeWeb, linkPlaceholder: model.simpleStringUrl(from: model.placeWeb))
+            
+            PlaceInfoRow(header: "Telefon", link: "tel://" + model.placePhone, linkPlaceholder: model.formatPhoneNumber(model.placePhone))
+            
+            PlaceInfoRow(header: "E-mail", link: "mailto:" + model.placeEmail, linkPlaceholder: model.placeEmail)
+            
             if model.programmeIsAvailable {
-                PlaceInfoRow(header: "Program", actionLink: model.placeProgramme)
+                PlaceInfoRow(header: "Program", link: model.placeProgramme, linkPlaceholder: "otevřít program")
             }
         }
-        .padding(.horizontal, 5)
     }
 }
+
 
 // MARK: PREVIEW
 struct PlaceDetailView_Previews: PreviewProvider {
