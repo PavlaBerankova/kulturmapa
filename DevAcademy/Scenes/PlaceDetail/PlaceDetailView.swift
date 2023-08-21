@@ -9,7 +9,9 @@ struct PlaceDetailView: View {
     var body: some View {
         NavigationStack {
             ZStack {
+                
                 VStack {
+                   
                     placeImage
                     LazyVStack(alignment: .leading, spacing: 10) {
                         mainInformation
@@ -20,8 +22,9 @@ struct PlaceDetailView: View {
                     }
                     .padding(.horizontal)
                 }
+                .ignoresSafeArea(edges: .top)
             }
-            .ignoresSafeArea(edges: .top)
+           
             
             Spacer()
                 .toolbar {
@@ -39,6 +42,12 @@ struct PlaceDetailView: View {
 
 // MARK: EXTENSION
 extension PlaceDetailView {
+    private var customToolbar: some View {
+        HStack {
+            ToolbarButtonView(iconName: "chevron.left")
+        }
+    }
+    
     private var placeImage: some View {
         AsyncImage(url: model.placeImage) {
             image in
