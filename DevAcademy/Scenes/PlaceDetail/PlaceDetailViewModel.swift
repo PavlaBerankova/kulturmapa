@@ -13,8 +13,16 @@ struct PlaceDetailViewModel: DynamicProperty {
     
     
     // MARK: PLACE MAIN INFORMATION
-    var placeImage: URL {
-        place.attributes.imageURL!
+    var placeImage: String? {
+        place.attributes.imageURL
+    }
+    
+    var imageIsFetch: Bool {
+        if placeImage != nil {
+            return true
+        } else {
+            return false
+        }
     }
     
     var placeName: String {
@@ -26,7 +34,7 @@ struct PlaceDetailViewModel: DynamicProperty {
     }
     
     var placeStreet: String {
-        (place.attributes.street ?? "Ulice") + " " + (place.attributes.streetNo ?? "č.p")
+        (place.attributes.street ?? "") + " " + (place.attributes.streetNo ?? "")
     }
     
     // MARK: PLACE LINKS
@@ -77,7 +85,7 @@ struct PlaceDetailViewModel: DynamicProperty {
         case "-":
             return urlString.self
         default:
-            let urlComponents = URLComponents(string: urlString)!
+            let urlComponents = URLComponents(string: urlString.filteringWhiteSpace())!
             let prefixToRemove = "www."
             let relativeURL = urlComponents.host!
             if relativeURL.hasPrefix(prefixToRemove) {

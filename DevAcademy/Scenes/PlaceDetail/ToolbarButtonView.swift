@@ -7,21 +7,21 @@ struct ToolbarButtonView: View {
         Image(systemName: iconName)
             .font(.headline)
             .foregroundColor(Color.theme.accent)
-            .frame(width: 50, height: 50)
+            .frame(width: 40, height: 40)
             .background(
             Circle()
-                .foregroundColor(.secondary)
-                .opacity(0.4)
-                .shadow(
-                    color: Color.black.opacity(0.5),
-                    radius: 10, x: 0, y: 0)
+                .foregroundColor(Color.theme.ink)
+                .opacity(0.7)
             )
     }
 }
 
 struct ToolbarButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        ToolbarButtonView(iconName: "star")
+        ZStack {
+            Color.black
+            ToolbarButtonView(iconName: "star")
+        }
             .previewLayout(.sizeThatFits)
     }
 }

@@ -3,16 +3,28 @@ import SwiftUI
 
 struct PlaceDetailView: View {
     // MARK: PROPERTIES
+    @Environment(\.dismiss) private var dismiss
     let model: PlaceDetailViewModel
     
     // MARK: BODY
     var body: some View {
         NavigationStack {
             ZStack {
-                
                 VStack {
-                   
-                    placeImage
+                    if model.imageIsFetch {
+                        placeImage
+                    } else {
+                        RoundedRectangle(cornerRadius: 2)
+                            .foregroundColor(Color.theme.ink)
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 300)
+                            .overlay(
+                                    Text("Obrázek není k dispozici")
+                                    .font(.title2)
+                                    .foregroundColor(Color.theme.accent)
+                                    .opacity(0.5), alignment: .center
+                            )
+                    }
                     LazyVStack(alignment: .leading, spacing: 10) {
                         mainInformation
                         buttonShowOnMap
@@ -24,15 +36,21 @@ struct PlaceDetailView: View {
                 }
                 .ignoresSafeArea(edges: .top)
             }
-           
-            
             Spacer()
+                .navigationBarBackButtonHidden(true)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button {
                             model.addFavorites()
                         } label: {
-                            Image(systemName: model.isTappedFavorite ? "star.fill" : "star")
+                            ToolbarButtonView(iconName: model.isTappedFavorite ? "star.fill" : "star")
+                        }
+                    }
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button {
+                            dismiss()
+                        } label: {
+                            ToolbarButtonView(iconName: "chevron.left")
                         }
                     }
                 }
@@ -42,33 +60,26 @@ struct PlaceDetailView: View {
 
 // MARK: EXTENSION
 extension PlaceDetailView {
-    private var customToolbar: some View {
-        HStack {
-            ToolbarButtonView(iconName: "chevron.left")
-        }
-    }
-    
-    private var placeImage: some View {
-        AsyncImage(url: model.placeImage) {
-            image in
-            image
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(maxWidth: .infinity)
-                .frame(height: 300)
-                .cornerRadius(2)
-                .shadow(radius: 4)
-            
-            
-        } placeholder: {
-            RoundedRectangle(cornerRadius: 2)
-                .foregroundColor(Color.theme.ink)
-                .frame(maxWidth: .infinity)
-                .frame(height: 300)
-                .overlay(
-                    ProgressView()
-                )
-        }
+  private var placeImage: some View {
+          AsyncImage(url: URL(string: model.placeImage ?? "")) {
+              image in
+              image
+                  .resizable()
+                  .aspectRatio(contentMode: .fill)
+                  .frame(maxWidth: .infinity)
+                  .frame(height: 300)
+                  .cornerRadius(2)
+                  .shadow(radius: 4)
+          } placeholder: {
+              RoundedRectangle(cornerRadius: 2)
+                  .foregroundColor(Color.theme.ink)
+                  .frame(maxWidth: .infinity)
+                  .frame(height: 300)
+                  .overlay(
+                      ProgressView()
+                        
+                  )
+          }
     }
     
     private var mainInformation: some View {
@@ -77,9 +88,9 @@ extension PlaceDetailView {
                 .lineLimit(2)
                 .font(.title3)
                 .fontWeight(.bold)
-            
             HStack {
                 Text(model.placeStreet)
+                    .lineLimit(2)
                     .opacity(0.7)
                 Spacer()
                 Image(systemName: "location")
@@ -87,6 +98,7 @@ extension PlaceDetailView {
                 Text("800 m")
                     .opacity(0.7)
             }
+                
         }
     }
     
