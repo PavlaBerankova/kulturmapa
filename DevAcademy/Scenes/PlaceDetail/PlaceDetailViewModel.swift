@@ -13,64 +13,113 @@ struct PlaceDetailViewModel: DynamicProperty {
     
     
     // MARK: PLACE MAIN INFORMATION
-    var placeImage: String? {
-        place.attributes.imageURL
+    // IMAGE
+    var placeImage: String {
+        if imageIsFetch {
+            return place.attributes.imageURL!
+        }
+        return "Obrázek není k dispozici"
     }
     
     var imageIsFetch: Bool {
-        if placeImage != nil {
+        if attributeIsFetch(place.attributes.imageURL) {
             return true
-        } else {
-            return false
         }
+        return false
     }
     
+    // TITLE
     var placeName: String {
         place.attributes.title
     }
     
+    // KIND
     var kindOfPlace: String {
         place.attributes.kind.rawValue
     }
     
+    // STREET
     var placeStreet: String {
-        (place.attributes.street ?? "") + " " + (place.attributes.streetNo ?? "")
+        if attributeIsFetch(place.attributes.street) {
+            return place.attributes.street!
+        }
+        return ""
     }
+    
+    var placeStreetNo: String {
+        if attributeIsFetch(place.attributes.streetNo) {
+            return place.attributes.streetNo!
+        }
+        return ""
+    }
+    
     
     // MARK: PLACE LINKS
+    // WEB
     var placeWeb: String {
-        // original URL from JSON return "https://www.example.cz" or return "-" - only 2 cases
-        checkAndFixHasprefix(link: place.attributes.web)
+        if webIsAvailable {
+            return checkAndFixHasprefix(link: place.attributes.web!).filteringWhiteSpace()
+        }
+        return "-"
     }
     
-    var placePhone: String { // place phone return "123456789" or "-"
-        place.attributes.phone?.filteringWhiteSpace() ?? "-"
+    var webIsAvailable: Bool {
+        if attributeIsFetch(place.attributes.web) {
+            return true
+        }
+        return false
     }
     
+    var webPlaceholder: String {
+        simpleStringUrl(from: placeWeb)
+    }
+    
+    // PHONE
+    var placePhone: String { // place phone return "123456789", "0", "-"
+        if attributeIsFetch(place.attributes.phone) {
+            return place.attributes.phone!.filteringWhiteSpace()
+        }
+        return "-"
+    }
+    
+    var phonePlaceholder: String {
+        formatPhoneNumber(placePhone)
+    }
+    
+    // EMAIL
     var placeEmail: String {
-        place.attributes.email ?? "-"
+        if attributeIsFetch(place.attributes.email) {
+            return place.attributes.email!.filteringWhiteSpace()
+        }
+        return "-"
+    }
+    
+    // PROGRAMME
+    var placeProgramme: String {
+        checkAndFixHasprefix(link: place.attributes.programme!) // can force unwrapp - check value != nil in programmeIsAvailable
     }
     
     var programmeIsAvailable: Bool {
-        place.attributes.programme != nil
+        if attributeIsFetch(place.attributes.programme) {
+            return true
+        }
+        return false
     }
-    
-    var placeProgramme: String {
-        checkAndFixHasprefix(link: place.attributes.programme)
-    }
-    
     
     
     // MARK: FUNCTIONS
+    func attributeIsFetch(_ attribute: String?) -> Bool {
+        if attribute != nil {
+            return true
+        }
+        return false
+    }
+    
     func addFavorites() {
         isTappedFavorite.toggle()
     }
     
-    func checkAndFixHasprefix(link: String?) -> String {
-        guard let link = link else {
-            return "-"
-        }
-        
+    func checkAndFixHasprefix(link: String) -> String {
         let httpProtocol = "https://"
         
         if link.hasPrefix("http://") || link.hasPrefix("https://") {
@@ -81,22 +130,23 @@ struct PlaceDetailViewModel: DynamicProperty {
     }
     
     func simpleStringUrl(from urlString: String) -> String {
-        switch urlString {
-        case "-":
+        if urlString == "-" {
             return urlString.self
-        default:
-            let urlComponents = URLComponents(string: urlString.filteringWhiteSpace())!
+        } else {
+            let urlComponents = URLComponents(string: urlString)! // --> http//www.example.com
             let prefixToRemove = "www."
-            let relativeURL = urlComponents.host!
+            let relativeURL = urlComponents.host! // --> www.example.com
             if relativeURL.hasPrefix(prefixToRemove) {
-                return String(relativeURL.dropFirst(prefixToRemove.count))
+                return String(relativeURL.dropFirst(prefixToRemove.count)) // --> example.com
             }
             return relativeURL
         }
     }
-    
+
     func formatPhoneNumber(_ number: String) -> String {
         switch number {
+        case "0":
+            return "-"
         case "-":
             return number.self
         default:

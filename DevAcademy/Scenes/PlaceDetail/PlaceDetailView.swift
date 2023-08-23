@@ -14,16 +14,7 @@ struct PlaceDetailView: View {
                     if model.imageIsFetch {
                         placeImage
                     } else {
-                        RoundedRectangle(cornerRadius: 2)
-                            .foregroundColor(Color.theme.ink)
-                            .frame(maxWidth: .infinity)
-                            .frame(height: 300)
-                            .overlay(
-                                    Text("Obrázek není k dispozici")
-                                    .font(.title2)
-                                    .foregroundColor(Color.theme.accent)
-                                    .opacity(0.5), alignment: .center
-                            )
+                        imagePlaceholder
                     }
                     LazyVStack(alignment: .leading, spacing: 10) {
                         mainInformation
@@ -61,7 +52,7 @@ struct PlaceDetailView: View {
 // MARK: EXTENSION
 extension PlaceDetailView {
   private var placeImage: some View {
-          AsyncImage(url: URL(string: model.placeImage ?? "")) {
+      AsyncImage(url: URL(string: model.placeImage)) {
               image in
               image
                   .resizable()
@@ -77,9 +68,21 @@ extension PlaceDetailView {
                   .frame(height: 300)
                   .overlay(
                       ProgressView()
-                        
                   )
           }
+    }
+    
+    private var imagePlaceholder: some View {
+        RoundedRectangle(cornerRadius: 2)
+            .foregroundColor(Color.theme.ink)
+            .frame(maxWidth: .infinity)
+            .frame(height: 300)
+            .overlay(
+                Text(model.placeImage)
+                    .font(.title2)
+                    .foregroundColor(Color.theme.accent)
+                    .opacity(0.5), alignment: .center
+            )
     }
     
     private var mainInformation: some View {
@@ -89,7 +92,7 @@ extension PlaceDetailView {
                 .font(.title3)
                 .fontWeight(.bold)
             HStack {
-                Text(model.placeStreet)
+                Text(model.placeStreet + " " + model.placeStreetNo)
                     .lineLimit(2)
                     .opacity(0.7)
                 Spacer()
@@ -124,14 +127,14 @@ extension PlaceDetailView {
     
     private var placeLinks: some View {
         VStack {
-            PlaceInfoRow(header: "Web", link: model.placeWeb, linkPlaceholder: model.simpleStringUrl(from: model.placeWeb))
+            PlaceInfoRow(header: "Web", link: model.placeWeb, linkPlaceholder: model.webPlaceholder)
             
-            PlaceInfoRow(header: "Telefon", link: "tel://" + model.placePhone, linkPlaceholder: model.formatPhoneNumber(model.placePhone))
+            PlaceInfoRow(header: "Telefon", link: "tel://" + model.placePhone, linkPlaceholder: model.phonePlaceholder)
             
             PlaceInfoRow(header: "E-mail", link: "mailto:" + model.placeEmail, linkPlaceholder: model.placeEmail)
             
             if model.programmeIsAvailable {
-                PlaceInfoRow(header: "Program", link: model.placeProgramme, linkPlaceholder: "otevřít program")
+                PlaceInfoRow(header: "Program", link: model.placeProgramme, linkPlaceholder: "přejít na program")
             }
         }
     }

@@ -12,7 +12,7 @@ struct PlaceInfoRow: View {
             Text(header)
                 .font(.footnote)
                 .foregroundColor(Color.theme.secondaryTextColor)
-            Link(destination: URL(link),
+            Link(destination: URL(string: link)!,
                  label: {
                 Text(linkPlaceholder)
                     .foregroundColor(Color.theme.accent)
