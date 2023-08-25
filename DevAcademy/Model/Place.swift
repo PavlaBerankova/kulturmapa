@@ -16,35 +16,35 @@ struct Place: Codable, Equatable, Identifiable {
     var symbol: Image {
         switch attributes.kind {
         case .kind(.cinema):
-            return Image.pinSymbol.cinema
+            return Image.mapSymbol.cinema
         case .kind(.theatre):
-            return Image.pinSymbol.theatre
+            return Image.mapSymbol.theatre
         case .kind(.gallery):
-            return Image.pinSymbol.gallery
+            return Image.mapSymbol.gallery
         case .kind(.hub):
-            return Image.pinSymbol.hub
+            return Image.mapSymbol.hub
         case .kind(.musicClub):
-            return Image.pinSymbol.musicClub
+            return Image.mapSymbol.musicClub
         case .kind(.summerCinema):
-            return Image.pinSymbol.summerCinema
+            return Image.mapSymbol.summerCinema
         case .kind(.library):
-            return Image.pinSymbol.library
+            return Image.mapSymbol.library
         case .kind(.concertHall):
-            return Image.pinSymbol.concertHall
+            return Image.mapSymbol.concertHall
         case .kind(.culturalCentrum):
-            return Image.pinSymbol.culturalCentrum
+            return Image.mapSymbol.culturalCentrum
         case .kind(.culturalMonument):
-            return Image.pinSymbol.culturalMonument
+            return Image.mapSymbol.culturalMonument
         case .kind(.museum):
-            return Image.pinSymbol.museum
+            return Image.mapSymbol.museum
         case .kind(.entrepriseWithCulturalProgramme):
-            return Image.pinSymbol.entrepriseWithCulturalProgramme
+            return Image.mapSymbol.entrepriseWithCulturalProgramme
         case .kind(.exhibitionCentre):
-            return Image.pinSymbol.exhibitionCentre
+            return Image.mapSymbol.exhibitionCentre
         case .kind(.other):
-            return Image.pinSymbol.other
+            return Image.mapSymbol.other
         case .unknown:
-            return Image.pinSymbol.unknown
+            return Image.mapSymbol.unknown
         }
     }
 }

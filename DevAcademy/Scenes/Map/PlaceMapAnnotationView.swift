@@ -29,7 +29,7 @@ struct PlaceMapAnnotationView: View {
 // MARK: PREVIEW
 struct PlaceMapAnnotationView_Previews: PreviewProvider {
     static var previews: some View {
-        PlaceMapAnnotationView(kindSymbol: Image.pinSymbol.cinema)
+        PlaceMapAnnotationView(kindSymbol: Image.mapSymbol.cinema)
             .previewLayout(.sizeThatFits)
     }
 }

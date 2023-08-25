@@ -7,6 +7,7 @@ struct DevAcademyApp: App {
             RootView()
                 .environmentObject(PlacesObservableObject(service: ProductionPlacesService()))
                 .environmentObject(Coordinator())
+                .environmentObject(LocationManager())
         }
     }
 }

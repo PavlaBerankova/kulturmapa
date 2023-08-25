@@ -1,7 +1,7 @@
 import SwiftUI
 
 extension Image {
-    static let pinSymbol = CustomImageSymbol()
+    static let mapSymbol = MapImageSymbol()
     static let tabSymbol = TabViewImageSymbol()
     static let contactsSymbol = ContactsImageSymbol()
 }
@@ -19,7 +19,7 @@ struct ContactsImageSymbol {
 }
 
 // symbol for map pin
-struct CustomImageSymbol {
+struct MapImageSymbol {
     let cinema = Image("cinema")
     let theatre = Image("theater")
     let gallery = Image("gallery")
@@ -35,4 +35,6 @@ struct CustomImageSymbol {
     let exhibitionCentre = Image("exhibitionCentre")
     let other = Image("other")
     let unknown = Image("other")
+    
+    let navigateArrow = Image(systemName: "arrow.triangle.turn.up.right.diamond.fill")
 }

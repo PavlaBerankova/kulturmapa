@@ -105,7 +105,7 @@ extension PlaceDetailView {
 
     private var buttonShowOnMap: some View {
         Button {
-
+            model.openAppleMaps()
         } label: {
             RoundedRectangle(cornerRadius: 30)
                 .stroke(lineWidth: 1)
@@ -115,8 +115,8 @@ extension PlaceDetailView {
                 .foregroundColor(Color.theme.ink)
                 .overlay(
                     HStack {
-                        Image.tabSymbol.map
-                        Text("Zobrazit na mapě")
+                        Image.mapSymbol.navigateArrow
+                        Text("Navigovat")
                     }
                 )
         }

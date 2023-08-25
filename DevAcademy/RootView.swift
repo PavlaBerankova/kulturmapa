@@ -3,7 +3,7 @@ import SwiftUI
 struct RootView: View {
     // MARK: PROPERTIES
     @EnvironmentObject private var coordinator: Coordinator
-    
+
     // MARK: BODY
     var body: some View {
         TabView {

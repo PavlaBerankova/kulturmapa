@@ -1,3 +1,4 @@
+import MapKit
 import SwiftUI
 
 struct PlaceDetailViewModel: DynamicProperty {
@@ -88,11 +89,14 @@ struct PlaceDetailViewModel: DynamicProperty {
     }
 
     // MARK: FUNCTIONS
-    func attributeIsFetch(_ attribute: String?) -> Bool {
-        if attribute != nil {
-            return true
-        }
-        return false
+    func openAppleMaps() {
+        let coordinates = CLLocationCoordinate2D(latitude: place.geometry?.latitude ?? 0.0, longitude: place.geometry?.longitude ?? 0.0)
+        let placemark = MKPlacemark(coordinate: coordinates)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = placeName
+        mapItem.phoneNumber = placePhone
+        mapItem.url = URL(string: placeWeb)
+        mapItem.openInMaps(launchOptions: nil)
     }
 
     func addFavorites() {
@@ -101,7 +105,6 @@ struct PlaceDetailViewModel: DynamicProperty {
 
     private func checkAndFixHasprefix(link: String) -> String {
         let httpProtocol = "https://"
-        
         if link.hasPrefix("http://") || link.hasPrefix("https://") {
             return link.filteringWhiteSpace()
         } else {
