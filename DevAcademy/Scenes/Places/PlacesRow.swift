@@ -3,12 +3,11 @@ import SwiftUI
 struct PlacesRow: View {
     // MARK: PROPERTIES
     let place: Place
-    
+
     // MARK: BODY
     var body: some View {
         HStack {
-           placeImage
-                
+            placeImage
             VStack(alignment: .leading) {
                 placeTitle
                 placeKind
@@ -20,7 +19,7 @@ struct PlacesRow: View {
 // MARK: EXTENSION
 extension PlacesRow {
     private var placeImage: some View {
-      AsyncImage(url: URL(string: place.attributes.imageURL ?? "")) { image in
+        AsyncImage(url: URL(string: place.attributes.imageURL ?? "")) { image in
             image
                 .resizable()
                 .aspectRatio(contentMode: .fill)
@@ -28,10 +27,10 @@ extension PlacesRow {
                 .clipShape(RoundedRectangle(cornerRadius: 8))
                 .shadow(radius: 4)
         } placeholder: {
-           ProgressView()
+            ProgressView()
         }
     }
-    
+
     private var placeTitle: some View {
         Text(place.attributes.title)
             .font(.title3)

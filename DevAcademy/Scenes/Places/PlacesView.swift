@@ -2,13 +2,10 @@ import SwiftUI
 import ActivityIndicatorView
 
 struct PlacesView: View {
-    
     // MARK: PROPERTIES
     @EnvironmentObject private var coordinator: Coordinator
-    
     let model = PlacesViewModel()
-    
-    
+
     // MARK: BODY
     var body: some View {
         NavigationStack {
@@ -19,7 +16,6 @@ struct PlacesView: View {
                             coordinator.placeDetailScene(with: place)
                         } label: {
                             PlacesRow(place: place)
-
                         }
                     }
                     .animation(.default, value: model.places)
@@ -32,8 +28,8 @@ struct PlacesView: View {
                     }
                 }
             }
-                    .navigationTitle("Kultůrmapa")
-                    .navigationBarTitleDisplayMode(.inline)
+            .navigationTitle("Kultůrmapa")
+            .navigationBarTitleDisplayMode(.inline)
         }
         .task {
             await model.fetchData()

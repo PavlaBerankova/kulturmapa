@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		440639732A8CB15000EDB546 /* PlacesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440639722A8CB15000EDB546 /* PlacesService.swift */; };
-		440639752A8CC24400EDB546 /* IdentifiableCoordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440639742A8CC24400EDB546 /* IdentifiableCoordinate.swift */; };
 		44145C5E2A86880E007D4265 /* PlaceMapAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44145C5D2A86880E007D4265 /* PlaceMapAnnotationView.swift */; };
 		442F90BF2A95037F005983B6 /* RoundedRectangleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442F90BE2A95037F005983B6 /* RoundedRectangleButtonView.swift */; };
 		4441E2622A9234D0006C9A62 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4441E2612A9234D0006C9A62 /* String.swift */; };
@@ -40,7 +39,6 @@
 
 /* Begin PBXFileReference section */
 		440639722A8CB15000EDB546 /* PlacesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesService.swift; sourceTree = "<group>"; };
-		440639742A8CC24400EDB546 /* IdentifiableCoordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifiableCoordinate.swift; sourceTree = "<group>"; };
 		44145C5D2A86880E007D4265 /* PlaceMapAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceMapAnnotationView.swift; sourceTree = "<group>"; };
 		442F90BE2A95037F005983B6 /* RoundedRectangleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedRectangleButtonView.swift; sourceTree = "<group>"; };
 		4441E2612A9234D0006C9A62 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -121,7 +119,6 @@
 				4499C7932A710643007F6C1C /* Point.swift */,
 				4499C7992A710712007F6C1C /* PossibleKind.swift */,
 				4499C7952A71064E007F6C1C /* Attributes.swift */,
-				440639742A8CC24400EDB546 /* IdentifiableCoordinate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -296,7 +293,6 @@
 				445DBDD82A82755400B01FAA /* PlacesViewModel.swift in Sources */,
 				4499C7942A710643007F6C1C /* Point.swift in Sources */,
 				446531592A7AC912001DF5C4 /* PlacesMapView.swift in Sources */,
-				440639752A8CC24400EDB546 /* IdentifiableCoordinate.swift in Sources */,
 				4499C7902A71061F007F6C1C /* Places.swift in Sources */,
 				4441F5482A8F699B00E90519 /* Image.swift in Sources */,
 				4499C7922A71062F007F6C1C /* Place.swift in Sources */,

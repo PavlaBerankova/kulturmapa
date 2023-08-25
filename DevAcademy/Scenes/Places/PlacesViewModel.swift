@@ -2,11 +2,8 @@ import SwiftUI
 import MapKit
 
 struct PlacesViewModel: DynamicProperty {
-    
     @EnvironmentObject private var placesObservableObject: PlacesObservableObject
-    
     @State var selectedPlace: Place?
-    
     // Brno coordinates
     @State var region = MKCoordinateRegion(
         center: CLLocationCoordinate2D(
@@ -15,17 +12,16 @@ struct PlacesViewModel: DynamicProperty {
         span: MKCoordinateSpan(
             latitudeDelta: 0.1,
             longitudeDelta: 0.1))
-    
+
     var places: [Place] {
         placesObservableObject.places
     }
-    
+
     var placesAreFetched: Bool {
-            !places.isEmpty
-        }
-    
+        !places.isEmpty
+    }
+
     func fetchData() async {
         await placesObservableObject.fetchPlacesData()
     }
 }
-

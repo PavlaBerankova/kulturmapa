@@ -11,7 +11,7 @@ struct Attributes: Codable {
     var street: String?
     var streetNo: String?
     var phone: String?
-   
+
     enum CodingKeys: String, CodingKey {
         case ogcFid = "ogc_fid"
         case imageURL = "obr_id1"
@@ -23,6 +23,5 @@ struct Attributes: Codable {
         case street = "ulice"
         case streetNo = "cp_co"
         case phone = "telefon"
-        
     }
 }

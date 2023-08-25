@@ -3,7 +3,7 @@ import SwiftUI
 struct RoundedRectangleButtonView: View {
     // MARK: PROPERTIES
     let title: String
-    
+
     // MARK: BODY
     var body: some View {
         Text(title)
@@ -26,6 +26,5 @@ struct RoundedRectangleButtonView_Previews: PreviewProvider {
             Color.black
             RoundedRectangleButtonView(title: "podnik s kulturním programem")
         }
-        
     }
 }

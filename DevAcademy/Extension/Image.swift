@@ -36,25 +36,3 @@ struct CustomImageSymbol {
     let other = Image("other")
     let unknown = Image("other")
 }
-
-// symbol for map pin in version SF symbol, current not in use
-struct SFImageSymbol {
-    let cinema = Image(systemName: "film")
-    let theatre = Image(systemName: "theatermasks.fill")
-    let gallery = Image(systemName: "photo.artframe")
-    let hub = Image(systemName: "scale.3d")
-    let musicClub = Image(systemName: "music.mic")
-    let summerCinema = Image(systemName: "moon.stars.fill")
-    let library = Image(systemName: "books.vertical")
-    let concertHall = Image(systemName: "music.quarternote.3")
-    let culturalCentrum = Image(systemName: "house.lodge")
-    let culturalMonument = Image(systemName: "pyramid.fill")
-    let museum = Image(systemName: "building.columns")
-    let entrepriseWithCulturalProgramme = Image(systemName: "music.note.house")
-    let exhibitionCentre = Image(systemName: "network")
-    let other = Image(systemName: "dot.square.fill")
-    let unknown = Image(systemName: "dot.square.fill")
-}
-
-
-

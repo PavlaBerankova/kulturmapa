@@ -5,7 +5,7 @@ struct PlaceDetailView: View {
     // MARK: PROPERTIES
     @Environment(\.dismiss) private var dismiss
     let model: PlaceDetailViewModel
-    
+
     // MARK: BODY
     var body: some View {
         NavigationStack {
@@ -20,7 +20,7 @@ struct PlaceDetailView: View {
                         mainInformation
                         buttonShowOnMap
                         ScrollView {
-                          placeLinks
+                            placeLinks
                         }
                     }
                     .padding(.horizontal)
@@ -51,27 +51,26 @@ struct PlaceDetailView: View {
 
 // MARK: EXTENSION
 extension PlaceDetailView {
-  private var placeImage: some View {
-      AsyncImage(url: URL(string: model.placeImage)) {
-              image in
-              image
-                  .resizable()
-                  .aspectRatio(contentMode: .fill)
-                  .frame(maxWidth: .infinity)
-                  .frame(height: 300)
-                  .cornerRadius(2)
-                  .shadow(radius: 4)
-          } placeholder: {
-              RoundedRectangle(cornerRadius: 2)
-                  .foregroundColor(Color.theme.ink)
-                  .frame(maxWidth: .infinity)
-                  .frame(height: 300)
-                  .overlay(
-                      ProgressView()
-                  )
-          }
+    private var placeImage: some View {
+        AsyncImage(url: URL(string: model.placeImage)) { image in
+            image
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(maxWidth: .infinity)
+                .frame(height: 300)
+                .cornerRadius(2)
+                .shadow(radius: 4)
+        } placeholder: {
+            RoundedRectangle(cornerRadius: 2)
+                .foregroundColor(Color.theme.ink)
+                .frame(maxWidth: .infinity)
+                .frame(height: 300)
+                .overlay(
+                    ProgressView()
+                )
+        }
     }
-    
+
     private var imagePlaceholder: some View {
         RoundedRectangle(cornerRadius: 2)
             .foregroundColor(Color.theme.ink)
@@ -84,7 +83,7 @@ extension PlaceDetailView {
                     .opacity(0.5), alignment: .center
             )
     }
-    
+
     private var mainInformation: some View {
         VStack(alignment: .leading) {
             Text(model.placeName)
@@ -92,7 +91,7 @@ extension PlaceDetailView {
                 .font(.title3)
                 .fontWeight(.bold)
             HStack {
-                Text(model.placeStreet + " " + model.placeStreetNo)
+                Text(model.placeAdress)
                     .lineLimit(2)
                     .opacity(0.7)
                 Spacer()
@@ -101,13 +100,12 @@ extension PlaceDetailView {
                 Text("800 m")
                     .opacity(0.7)
             }
-                
         }
     }
-    
+
     private var buttonShowOnMap: some View {
         Button {
-            
+
         } label: {
             RoundedRectangle(cornerRadius: 30)
                 .stroke(lineWidth: 1)
@@ -124,22 +122,18 @@ extension PlaceDetailView {
         }
         .padding(.vertical)
     }
-    
+
     private var placeLinks: some View {
         VStack {
             PlaceInfoRow(header: "Web", link: model.placeWeb, linkPlaceholder: model.webPlaceholder)
-            
             PlaceInfoRow(header: "Telefon", link: "tel://" + model.placePhone, linkPlaceholder: model.phonePlaceholder)
-            
             PlaceInfoRow(header: "E-mail", link: "mailto:" + model.placeEmail, linkPlaceholder: model.placeEmail)
-            
             if model.programmeIsAvailable {
                 PlaceInfoRow(header: "Program", link: model.placeProgramme, linkPlaceholder: "přejít na program")
             }
         }
     }
 }
-
 
 // MARK: PREVIEW
 struct PlaceDetailView_Previews: PreviewProvider {

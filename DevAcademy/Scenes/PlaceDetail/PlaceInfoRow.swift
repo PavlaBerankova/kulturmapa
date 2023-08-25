@@ -5,7 +5,7 @@ struct PlaceInfoRow: View {
     let header: String
     let link: String
     let linkPlaceholder: String
-    
+
     // MARK: BODY
     var body: some View {
         VStack(alignment: .leading) {

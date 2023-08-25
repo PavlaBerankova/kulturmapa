@@ -2,10 +2,10 @@ import Foundation
 
 struct Places: Codable {
     var places: [Place]
-    
+
     enum CodingKeys: String, CodingKey {
-           case places = "features"
-       }
+        case places = "features"
+    }
 }
 
 extension Places {
@@ -23,7 +23,6 @@ extension Places {
                     programme: "https://www.ndbrno.cz/program/",
                     street: "Brněnská",
                     streetNo: "240/7"
-                    
                 )
             ),
             Place(

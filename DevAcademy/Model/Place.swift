@@ -8,12 +8,10 @@ struct Place: Codable, Equatable, Identifiable {
     static func == (lhs: Place, rhs: Place) -> Bool {
         lhs.attributes.ogcFid == rhs.attributes.ogcFid
     }
-    
     // read only - computed properties, not decoding from API
     var id: Int {
-            attributes.ogcFid
-        }
-    
+        attributes.ogcFid
+    }
     // symbol for pin on map view
     var symbol: Image {
         switch attributes.kind {
@@ -45,7 +43,7 @@ struct Place: Codable, Equatable, Identifiable {
             return Image.pinSymbol.exhibitionCentre
         case .kind(.other):
             return Image.pinSymbol.other
-        case .unknown(_):
+        case .unknown:
             return Image.pinSymbol.unknown
         }
     }

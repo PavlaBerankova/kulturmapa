@@ -11,7 +11,6 @@ struct FavoritePlacesView: View {
                         .font(.title)
                         .fontWeight(.medium)
                         .lineLimit(1)
-                        
                     Image(systemName: "star")
                         .resizable()
                         .renderingMode(.template)

@@ -25,7 +25,7 @@ extension RootView {
                 }
             }
     }
-    
+
     private var mapTab: some View {
         coordinator.placesMapScene
             .tabItem {
@@ -35,7 +35,7 @@ extension RootView {
                 }
             }
     }
-    
+
     private var favoritesTab: some View {
         coordinator.favoritesScene
             .tabItem {

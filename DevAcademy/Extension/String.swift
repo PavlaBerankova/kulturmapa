@@ -5,4 +5,3 @@ extension String {
         self.filter({ !$0.isWhitespace })
     }
 }
-

@@ -1,112 +1,92 @@
 import SwiftUI
 
 struct PlaceDetailViewModel: DynamicProperty {
-    
     // MARK: PROPERTIES
     @EnvironmentObject private var placesObservableObject: PlacesObservableObject
     @State var isTappedFavorite = false
-    
+
     var place: Place
     init(place: Place) {
         self.place = place
     }
-    
-    
+
     // MARK: PLACE MAIN INFORMATION
     // IMAGE
     var placeImage: String {
         if imageIsFetch {
-            return place.attributes.imageURL!
+            return place.attributes.imageURL ?? ""
         }
         return "Obrázek není k dispozici"
     }
-    
+
     var imageIsFetch: Bool {
-        if attributeIsFetch(place.attributes.imageURL) {
-            return true
+        guard place.attributes.imageURL != nil else {
+            return false
         }
-        return false
+        return true
     }
-    
+
     // TITLE
     var placeName: String {
         place.attributes.title
     }
-    
+
     // KIND
     var kindOfPlace: String {
         place.attributes.kind.rawValue
     }
-    
-    // STREET
-    var placeStreet: String {
-        if attributeIsFetch(place.attributes.street) {
-            return place.attributes.street!
-        }
-        return ""
+
+    // ADRESS
+    var placeAdress: String {
+        (place.attributes.street ?? "") + " " + (place.attributes.streetNo ?? "")
     }
-    
+
     var placeStreetNo: String {
-        if attributeIsFetch(place.attributes.streetNo) {
-            return place.attributes.streetNo!
-        }
-        return ""
+        place.attributes.streetNo ?? ""
     }
-    
-    
+
     // MARK: PLACE LINKS
     // WEB
     var placeWeb: String {
-        if webIsAvailable {
-            return checkAndFixHasprefix(link: place.attributes.web!).filteringWhiteSpace()
+        guard let web = place.attributes.web else {
+            return "-"
         }
-        return "-"
+        return checkAndFixHasprefix(link: web).filteringWhiteSpace()
     }
-    
-    var webIsAvailable: Bool {
-        if attributeIsFetch(place.attributes.web) {
-            return true
-        }
-        return false
-    }
-    
+
     var webPlaceholder: String {
         simpleStringUrl(from: placeWeb)
     }
-    
+
     // PHONE
     var placePhone: String { // place phone return "123456789", "0", "-"
-        if attributeIsFetch(place.attributes.phone) {
-            return place.attributes.phone!.filteringWhiteSpace()
-        }
-        return "-"
+        place.attributes.phone?.filteringWhiteSpace() ?? "-"
     }
-    
+
     var phonePlaceholder: String {
         formatPhoneNumber(placePhone)
     }
-    
+
     // EMAIL
     var placeEmail: String {
-        if attributeIsFetch(place.attributes.email) {
-            return place.attributes.email!.filteringWhiteSpace()
-        }
-        return "-"
+        place.attributes.email?.filteringWhiteSpace() ?? "-"
     }
-    
+
     // PROGRAMME
     var placeProgramme: String {
-        checkAndFixHasprefix(link: place.attributes.programme!) // can force unwrapp - check value != nil in programmeIsAvailable
-    }
-    
-    var programmeIsAvailable: Bool {
-        if attributeIsFetch(place.attributes.programme) {
-            return true
+        guard let programme = place.attributes.programme else {
+            return "-"
         }
-        return false
+        return checkAndFixHasprefix(link: programme)
     }
-    
-    
+
+    var programmeIsAvailable: Bool {
+        guard place.attributes.programme != nil else {
+            return false
+        }
+        return true
+    }
+
     // MARK: FUNCTIONS
     func attributeIsFetch(_ attribute: String?) -> Bool {
         if attribute != nil {
@@ -114,28 +94,28 @@ struct PlaceDetailViewModel: DynamicProperty {
         }
         return false
     }
-    
+
     func addFavorites() {
         isTappedFavorite.toggle()
     }
-    
-    func checkAndFixHasprefix(link: String) -> String {
+
+    private func checkAndFixHasprefix(link: String) -> String {
         let httpProtocol = "https://"
         
         if link.hasPrefix("http://") || link.hasPrefix("https://") {
-            return link
+            return link.filteringWhiteSpace()
         } else {
-            return httpProtocol + link
+            return httpProtocol + link.filteringWhiteSpace()
         }
     }
-    
-    func simpleStringUrl(from urlString: String) -> String {
+
+    private func simpleStringUrl(from urlString: String) -> String {
         if urlString == "-" {
-            return urlString.self
+            return urlString
         } else {
             let urlComponents = URLComponents(string: urlString)! // --> http//www.example.com
             let prefixToRemove = "www."
-            let relativeURL = urlComponents.host! // --> www.example.com
+            let relativeURL = urlComponents.host ?? "" // --> www.example.com
             if relativeURL.hasPrefix(prefixToRemove) {
                 return String(relativeURL.dropFirst(prefixToRemove.count)) // --> example.com
             }
@@ -143,20 +123,16 @@ struct PlaceDetailViewModel: DynamicProperty {
         }
     }
 
-    func formatPhoneNumber(_ number: String) -> String {
-        switch number {
-        case "0":
+    private func formatPhoneNumber(_ number: String) -> String {
+        if number == "0" || number == "-" {
             return "-"
-        case "-":
-            return number.self
-        default:
+        } else {
             let numberToInt = Int(number)
             let numberFormatter = NumberFormatter()
             numberFormatter.numberStyle = .decimal
             numberFormatter.groupingSeparator = " " // --> 123 456 789
             let formattedNumber = numberFormatter.string(from: NSNumber(value: numberToInt!)) ?? "-"
-            
-            return "+420 " + formattedNumber
+            return formattedNumber
         }
     }
 }
