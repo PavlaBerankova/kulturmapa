@@ -53,5 +53,6 @@ struct RootView_Previews: PreviewProvider {
         RootView()
             .environmentObject(PlacesObservableObject(service: ProductionPlacesService()))
             .environmentObject(Coordinator())
+            .environmentObject(LocationManager())
     }
 }

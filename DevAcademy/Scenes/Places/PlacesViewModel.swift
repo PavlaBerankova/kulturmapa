@@ -13,6 +13,8 @@ struct PlacesViewModel: DynamicProperty {
             latitudeDelta: 0.1,
             longitudeDelta: 0.1))
 
+    
+    
     var places: [Place] {
         placesObservableObject.places
     }

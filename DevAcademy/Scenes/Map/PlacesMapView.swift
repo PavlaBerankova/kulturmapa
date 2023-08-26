@@ -13,6 +13,12 @@ struct PlacesMapView: View {
         NavigationStack {
             mapViewWithAnnotations
         }
+        .task {
+            await model.fetchData()
+        }
+        .sheet(item: model.$selectedPlace) { place in
+            coordinator.placeDetailScene(with: place)
+        }
     }
 }
 
@@ -30,12 +36,6 @@ extension PlacesMapView {
             }
         })
         .ignoresSafeArea(edges: .top)
-        .task {
-            await model.fetchData()
-        }
-        .sheet(item: model.$selectedPlace) { place in
-            coordinator.placeDetailScene(with: place)
-        }
     }
 }
 

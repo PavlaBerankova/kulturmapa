@@ -97,7 +97,7 @@ extension PlaceDetailView {
                 Spacer()
                 Image(systemName: "location")
                     .foregroundColor(Color.theme.accent)
-                Text("800 m")
+                Text(model.getDistance())
                     .opacity(0.7)
             }
         }
@@ -139,5 +139,6 @@ extension PlaceDetailView {
 struct PlaceDetailView_Previews: PreviewProvider {
     static var previews: some View {
         PlaceDetailView(model: PlaceDetailViewModel(place: Places.mock.places.first!))
+            .environmentObject(LocationManager())
     }
 }

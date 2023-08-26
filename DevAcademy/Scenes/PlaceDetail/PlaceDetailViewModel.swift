@@ -4,6 +4,7 @@ import SwiftUI
 struct PlaceDetailViewModel: DynamicProperty {
     // MARK: PROPERTIES
     @EnvironmentObject private var placesObservableObject: PlacesObservableObject
+    @EnvironmentObject private var locationManager: LocationManager
     @State var isTappedFavorite = false
 
     var place: Place
@@ -32,18 +33,9 @@ struct PlaceDetailViewModel: DynamicProperty {
         place.attributes.title
     }
 
-    // KIND
-    var kindOfPlace: String {
-        place.attributes.kind.rawValue
-    }
-
     // ADRESS
     var placeAdress: String {
         (place.attributes.street ?? "") + " " + (place.attributes.streetNo ?? "")
-    }
-
-    var placeStreetNo: String {
-        place.attributes.streetNo ?? ""
     }
 
     // MARK: PLACE LINKS
@@ -88,7 +80,24 @@ struct PlaceDetailViewModel: DynamicProperty {
         return true
     }
 
+    // MARK: PLACE AND USER COORDINATE
+    var currentPlaceCoordinate: CLLocation {
+        let placeLatitude: Double = place.geometry?.latitude ?? 0.0
+        let placeLongitude: Double = place.geometry?.longitude ?? 0.0
+        return CLLocation(latitude: placeLatitude, longitude: placeLongitude)
+    }
+    
+    var userLocation: CLLocation {
+        let coordinateLatitude: Double = locationManager.location?.coordinate.latitude ?? 0.0
+        let coordinateLongitude: Double = locationManager.location?.coordinate.longitude ?? 0.0
+        return CLLocation(latitude: coordinateLatitude, longitude: coordinateLongitude)
+    }
+
     // MARK: FUNCTIONS
+    func getDistance() -> String {
+        return Int(currentPlaceCoordinate.distance(from: userLocation)).convertDistance()
+    }
+
     func openAppleMaps() {
         let coordinates = CLLocationCoordinate2D(latitude: place.geometry?.latitude ?? 0.0, longitude: place.geometry?.longitude ?? 0.0)
         let placemark = MKPlacemark(coordinate: coordinates)
