@@ -8,7 +8,7 @@ struct PlacesRow: View {
     var body: some View {
         HStack {
             if let imageUrl = place.attributes.imageURL {
-                AsyncImage(url: imageUrl) { image in
+                StoredAsyncImage(url: imageUrl) { image in
                     image
                         .resizable()
                         .aspectRatio(contentMode: .fill)
