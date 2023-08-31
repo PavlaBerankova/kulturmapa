@@ -12,7 +12,7 @@ struct PlaceDetailView: View {
             ZStack {
                 VStack {
                     if let placeImageUrl = model.placeImage {
-                        AsyncImage(url: placeImageUrl) { image in
+                        StoredAsyncImage(url: placeImageUrl) { image in
                             image
                                 .resizable()
                                 .aspectRatio(contentMode: .fill)
