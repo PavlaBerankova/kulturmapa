@@ -14,18 +14,8 @@ struct PlaceDetailViewModel: DynamicProperty {
 
     // MARK: PLACE MAIN INFORMATION
     // IMAGE
-    var placeImage: String {
-        if imageIsFetch {
-            return place.attributes.imageURL ?? ""
-        }
-        return "Obrázek není k dispozici"
-    }
-
-    var imageIsFetch: Bool {
-        guard place.attributes.imageURL != nil else {
-            return false
-        }
-        return true
+    var placeImage: URL? {
+        place.attributes.imageURL
     }
 
     // TITLE

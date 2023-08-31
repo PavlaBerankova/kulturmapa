@@ -19,7 +19,7 @@ struct PlacesRow: View {
 // MARK: EXTENSION
 extension PlacesRow {
     private var placeImage: some View {
-        AsyncImage(url: URL(string: place.attributes.imageURL ?? "")) { image in
+        AsyncImage(url: place.attributes.imageURL) { image in
             image
                 .resizable()
                 .aspectRatio(contentMode: .fill)

@@ -11,8 +11,24 @@ struct PlaceDetailView: View {
         NavigationStack {
             ZStack {
                 VStack {
-                    if model.imageIsFetch {
-                        placeImage
+                    if let placeImageUrl = model.placeImage {
+                        AsyncImage(url: placeImageUrl) { image in
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(maxWidth: .infinity)
+                                .frame(height: 300)
+                                .cornerRadius(2)
+                                .shadow(radius: 4)
+                        } placeholder: {
+                            RoundedRectangle(cornerRadius: 2)
+                                .foregroundColor(Color.theme.ink)
+                                .frame(maxWidth: .infinity)
+                                .frame(height: 300)
+                                .overlay(
+                                    ProgressView()
+                                )
+                        }
                     } else {
                         imagePlaceholder
                     }
@@ -51,33 +67,13 @@ struct PlaceDetailView: View {
 
 // MARK: EXTENSION
 extension PlaceDetailView {
-    private var placeImage: some View {
-        AsyncImage(url: URL(string: model.placeImage)) { image in
-            image
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(maxWidth: .infinity)
-                .frame(height: 300)
-                .cornerRadius(2)
-                .shadow(radius: 4)
-        } placeholder: {
-            RoundedRectangle(cornerRadius: 2)
-                .foregroundColor(Color.theme.ink)
-                .frame(maxWidth: .infinity)
-                .frame(height: 300)
-                .overlay(
-                    ProgressView()
-                )
-        }
-    }
-
     private var imagePlaceholder: some View {
         RoundedRectangle(cornerRadius: 2)
             .foregroundColor(Color.theme.ink)
             .frame(maxWidth: .infinity)
             .frame(height: 300)
             .overlay(
-                Text(model.placeImage)
+                Text("Obrázek není k dispozici")
                     .font(.title2)
                     .foregroundColor(Color.theme.accent)
                     .opacity(0.5), alignment: .center
