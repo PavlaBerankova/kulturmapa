@@ -146,14 +146,21 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		44AFC1282AA0C59000B3E0EC /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				44CDD1772A941A6200452808 /* ToolbarButtonView.swift */,
+				442F90BE2A95037F005983B6 /* RoundedRectangleButtonView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		44B430082A83D9A0005D9326 /* PlaceDetail */ = {
 			isa = PBXGroup;
 			children = (
 				44C93BCC2A79335A00DD287B /* PlaceDetailView.swift */,
 				445DBDDC2A827D3600B01FAA /* PlaceDetailViewModel.swift */,
 				44C649D62A9087DD00A5369F /* PlaceInfoRow.swift */,
-				44CDD1772A941A6200452808 /* ToolbarButtonView.swift */,
-				442F90BE2A95037F005983B6 /* RoundedRectangleButtonView.swift */,
 			);
 			path = PlaceDetail;
 			sourceTree = "<group>";
@@ -209,6 +216,7 @@
 				C056104A2A5C78CA007FB970 /* RootView.swift */,
 				445DBDD92A82787500B01FAA /* ObservableObjects */,
 				44B430092A83DAEC005D9326 /* Extension */,
+				44AFC1282AA0C59000B3E0EC /* Components */,
 				4499C78E2A7105AF007F6C1C /* Model */,
 				4483CD582A7002C7004614DF /* Scenes */,
 				442593B12AA0881B00FD1058 /* Persistence */,

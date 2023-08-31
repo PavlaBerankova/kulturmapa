@@ -104,7 +104,7 @@ extension PlaceDetailView {
                     .opacity(0.7)
             }
         }
-        .padding(.top, 20)
+        .padding(.top, 15)
     }
 
     private var buttonShowOnMap: some View {

@@ -70,7 +70,7 @@ class ImageStorage {
         do {
             try bytes.write(to: URL(filePath: pathHash))
         } catch {
-            fatalError("\(error)")
+            print("\(error)")
         }
         // HINT: UIImage -> Data
         // guard let bytes = image.jpegData(compressionQuality: 1.0) else { return }
