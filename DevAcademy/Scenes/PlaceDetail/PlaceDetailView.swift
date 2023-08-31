@@ -26,6 +26,7 @@ struct PlaceDetailView: View {
                                 .foregroundColor(Color.theme.ink)
                                 .frame(maxWidth: .infinity)
                                 .frame(height: 300)
+                                .shadow(color: Color.theme.shadow, radius: 3)
                                 .overlay(
                                     ProgressView()
                                 )
@@ -71,16 +72,18 @@ struct PlaceDetailView: View {
 extension PlaceDetailView {
     private var imagePlaceholder: some View {
         RoundedRectangle(cornerRadius: 2)
-            .foregroundColor(Color.theme.ink)
+            .foregroundColor(Color.theme.light)
             .frame(maxWidth: .infinity)
             .frame(height: 300)
+            .shadow(color: Color.theme.shadow, radius: 3)
             .overlay(
                 Image.otherSymbol.imagePlaceholder
                     .renderingMode(.template)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .foregroundColor(Color.theme.ink)
-                    .padding(.horizontal, 6)
+                    .foregroundColor(Color.theme.accent)
+                    .padding(70)
+                    .opacity(0.3)
             )
     }
 
@@ -101,6 +104,7 @@ extension PlaceDetailView {
                     .opacity(0.7)
             }
         }
+        .padding(.top, 20)
     }
 
     private var buttonShowOnMap: some View {
