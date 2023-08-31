@@ -4,6 +4,7 @@ extension Image {
     static let mapSymbol = MapImageSymbol()
     static let tabSymbol = TabViewImageSymbol()
     static let contactsSymbol = ContactsImageSymbol()
+    static let otherSymbol = OtherAppSymbol()
 }
 
 struct TabViewImageSymbol {
@@ -37,4 +38,7 @@ struct MapImageSymbol {
     let unknown = Image("other")
     
     let navigateArrow = Image(systemName: "arrow.triangle.turn.up.right.diamond.fill")
+}
+struct OtherAppSymbol {
+    let imagePlaceholder = Image(systemName: "photo.artframe")
 }

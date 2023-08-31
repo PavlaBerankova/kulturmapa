@@ -8,5 +8,6 @@ struct ColorTheme {
     let accent = Color("AccentColor")
     let secondaryTextColor = Color("SecondaryTextColor")
     let ink = Color("InkTextColor")
+    let shadow = Color("ShadowColor")
 }
 

@@ -21,6 +21,7 @@ struct PlaceDetailView: View {
                                 .cornerRadius(2)
                                 .shadow(radius: 4)
                         } placeholder: {
+                            // placeholder for image is available, but loading
                             RoundedRectangle(cornerRadius: 2)
                                 .foregroundColor(Color.theme.ink)
                                 .frame(maxWidth: .infinity)
@@ -30,6 +31,7 @@ struct PlaceDetailView: View {
                                 )
                         }
                     } else {
+                        // placeholder for image is missing
                         imagePlaceholder
                     }
                     LazyVStack(alignment: .leading, spacing: 10) {
@@ -73,10 +75,12 @@ extension PlaceDetailView {
             .frame(maxWidth: .infinity)
             .frame(height: 300)
             .overlay(
-                Text("Obrázek není k dispozici")
-                    .font(.title2)
-                    .foregroundColor(Color.theme.accent)
-                    .opacity(0.5), alignment: .center
+                Image.otherSymbol.imagePlaceholder
+                    .renderingMode(.template)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .foregroundColor(Color.theme.ink)
+                    .padding(.horizontal, 6)
             )
     }
 
