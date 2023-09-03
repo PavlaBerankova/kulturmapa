@@ -2,21 +2,20 @@ import SwiftUI
 import ActivityIndicatorView
 
 struct PlacesView: View {
-    
+    // MARK: PROPERTIES
     @EnvironmentObject private var coordinator: Coordinator
-    
     let model = PlacesViewModel()
-    
+
+    // MARK: BODY
     var body: some View {
         NavigationStack {
             Group {
                 if model.placesAreFetched {
-                    List(model.places, id: \.properties.ogcFid) { place in
+                    List(model.places, id: \.attributes.ogcFid) { place in
                         NavigationLink {
                             coordinator.placeDetailScene(with: place)
                         } label: {
                             PlacesRow(place: place)
-
                         }
                     }
                     .animation(.default, value: model.places)
@@ -29,17 +28,20 @@ struct PlacesView: View {
                     }
                 }
             }
-                    .navigationTitle("Kultůrmapa")
-                    .navigationBarTitleDisplayMode(.inline)
+            .navigationTitle("Kultůrmapa")
+            .navigationBarTitleDisplayMode(.inline)
         }
-        .onAppear(perform: model.fetch)
+        .task {
+            await model.fetchData()
+        }
     }
 }
 
-
+// MARK: PREVIEW
 struct PlacesView_Previews: PreviewProvider {
     static var previews: some View {
         PlacesView()
-            .injectPreviewEnvironment()
+            .environmentObject(PlacesObservableObject(service: ProductionPlacesService()))
+            .environmentObject(Coordinator())
     }
 }

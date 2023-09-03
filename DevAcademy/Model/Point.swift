@@ -1,8 +1,11 @@
 import Foundation
 
-struct Point: Identifiable {
-    var id = UUID()
-    
-    let latitude: Float
-    let longitude: Float
+struct Point: Codable {
+    var latitude: Double
+    var longitude: Double
+
+    enum CodingKeys: String, CodingKey {
+        case latitude = "y"
+        case longitude = "x"
+    }
 }

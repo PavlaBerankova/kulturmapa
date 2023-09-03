@@ -1,12 +1,13 @@
 import SwiftUI
 
 struct PlacesRow: View {
+    // MARK: PROPERTIES
     let place: Place
-    
+
+    // MARK: BODY
     var body: some View {
         HStack {
-           placeImage
-                
+            placeImage
             VStack(alignment: .leading) {
                 placeTitle
                 placeKind
@@ -15,15 +16,10 @@ struct PlacesRow: View {
     }
 }
 
-struct PlacesRow_Previews: PreviewProvider {
-    static var previews: some View {
-        PlacesRow(place: Places.mock.places.first!)
-    }
-}
-
+// MARK: EXTENSION
 extension PlacesRow {
     private var placeImage: some View {
-      AsyncImage(url: place.properties.obrId1) { image in
+        AsyncImage(url: URL(string: place.attributes.imageURL ?? "")) { image in
             image
                 .resizable()
                 .aspectRatio(contentMode: .fill)
@@ -31,20 +27,27 @@ extension PlacesRow {
                 .clipShape(RoundedRectangle(cornerRadius: 8))
                 .shadow(radius: 4)
         } placeholder: {
-           ProgressView()
+            ProgressView()
         }
     }
-    
+
     private var placeTitle: some View {
-        Text(place.properties.nazev)
-            .font(.title2)
+        Text(place.attributes.title)
+            .font(.title3)
             .fontWeight(.semibold)
-            .lineLimit(1)
+            .lineLimit(3)
     }
     
     private var placeKind: some View {
-        Text(place.properties.druh.rawValue)
-            .foregroundColor(Color.theme.secondaryTextColor)
-            .font(.subheadline)
+        Text(place.attributes.kind.rawValue)
+            .font(.footnote)
+            .opacity(0.7)
+    }
+}
+
+// MARK: PREVIEW
+struct PlacesRow_Previews: PreviewProvider {
+    static var previews: some View {
+        PlacesRow(place: Places.mock.places.first!)
     }
 }

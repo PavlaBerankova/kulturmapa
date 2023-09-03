@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct FavoritePlacesView: View {
+    // MARK: BODY
     var body: some View {
         NavigationStack {
             ZStack {
@@ -10,8 +11,6 @@ struct FavoritePlacesView: View {
                         .font(.title)
                         .fontWeight(.medium)
                         .lineLimit(1)
-                        .shadow(color: Color.theme.ink, radius: 1)
-                        
                     Image(systemName: "star")
                         .resizable()
                         .renderingMode(.template)
@@ -27,6 +26,7 @@ struct FavoritePlacesView: View {
     }
 }
 
+// MARK: PREVIEW
 struct FavoritePlacesView_Previews: PreviewProvider {
     static var previews: some View {
         FavoritePlacesView()
