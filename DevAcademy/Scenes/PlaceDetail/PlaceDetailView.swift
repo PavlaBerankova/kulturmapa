@@ -51,9 +51,9 @@ struct PlaceDetailView: View {
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button {
-                            model.addFavorites()
+                            model.isFavourite.wrappedValue.toggle()
                         } label: {
-                            ToolbarButtonView(iconName: model.isTappedFavorite ? "star.fill" : "star")
+                            ToolbarButtonView(iconName: model.isFavourite.wrappedValue ? "star.fill" : "star")
                         }
                     }
                     ToolbarItem(placement: .navigationBarLeading) {
@@ -94,11 +94,11 @@ extension PlaceDetailView {
                 .font(.title3)
                 .fontWeight(.bold)
             HStack {
-                Text(model.placeAdress)
+                Text(model.placeAddress)
                     .lineLimit(2)
                     .opacity(0.7)
                 Spacer()
-                Image(systemName: "location")
+                Image.otherSymbol.locationArrow
                     .foregroundColor(Color.theme.accent)
                 Text(model.getDistance())
                     .opacity(0.7)
@@ -119,7 +119,7 @@ extension PlaceDetailView {
                 .foregroundColor(Color.theme.ink)
                 .overlay(
                     HStack {
-                        Image.mapSymbol.navigateArrow
+                        Image.otherSymbol.navigateArrow
                         Text("Navigovat")
                     }
                 )
@@ -144,5 +144,6 @@ struct PlaceDetailView_Previews: PreviewProvider {
     static var previews: some View {
         PlaceDetailView(model: PlaceDetailViewModel(place: Places.mock.places.first!))
             .environmentObject(LocationManager())
+            .environmentObject(PlacesObservableObject(service: ProductionPlacesService()))
     }
 }
