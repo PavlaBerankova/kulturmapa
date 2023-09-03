@@ -13,10 +13,16 @@ struct PlacesViewModel: DynamicProperty {
             latitudeDelta: 0.1,
             longitudeDelta: 0.1))
 
-    
-    
     var places: [Place] {
         placesObservableObject.places
+    }
+    
+    var favPlaces: [Int] {
+        placesObservableObject.favouritePlaces ?? []
+    }
+
+    func showFavoritePlaces() -> [Place] {
+        places.filter { favPlaces.contains($0.attributes.ogcFid)}
     }
 
     var placesAreFetched: Bool {
