@@ -4,6 +4,7 @@ import ActivityIndicatorView
 struct PlacesView: View {
     // MARK: PROPERTIES
     @EnvironmentObject private var coordinator: Coordinator
+    @State private var tappedKind = "Vše"
     let model = PlacesViewModel()
 
     // MARK: BODY
@@ -11,6 +12,9 @@ struct PlacesView: View {
         NavigationStack {
             Group {
                 if model.placesAreFetched {
+                    if tappedKind == "Vše" {
+                        
+                    }
                     List(model.places, id: \.attributes.ogcFid) { place in
                         NavigationLink {
                             coordinator.placeDetailScene(with: place)

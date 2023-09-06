@@ -22,7 +22,7 @@ struct ToolbarButtonView: View {
 struct ToolbarButtonView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            Color.black
+            Color.gray
             ToolbarButtonView(iconName: "star")
         }
         .previewLayout(.sizeThatFits)

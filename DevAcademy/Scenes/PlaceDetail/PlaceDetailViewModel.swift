@@ -12,7 +12,7 @@ struct PlaceDetailViewModel: DynamicProperty {
     }
 
     var isFavourite: Binding<Bool> {
-            .init {
+        .init {
                 placesObservableObject.favouritePlaces?.contains(place.attributes.ogcFid) ?? false
             } set: { newValue in
                 placesObservableObject.set(place: place, favourite: newValue)

@@ -8,9 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		440639732A8CB15000EDB546 /* PlacesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440639722A8CB15000EDB546 /* PlacesService.swift */; };
+		4407E15D2AA8030F00B180F5 /* ScrollToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4407E15C2AA8030F00B180F5 /* ScrollToolbar.swift */; };
 		44145C5E2A86880E007D4265 /* PlaceMapAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44145C5D2A86880E007D4265 /* PlaceMapAnnotationView.swift */; };
 		442593B32AA0883A00FD1058 /* ImageStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442593B22AA0883A00FD1058 /* ImageStorage.swift */; };
-		442F90BF2A95037F005983B6 /* RoundedRectangleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442F90BE2A95037F005983B6 /* RoundedRectangleButtonView.swift */; };
+		442F90BF2A95037F005983B6 /* FilterButtonInToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442F90BE2A95037F005983B6 /* FilterButtonInToolbar.swift */; };
 		4441E2622A9234D0006C9A62 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4441E2612A9234D0006C9A62 /* String.swift */; };
 		4441F5482A8F699B00E90519 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4441F5472A8F699B00E90519 /* Image.swift */; };
 		445DBDD82A82755400B01FAA /* PlacesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445DBDD72A82755400B01FAA /* PlacesViewModel.swift */; };
@@ -42,9 +43,10 @@
 
 /* Begin PBXFileReference section */
 		440639722A8CB15000EDB546 /* PlacesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesService.swift; sourceTree = "<group>"; };
+		4407E15C2AA8030F00B180F5 /* ScrollToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollToolbar.swift; sourceTree = "<group>"; };
 		44145C5D2A86880E007D4265 /* PlaceMapAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceMapAnnotationView.swift; sourceTree = "<group>"; };
 		442593B22AA0883A00FD1058 /* ImageStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStorage.swift; sourceTree = "<group>"; };
-		442F90BE2A95037F005983B6 /* RoundedRectangleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedRectangleButtonView.swift; sourceTree = "<group>"; };
+		442F90BE2A95037F005983B6 /* FilterButtonInToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButtonInToolbar.swift; sourceTree = "<group>"; };
 		4441E2612A9234D0006C9A62 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		4441F5472A8F699B00E90519 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		445DBDD72A82755400B01FAA /* PlacesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesViewModel.swift; sourceTree = "<group>"; };
@@ -150,7 +152,8 @@
 			isa = PBXGroup;
 			children = (
 				44CDD1772A941A6200452808 /* ToolbarButtonView.swift */,
-				442F90BE2A95037F005983B6 /* RoundedRectangleButtonView.swift */,
+				442F90BE2A95037F005983B6 /* FilterButtonInToolbar.swift */,
+				4407E15C2AA8030F00B180F5 /* ScrollToolbar.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -325,10 +328,11 @@
 				4499C7922A71062F007F6C1C /* Place.swift in Sources */,
 				445DBDDF2A8283D800B01FAA /* Coordinator.swift in Sources */,
 				445DBDDD2A827D3600B01FAA /* PlaceDetailViewModel.swift in Sources */,
+				4407E15D2AA8030F00B180F5 /* ScrollToolbar.swift in Sources */,
 				44D2CBD62A996D6C00373DAD /* LocationManager.swift in Sources */,
 				C056104B2A5C78CA007FB970 /* RootView.swift in Sources */,
 				44B4300B2A83DAF9005D9326 /* Color.swift in Sources */,
-				442F90BF2A95037F005983B6 /* RoundedRectangleButtonView.swift in Sources */,
+				442F90BF2A95037F005983B6 /* FilterButtonInToolbar.swift in Sources */,
 				4483CD5B2A700352004614DF /* PlacesView.swift in Sources */,
 				C05610492A5C78CA007FB970 /* DevAcademyApp.swift in Sources */,
 				4441E2622A9234D0006C9A62 /* String.swift in Sources */,
