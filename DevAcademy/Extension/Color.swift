@@ -11,5 +11,6 @@ struct ColorTheme {
     let shadow = Color("ShadowColor")
     let light = Color("LightColor")
     let lightOne = Color("ToolbarBackground")
+    let search = Color("LightColorForSearchButton")
 }
 

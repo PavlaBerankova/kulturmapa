@@ -18,7 +18,7 @@ struct Place: Codable, Equatable, Identifiable {
         case .kind(.cinema):
             return Image.mapSymbol.cinema
         case .kind(.theatre):
-            return Image.mapSymbol.theatre
+            return Image.mapSymbol.theater
         case .kind(.gallery):
             return Image.mapSymbol.gallery
         case .kind(.hub):
@@ -44,7 +44,7 @@ struct Place: Codable, Equatable, Identifiable {
         case .kind(.other):
             return Image.mapSymbol.other
         case .unknown:
-            return Image.mapSymbol.unknown
+            return Image.mapSymbol.other
         }
     }
 }

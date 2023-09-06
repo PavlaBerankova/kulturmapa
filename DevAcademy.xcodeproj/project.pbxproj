@@ -33,6 +33,7 @@
 		44C93BCD2A79335A00DD287B /* PlaceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C93BCC2A79335A00DD287B /* PlaceDetailView.swift */; };
 		44CDD1782A941A6200452808 /* ToolbarButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CDD1772A941A6200452808 /* ToolbarButtonView.swift */; };
 		44D2CBD62A996D6C00373DAD /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D2CBD52A996D6C00373DAD /* LocationManager.swift */; };
+		44DBA79A2AA87509001A9C23 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DBA7992AA87509001A9C23 /* SearchBarView.swift */; };
 		44EA42812A7AE502008DB6C3 /* FavoritesPlacesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EA42802A7AE502008DB6C3 /* FavoritesPlacesView.swift */; };
 		C05610492A5C78CA007FB970 /* DevAcademyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05610482A5C78CA007FB970 /* DevAcademyApp.swift */; };
 		C056104B2A5C78CA007FB970 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C056104A2A5C78CA007FB970 /* RootView.swift */; };
@@ -66,6 +67,7 @@
 		44C93BCC2A79335A00DD287B /* PlaceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailView.swift; sourceTree = "<group>"; };
 		44CDD1772A941A6200452808 /* ToolbarButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarButtonView.swift; sourceTree = "<group>"; };
 		44D2CBD52A996D6C00373DAD /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		44DBA7992AA87509001A9C23 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		44EA42802A7AE502008DB6C3 /* FavoritesPlacesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPlacesView.swift; sourceTree = "<group>"; };
 		C05610452A5C78CA007FB970 /* DevAcademy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevAcademy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C05610482A5C78CA007FB970 /* DevAcademyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevAcademyApp.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			children = (
 				44CDD1772A941A6200452808 /* ToolbarButtonView.swift */,
 				442F90BE2A95037F005983B6 /* KindButtonInToolbar.swift */,
+				44DBA7992AA87509001A9C23 /* SearchBarView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				C056104B2A5C78CA007FB970 /* RootView.swift in Sources */,
 				44B4300B2A83DAF9005D9326 /* Color.swift in Sources */,
 				442F90BF2A95037F005983B6 /* KindButtonInToolbar.swift in Sources */,
+				44DBA79A2AA87509001A9C23 /* SearchBarView.swift in Sources */,
 				4483CD5B2A700352004614DF /* PlacesView.swift in Sources */,
 				C05610492A5C78CA007FB970 /* DevAcademyApp.swift in Sources */,
 				4441E2622A9234D0006C9A62 /* String.swift in Sources */,
