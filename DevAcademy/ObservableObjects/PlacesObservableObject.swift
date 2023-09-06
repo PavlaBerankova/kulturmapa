@@ -22,11 +22,8 @@ final class PlacesObservableObject: ObservableObject {
     }
 
     func set(place: Place, favourite: Bool) {
-        guard var favouritePlaces = favouritePlaces else {
-            return
-        }
-
-        let placeId = place.attributes.ogcFid
+        var favouritePlaces = self.favouritePlaces ?? []
+        var placeId = place.attributes.ogcFid
 
         switch favourite {
         case true:
