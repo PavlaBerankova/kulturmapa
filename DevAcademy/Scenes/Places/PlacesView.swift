@@ -4,7 +4,7 @@ import ActivityIndicatorView
 struct PlacesView: View {
     // MARK: PROPERTIES
     @EnvironmentObject private var coordinator: Coordinator
-    @State private var tappedKind = "Vše"
+   
     let model = PlacesViewModel()
 
     // MARK: BODY
@@ -12,18 +12,23 @@ struct PlacesView: View {
         NavigationStack {
             Group {
                 if model.placesAreFetched {
-                    if tappedKind == "Vše" {
-                        
-                    }
-                    List(model.places, id: \.attributes.ogcFid) { place in
-                        NavigationLink {
-                            coordinator.placeDetailScene(with: place)
-                        } label: {
-                            PlacesRow(place: place)
+                    if model.buttonKind == "Vše" {
+                        List(model.places, id: \.attributes.ogcFid) { place in
+                            NavigationLink {
+                                coordinator.placeDetailScene(with: place)
+                            } label: {
+                                PlacesRow(place: place)
+                            }
+                        }
+                    } else {
+                        List(model.kindFilter(with: model.buttonKind), id: \.attributes.ogcFid) { place in
+                            NavigationLink {
+                                coordinator.placeDetailScene(with: place)
+                            } label: {
+                                PlacesRow(place: place)
+                            }
                         }
                     }
-                    .animation(.default, value: model.places)
-                    .listStyle(.plain)
                 } else {
                     VStack {
                         ActivityIndicatorView(isVisible: .constant(true), type: .arcs(count: 3, lineWidth: 1.5))
@@ -32,8 +37,29 @@ struct PlacesView: View {
                     }
                 }
             }
-            .navigationTitle("Kultůrmapa")
-            .navigationBarTitleDisplayMode(.inline)
+           // .padding(.top, 20)
+            .listStyle(.plain)
+            .toolbar {
+                ScrollView(.horizontal, showsIndicators: true) {
+                    HStack {
+                        Button {
+                            model.buttonKind = "Vše"
+                        } label: {
+                            KindButtonInToolbar(title: "Vše", isSelected: model.buttonKind == "Vše")
+                        }
+                        ForEach(Kind.allCases, id: \.self) { kind in
+                            Button {
+                                model.buttonKind = kind.rawValue
+                            } label: {
+                                KindButtonInToolbar(title: kind.rawValue, isSelected: model.buttonKind == kind.rawValue)
+                            }
+                        }
+                    }
+                }
+                //.padding(.top, 20)
+            }
+            .toolbarBackground(Color.theme.lightOne, for: .navigationBar)
+            .toolbarBackground(.visible, for: .navigationBar)
         }
         .task {
             await model.fetchData()

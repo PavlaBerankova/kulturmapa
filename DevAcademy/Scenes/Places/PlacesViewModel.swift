@@ -4,6 +4,7 @@ import MapKit
 struct PlacesViewModel: DynamicProperty {
     @EnvironmentObject private var placesObservableObject: PlacesObservableObject
     @State var selectedPlace: Place?
+    @State var buttonKind = "Vše"
     // Brno coordinates
     @State var region = MKCoordinateRegion(
         center: CLLocationCoordinate2D(
@@ -31,5 +32,9 @@ struct PlacesViewModel: DynamicProperty {
 
     func fetchData() async {
         await placesObservableObject.fetchPlacesData()
+    }
+
+    func kindFilter(with kind: String) -> [Place] {
+        return placesObservableObject.places.filter { $0.attributes.kind.rawValue == kind }
     }
 }

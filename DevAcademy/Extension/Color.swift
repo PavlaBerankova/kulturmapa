@@ -10,5 +10,6 @@ struct ColorTheme {
     let ink = Color("InkTextColor")
     let shadow = Color("ShadowColor")
     let light = Color("LightColor")
+    let lightOne = Color("ToolbarBackground")
 }
 
