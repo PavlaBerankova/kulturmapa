@@ -474,6 +474,7 @@
 				DEVELOPMENT_TEAM = WJ82JM369V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Kultůrmapa";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Povolení polohy k zobrazení míst kolem vás.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Povolení polohy k zobrazení míst kolem vás.";
@@ -507,6 +508,7 @@
 				DEVELOPMENT_TEAM = WJ82JM369V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Kultůrmapa";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Povolení polohy k zobrazení míst kolem vás.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Povolení polohy k zobrazení míst kolem vás.";
