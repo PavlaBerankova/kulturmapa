@@ -9,9 +9,9 @@ struct PlacesView: View {
     // MARK: BODY
     var body: some View {
         NavigationStack {
-            customToolbar
             Group {
                 if model.placesAreFetched {
+                    customToolbar
                     if model.buttonKind == "Vše" {
                         List(model.places, id: \.attributes.ogcFid) { place in
                             NavigationLink {
@@ -37,32 +37,7 @@ struct PlacesView: View {
                     }
                 }
             }
-           // .padding(.top, 20)
             .listStyle(.plain)
-//            .toolbar {
-//                VStack {
-//                    SearchBarView(searchText: model.$searchText)
-//                    ScrollView(.horizontal, showsIndicators: true) {
-//                        HStack {
-//                            Button {
-//                                model.buttonKind = "Vše"
-//                            } label: {
-//                                KindButtonInToolbar(title: "Vše", isSelected: model.buttonKind == "Vše")
-//                            }
-//                            ForEach(Kind.allCases, id: \.self) { kind in
-//                                Button {
-//                                    model.buttonKind = kind.rawValue
-//                                } label: {
-//                                    KindButtonInToolbar(title: kind.rawValue, isSelected: model.buttonKind == kind.rawValue)
-//                                }
-//                            }
-//                        }
-//                    }
-//                }
-//                //.padding(.top, 20)
-//            }
-//            .toolbarBackground(Color.theme.lightOne, for: .navigationBar)
-//            .toolbarBackground(.visible, for: .navigationBar)
         }
         .task {
             await model.fetchData()
@@ -73,7 +48,6 @@ struct PlacesView: View {
 extension PlacesView {
     private var customToolbar: some View {
         VStack {
-//            SearchBarView(searchText: model.$searchText)
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
                     Button {
@@ -94,7 +68,7 @@ extension PlacesView {
         }
         .padding(.horizontal)
         .background(
-        RoundedRectangle(cornerRadius: 3)
+        RoundedRectangle(cornerRadius: 0)
             .ignoresSafeArea(edges: .top)
             .foregroundColor(Color.theme.search)
             .shadow(color: Color.theme.secondaryTextColor, radius: 2)
