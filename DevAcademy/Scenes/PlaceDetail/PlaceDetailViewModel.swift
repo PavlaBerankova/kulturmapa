@@ -5,27 +5,24 @@ struct PlaceDetailViewModel: DynamicProperty {
     // MARK: PROPERTIES
     @EnvironmentObject private var placesObservableObject: PlacesObservableObject
     @EnvironmentObject private var locationManager: LocationManager
-    @State var isTappedFavorite = false
 
     var place: Place
     init(place: Place) {
         self.place = place
     }
 
+    var isFavourite: Binding<Bool> {
+            .init {
+                placesObservableObject.favouritePlaces?.contains(place.attributes.ogcFid) ?? false
+            } set: { newValue in
+                placesObservableObject.set(place: place, favourite: newValue)
+            }
+        }
+
     // MARK: PLACE MAIN INFORMATION
     // IMAGE
-    var placeImage: String {
-        if imageIsFetch {
-            return place.attributes.imageURL ?? ""
-        }
-        return "Obrázek není k dispozici"
-    }
-
-    var imageIsFetch: Bool {
-        guard place.attributes.imageURL != nil else {
-            return false
-        }
-        return true
+    var placeImage: URL? {
+        place.attributes.imageURL
     }
 
     // TITLE
@@ -33,8 +30,8 @@ struct PlaceDetailViewModel: DynamicProperty {
         place.attributes.title
     }
 
-    // ADRESS
-    var placeAdress: String {
+    // ADDRESS
+    var placeAddress: String {
         (place.attributes.street ?? "") + " " + (place.attributes.streetNo ?? "")
     }
 
@@ -108,9 +105,9 @@ struct PlaceDetailViewModel: DynamicProperty {
         mapItem.openInMaps(launchOptions: nil)
     }
 
-    func addFavorites() {
-        isTappedFavorite.toggle()
-    }
+//    func addFavorites() {
+//        isTappedFavorite.toggle()
+//    }
 
     private func checkAndFixHasprefix(link: String) -> String {
         let httpProtocol = "https://"

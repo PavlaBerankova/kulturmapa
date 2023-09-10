@@ -11,9 +11,28 @@ struct PlaceDetailView: View {
         NavigationStack {
             ZStack {
                 VStack {
-                    if model.imageIsFetch {
-                        placeImage
+                    if let placeImageUrl = model.placeImage {
+                        StoredAsyncImage(url: placeImageUrl) { image in
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(maxWidth: .infinity)
+                                .frame(height: 300)
+                                .cornerRadius(2)
+                                .shadow(radius: 4)
+                        } placeholder: {
+                            // placeholder for image is available, but loading
+                            RoundedRectangle(cornerRadius: 2)
+                                .foregroundColor(Color.theme.ink)
+                                .frame(maxWidth: .infinity)
+                                .frame(height: 300)
+                                .shadow(color: Color.theme.shadow, radius: 3)
+                                .overlay(
+                                    ProgressView()
+                                )
+                        }
                     } else {
+                        // placeholder for image is missing
                         imagePlaceholder
                     }
                     LazyVStack(alignment: .leading, spacing: 10) {
@@ -32,9 +51,9 @@ struct PlaceDetailView: View {
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button {
-                            model.addFavorites()
+                            model.isFavourite.wrappedValue.toggle()
                         } label: {
-                            ToolbarButtonView(iconName: model.isTappedFavorite ? "star.fill" : "star")
+                            ToolbarButtonView(iconName: model.isFavourite.wrappedValue ? "star.fill" : "star")
                         }
                     }
                     ToolbarItem(placement: .navigationBarLeading) {
@@ -51,36 +70,20 @@ struct PlaceDetailView: View {
 
 // MARK: EXTENSION
 extension PlaceDetailView {
-    private var placeImage: some View {
-        AsyncImage(url: URL(string: model.placeImage)) { image in
-            image
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(maxWidth: .infinity)
-                .frame(height: 300)
-                .cornerRadius(2)
-                .shadow(radius: 4)
-        } placeholder: {
-            RoundedRectangle(cornerRadius: 2)
-                .foregroundColor(Color.theme.ink)
-                .frame(maxWidth: .infinity)
-                .frame(height: 300)
-                .overlay(
-                    ProgressView()
-                )
-        }
-    }
-
     private var imagePlaceholder: some View {
         RoundedRectangle(cornerRadius: 2)
-            .foregroundColor(Color.theme.ink)
+            .foregroundColor(Color.theme.light)
             .frame(maxWidth: .infinity)
             .frame(height: 300)
+            .shadow(color: Color.theme.shadow, radius: 3)
             .overlay(
-                Text(model.placeImage)
-                    .font(.title2)
+                Image.otherSymbol.imagePlaceholder
+                    .renderingMode(.template)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
                     .foregroundColor(Color.theme.accent)
-                    .opacity(0.5), alignment: .center
+                    .padding(70)
+                    .opacity(0.3)
             )
     }
 
@@ -91,16 +94,17 @@ extension PlaceDetailView {
                 .font(.title3)
                 .fontWeight(.bold)
             HStack {
-                Text(model.placeAdress)
+                Text(model.placeAddress)
                     .lineLimit(2)
                     .opacity(0.7)
                 Spacer()
-                Image(systemName: "location")
+                Image.otherSymbol.locationArrow
                     .foregroundColor(Color.theme.accent)
                 Text(model.getDistance())
                     .opacity(0.7)
             }
         }
+        .padding(.top, 15)
     }
 
     private var buttonShowOnMap: some View {
@@ -115,7 +119,7 @@ extension PlaceDetailView {
                 .foregroundColor(Color.theme.ink)
                 .overlay(
                     HStack {
-                        Image.mapSymbol.navigateArrow
+                        Image.otherSymbol.navigateArrow
                         Text("Navigovat")
                     }
                 )
@@ -140,5 +144,6 @@ struct PlaceDetailView_Previews: PreviewProvider {
     static var previews: some View {
         PlaceDetailView(model: PlaceDetailViewModel(place: Places.mock.places.first!))
             .environmentObject(LocationManager())
+            .environmentObject(PlacesObservableObject(service: ProductionPlacesService()))
     }
 }

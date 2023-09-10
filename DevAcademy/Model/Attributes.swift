@@ -2,7 +2,7 @@ import Foundation
 
 struct Attributes: Codable {
     var ogcFid: Int
-    var imageURL: String?
+    var imageURL: URL?
     var kind: PossibleKind
     var title: String
     var email: String?

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		440639732A8CB15000EDB546 /* PlacesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440639722A8CB15000EDB546 /* PlacesService.swift */; };
 		44145C5E2A86880E007D4265 /* PlaceMapAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44145C5D2A86880E007D4265 /* PlaceMapAnnotationView.swift */; };
+		442593B32AA0883A00FD1058 /* ImageStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442593B22AA0883A00FD1058 /* ImageStorage.swift */; };
 		442F90BF2A95037F005983B6 /* RoundedRectangleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442F90BE2A95037F005983B6 /* RoundedRectangleButtonView.swift */; };
 		4441E2622A9234D0006C9A62 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4441E2612A9234D0006C9A62 /* String.swift */; };
 		4441F5482A8F699B00E90519 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4441F5472A8F699B00E90519 /* Image.swift */; };
@@ -42,6 +43,7 @@
 /* Begin PBXFileReference section */
 		440639722A8CB15000EDB546 /* PlacesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesService.swift; sourceTree = "<group>"; };
 		44145C5D2A86880E007D4265 /* PlaceMapAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceMapAnnotationView.swift; sourceTree = "<group>"; };
+		442593B22AA0883A00FD1058 /* ImageStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStorage.swift; sourceTree = "<group>"; };
 		442F90BE2A95037F005983B6 /* RoundedRectangleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedRectangleButtonView.swift; sourceTree = "<group>"; };
 		4441E2612A9234D0006C9A62 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		4441F5472A8F699B00E90519 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
@@ -84,6 +86,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		442593B12AA0881B00FD1058 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				442593B22AA0883A00FD1058 /* ImageStorage.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
 		445DBDD92A82787500B01FAA /* ObservableObjects */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,14 +146,21 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		44AFC1282AA0C59000B3E0EC /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				44CDD1772A941A6200452808 /* ToolbarButtonView.swift */,
+				442F90BE2A95037F005983B6 /* RoundedRectangleButtonView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		44B430082A83D9A0005D9326 /* PlaceDetail */ = {
 			isa = PBXGroup;
 			children = (
 				44C93BCC2A79335A00DD287B /* PlaceDetailView.swift */,
 				445DBDDC2A827D3600B01FAA /* PlaceDetailViewModel.swift */,
 				44C649D62A9087DD00A5369F /* PlaceInfoRow.swift */,
-				44CDD1772A941A6200452808 /* ToolbarButtonView.swift */,
-				442F90BE2A95037F005983B6 /* RoundedRectangleButtonView.swift */,
 			);
 			path = PlaceDetail;
 			sourceTree = "<group>";
@@ -199,8 +216,10 @@
 				C056104A2A5C78CA007FB970 /* RootView.swift */,
 				445DBDD92A82787500B01FAA /* ObservableObjects */,
 				44B430092A83DAEC005D9326 /* Extension */,
+				44AFC1282AA0C59000B3E0EC /* Components */,
 				4499C78E2A7105AF007F6C1C /* Model */,
 				4483CD582A7002C7004614DF /* Scenes */,
+				442593B12AA0881B00FD1058 /* Persistence */,
 				4499C7A12A71080B007F6C1C /* Services */,
 				C056104C2A5C78CB007FB970 /* Assets.xcassets */,
 				C056104E2A5C78CB007FB970 /* Preview Content */,
@@ -293,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				440639732A8CB15000EDB546 /* PlacesService.swift in Sources */,
+				442593B32AA0883A00FD1058 /* ImageStorage.swift in Sources */,
 				44C93BCD2A79335A00DD287B /* PlaceDetailView.swift in Sources */,
 				4499C7962A71064E007F6C1C /* Attributes.swift in Sources */,
 				4499C79A2A710712007F6C1C /* PossibleKind.swift in Sources */,
