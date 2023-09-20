@@ -2,7 +2,7 @@ import SwiftUI
 
 struct CustomNavigationToolbarWithPlaceType: View {
     // MARK: PROPERTIES
-    let model = PlacesViewModel()
+    @Binding var selectedKind: String
 
     // MARK: - BODY
     var body: some View {
@@ -10,15 +10,15 @@ struct CustomNavigationToolbarWithPlaceType: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
                     Button {
-                        model.placeKind = "Vše"
+                       selectedKind = "Vše"
                     } label: {
-                        ToolbarButtonWithKindView(title: "Vše", isSelected: model.placeKind == "Vše")
+                        ToolbarButtonWithKindView(title: "Vše", isSelected: selectedKind == "Vše")
                     }
                     ForEach(Kind.allCases, id: \.self) { kind in
                         Button {
-                            model.placeKind = kind.rawValue
+                            selectedKind = kind.rawValue
                         } label: {
-                            ToolbarButtonWithKindView(title: kind.rawValue, isSelected: model.placeKind == kind.rawValue)
+                            ToolbarButtonWithKindView(title: kind.rawValue, isSelected: selectedKind == kind.rawValue)
                         }
                     }
                 }
@@ -38,6 +38,6 @@ struct CustomNavigationToolbarWithPlaceType: View {
 // MARK: - PREVIEW
 struct CustomNavigationToolbarWithPlaceType_Previews: PreviewProvider {
     static var previews: some View {
-        CustomNavigationToolbarWithPlaceType()
+        CustomNavigationToolbarWithPlaceType(selectedKind: .constant("Vše"))
     }
 }

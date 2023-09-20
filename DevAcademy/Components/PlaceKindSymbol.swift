@@ -1,8 +1,8 @@
 import SwiftUI
 
-struct MapWithAnnotationView: View {
+struct PlaceKindSymbol: View {
     // MARK: PROPERTIES
-    let kindSymbol: Image
+    let symbol: Image
 
     // MARK: - BODY
     var body: some View {
@@ -11,7 +11,7 @@ struct MapWithAnnotationView: View {
                 Circle()
                     .frame(width: 45, height: 45)
                     .foregroundColor(.black)
-                kindSymbol
+                symbol
                     .renderingMode(.template)
                     .resizable()
                     .scaledToFit()
@@ -27,9 +27,9 @@ struct MapWithAnnotationView: View {
 }
 
 // MARK: - PREVIEW
-struct MapWithAnnotationView_Previews: PreviewProvider {
+struct PlaceKindSymbolView_Previews: PreviewProvider {
     static var previews: some View {
-        MapWithAnnotationView(kindSymbol: Image.mapSymbol.cinema)
+        PlaceKindSymbol(symbol: Image.mapSymbol.cinema)
             .previewLayout(.sizeThatFits)
     }
 }

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		440639732A8CB15000EDB546 /* PlacesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440639722A8CB15000EDB546 /* PlacesService.swift */; };
-		44145C5E2A86880E007D4265 /* MapWithAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44145C5D2A86880E007D4265 /* MapWithAnnotationView.swift */; };
+		44145C5E2A86880E007D4265 /* PlaceKindSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44145C5D2A86880E007D4265 /* PlaceKindSymbol.swift */; };
 		442593B32AA0883A00FD1058 /* ImageStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442593B22AA0883A00FD1058 /* ImageStorage.swift */; };
 		442F90BF2A95037F005983B6 /* ToolbarButtonWithKindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442F90BE2A95037F005983B6 /* ToolbarButtonWithKindView.swift */; };
 		4441E2622A9234D0006C9A62 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4441E2612A9234D0006C9A62 /* String.swift */; };
@@ -44,7 +44,7 @@
 
 /* Begin PBXFileReference section */
 		440639722A8CB15000EDB546 /* PlacesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesService.swift; sourceTree = "<group>"; };
-		44145C5D2A86880E007D4265 /* MapWithAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapWithAnnotationView.swift; sourceTree = "<group>"; };
+		44145C5D2A86880E007D4265 /* PlaceKindSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceKindSymbol.swift; sourceTree = "<group>"; };
 		442593B22AA0883A00FD1058 /* ImageStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStorage.swift; sourceTree = "<group>"; };
 		442F90BE2A95037F005983B6 /* ToolbarButtonWithKindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarButtonWithKindView.swift; sourceTree = "<group>"; };
 		4441E2612A9234D0006C9A62 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -153,10 +153,11 @@
 		44AFC1282AA0C59000B3E0EC /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				44F23DDE2ABAF7D300CB1C21 /* CustomNavigationToolbarWithPlaceType.swift */,
+				44145C5D2A86880E007D4265 /* PlaceKindSymbol.swift */,
+				44DBA7992AA87509001A9C23 /* SearchBarView.swift */,
 				44CDD1772A941A6200452808 /* ToolbarButtonView.swift */,
 				442F90BE2A95037F005983B6 /* ToolbarButtonWithKindView.swift */,
-				44DBA7992AA87509001A9C23 /* SearchBarView.swift */,
-				44F23DDE2ABAF7D300CB1C21 /* CustomNavigationToolbarWithPlaceType.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -186,7 +187,6 @@
 			isa = PBXGroup;
 			children = (
 				446531582A7AC912001DF5C4 /* PlacesMapView.swift */,
-				44145C5D2A86880E007D4265 /* MapWithAnnotationView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -363,7 +363,7 @@
 				C05610492A5C78CA007FB970 /* DevAcademyApp.swift in Sources */,
 				4441E2622A9234D0006C9A62 /* String.swift in Sources */,
 				44CDD1782A941A6200452808 /* ToolbarButtonView.swift in Sources */,
-				44145C5E2A86880E007D4265 /* MapWithAnnotationView.swift in Sources */,
+				44145C5E2A86880E007D4265 /* PlaceKindSymbol.swift in Sources */,
 				445DBDDB2A82789900B01FAA /* PlacesObservableObject.swift in Sources */,
 				4483CD5D2A7004E3004614DF /* PlacesRow.swift in Sources */,
 				4499C7982A7106FA007F6C1C /* Kind.swift in Sources */,
