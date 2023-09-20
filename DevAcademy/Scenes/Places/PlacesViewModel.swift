@@ -35,7 +35,11 @@ struct PlacesViewModel: DynamicProperty {
         await placesObservableObject.fetchPlacesData()
     }
 
-    func kindFilter(with kind: String) -> [Place] {
-        return placesObservableObject.places.filter { $0.attributes.kind.rawValue == kind }
+    func placesFilter(with kind: String) -> [Place] {
+        if kind == "Vše" {
+            return placesObservableObject.places
+        } else {
+            return placesObservableObject.places.filter { $0.attributes.kind.rawValue == kind }
+        }
     }
 }

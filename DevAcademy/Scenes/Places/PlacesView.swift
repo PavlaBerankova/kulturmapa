@@ -21,7 +21,7 @@ struct PlacesView: View {
                             }
                         }
                     } else {
-                        List(model.kindFilter(with: model.buttonKind), id: \.attributes.ogcFid) { place in
+                        List(model.placesFilter(with: model.buttonKind), id: \.attributes.ogcFid) { place in
                             NavigationLink {
                                 coordinator.placeDetailScene(with: place)
                             } label: {
@@ -53,13 +53,13 @@ extension PlacesView {
                     Button {
                         model.buttonKind = "Vše"
                     } label: {
-                        KindButtonInToolbar(title: "Vše", isSelected: model.buttonKind == "Vše")
+                        TypeButtonInToolbar(title: "Vše", isSelected: model.buttonKind == "Vše")
                     }
                     ForEach(Kind.allCases, id: \.self) { kind in
                         Button {
                             model.buttonKind = kind.rawValue
                         } label: {
-                            KindButtonInToolbar(title: kind.rawValue, isSelected: model.buttonKind == kind.rawValue)
+                            TypeButtonInToolbar(title: kind.rawValue, isSelected: model.buttonKind == kind.rawValue)
                         }
                     }
                 }

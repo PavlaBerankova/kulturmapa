@@ -1,8 +1,8 @@
 import SwiftUI
 
-struct KindButtonInToolbar: View {
+struct TypeButtonInToolbar: View {
     // MARK: PROPERTIES
-    let title: Kind.RawValue
+    let title: String
     var isSelected = false
 
     // MARK: BODY
@@ -17,10 +17,14 @@ struct KindButtonInToolbar: View {
 }
 
 // MARK: PREVIEW
-struct KindButtonInToolbarView_Previews: PreviewProvider {
+struct TypeButtonInToolbarView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            KindButtonInToolbar(title: "Vše")
+            VStack {
+                TypeButtonInToolbar(title: "Vše")
+                TypeButtonInToolbar(title: "Podnik s kulturním programem")
+                TypeButtonInToolbar(title: "Divadlo")
+            }
         }
     }
 }
