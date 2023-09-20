@@ -1,11 +1,11 @@
 import SwiftUI
 
-struct TypeButtonInToolbar: View {
+struct ToolbarButtonWithKindView: View {
     // MARK: PROPERTIES
     let title: String
     var isSelected = false
 
-    // MARK: BODY
+    // MARK: - BODY
     var body: some View {
         Text(title.uppercased())
             .padding([.bottom, .top], 10)
@@ -16,14 +16,14 @@ struct TypeButtonInToolbar: View {
     }
 }
 
-// MARK: PREVIEW
-struct TypeButtonInToolbarView_Previews: PreviewProvider {
+// MARK: - PREVIEW
+struct ToolbarButtonWithKindView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             VStack {
-                TypeButtonInToolbar(title: "Vše")
-                TypeButtonInToolbar(title: "Podnik s kulturním programem")
-                TypeButtonInToolbar(title: "Divadlo")
+                ToolbarButtonWithKindView(title: "Vše")
+                ToolbarButtonWithKindView(title: "Podnik s kulturním programem")
+                ToolbarButtonWithKindView(title: "Divadlo")
             }
         }
     }

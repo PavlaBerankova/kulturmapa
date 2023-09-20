@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		440639732A8CB15000EDB546 /* PlacesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440639722A8CB15000EDB546 /* PlacesService.swift */; };
-		44145C5E2A86880E007D4265 /* PlaceMapAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44145C5D2A86880E007D4265 /* PlaceMapAnnotationView.swift */; };
+		44145C5E2A86880E007D4265 /* MapWithAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44145C5D2A86880E007D4265 /* MapWithAnnotationView.swift */; };
 		442593B32AA0883A00FD1058 /* ImageStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442593B22AA0883A00FD1058 /* ImageStorage.swift */; };
-		442F90BF2A95037F005983B6 /* TypeButtonInToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442F90BE2A95037F005983B6 /* TypeButtonInToolbar.swift */; };
+		442F90BF2A95037F005983B6 /* ToolbarButtonWithKindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442F90BE2A95037F005983B6 /* ToolbarButtonWithKindView.swift */; };
 		4441E2622A9234D0006C9A62 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4441E2612A9234D0006C9A62 /* String.swift */; };
 		4441F5482A8F699B00E90519 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4441F5472A8F699B00E90519 /* Image.swift */; };
 		445DBDD82A82755400B01FAA /* PlacesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445DBDD72A82755400B01FAA /* PlacesViewModel.swift */; };
@@ -34,7 +34,8 @@
 		44CDD1782A941A6200452808 /* ToolbarButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CDD1772A941A6200452808 /* ToolbarButtonView.swift */; };
 		44D2CBD62A996D6C00373DAD /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D2CBD52A996D6C00373DAD /* LocationManager.swift */; };
 		44DBA79A2AA87509001A9C23 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DBA7992AA87509001A9C23 /* SearchBarView.swift */; };
-		44EA42812A7AE502008DB6C3 /* FavoritesPlacesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EA42802A7AE502008DB6C3 /* FavoritesPlacesView.swift */; };
+		44EA42812A7AE502008DB6C3 /* FavoritePlacesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EA42802A7AE502008DB6C3 /* FavoritePlacesView.swift */; };
+		44F23DDF2ABAF7D300CB1C21 /* CustomNavigationToolbarWithPlaceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F23DDE2ABAF7D300CB1C21 /* CustomNavigationToolbarWithPlaceType.swift */; };
 		C05610492A5C78CA007FB970 /* DevAcademyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05610482A5C78CA007FB970 /* DevAcademyApp.swift */; };
 		C056104B2A5C78CA007FB970 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C056104A2A5C78CA007FB970 /* RootView.swift */; };
 		C056104D2A5C78CB007FB970 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C056104C2A5C78CB007FB970 /* Assets.xcassets */; };
@@ -43,9 +44,9 @@
 
 /* Begin PBXFileReference section */
 		440639722A8CB15000EDB546 /* PlacesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesService.swift; sourceTree = "<group>"; };
-		44145C5D2A86880E007D4265 /* PlaceMapAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceMapAnnotationView.swift; sourceTree = "<group>"; };
+		44145C5D2A86880E007D4265 /* MapWithAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapWithAnnotationView.swift; sourceTree = "<group>"; };
 		442593B22AA0883A00FD1058 /* ImageStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStorage.swift; sourceTree = "<group>"; };
-		442F90BE2A95037F005983B6 /* TypeButtonInToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeButtonInToolbar.swift; sourceTree = "<group>"; };
+		442F90BE2A95037F005983B6 /* ToolbarButtonWithKindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarButtonWithKindView.swift; sourceTree = "<group>"; };
 		4441E2612A9234D0006C9A62 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		4441F5472A8F699B00E90519 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		445DBDD72A82755400B01FAA /* PlacesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesViewModel.swift; sourceTree = "<group>"; };
@@ -68,7 +69,8 @@
 		44CDD1772A941A6200452808 /* ToolbarButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarButtonView.swift; sourceTree = "<group>"; };
 		44D2CBD52A996D6C00373DAD /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		44DBA7992AA87509001A9C23 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
-		44EA42802A7AE502008DB6C3 /* FavoritesPlacesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPlacesView.swift; sourceTree = "<group>"; };
+		44EA42802A7AE502008DB6C3 /* FavoritePlacesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePlacesView.swift; sourceTree = "<group>"; };
+		44F23DDE2ABAF7D300CB1C21 /* CustomNavigationToolbarWithPlaceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationToolbarWithPlaceType.swift; sourceTree = "<group>"; };
 		C05610452A5C78CA007FB970 /* DevAcademy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevAcademy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C05610482A5C78CA007FB970 /* DevAcademyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevAcademyApp.swift; sourceTree = "<group>"; };
 		C056104A2A5C78CA007FB970 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -152,8 +154,9 @@
 			isa = PBXGroup;
 			children = (
 				44CDD1772A941A6200452808 /* ToolbarButtonView.swift */,
-				442F90BE2A95037F005983B6 /* TypeButtonInToolbar.swift */,
+				442F90BE2A95037F005983B6 /* ToolbarButtonWithKindView.swift */,
 				44DBA7992AA87509001A9C23 /* SearchBarView.swift */,
+				44F23DDE2ABAF7D300CB1C21 /* CustomNavigationToolbarWithPlaceType.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -183,7 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				446531582A7AC912001DF5C4 /* PlacesMapView.swift */,
-				44145C5D2A86880E007D4265 /* PlaceMapAnnotationView.swift */,
+				44145C5D2A86880E007D4265 /* MapWithAnnotationView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -191,7 +194,7 @@
 		44B4300D2A83E18E005D9326 /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
-				44EA42802A7AE502008DB6C3 /* FavoritesPlacesView.swift */,
+				44EA42802A7AE502008DB6C3 /* FavoritePlacesView.swift */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 				C05610412A5C78CA007FB970 /* Sources */,
 				C05610422A5C78CA007FB970 /* Frameworks */,
 				C05610432A5C78CA007FB970 /* Resources */,
+				4477883A2ABAD91200730712 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -309,6 +313,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4477883A2ABAD91200730712 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C05610412A5C78CA007FB970 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -320,6 +345,7 @@
 				4499C7962A71064E007F6C1C /* Attributes.swift in Sources */,
 				4499C79A2A710712007F6C1C /* PossibleKind.swift in Sources */,
 				445DBDD82A82755400B01FAA /* PlacesViewModel.swift in Sources */,
+				44F23DDF2ABAF7D300CB1C21 /* CustomNavigationToolbarWithPlaceType.swift in Sources */,
 				4499C7942A710643007F6C1C /* Point.swift in Sources */,
 				44880EBC2A998AB000197AA1 /* Int.swift in Sources */,
 				446531592A7AC912001DF5C4 /* PlacesMapView.swift in Sources */,
@@ -331,18 +357,18 @@
 				44D2CBD62A996D6C00373DAD /* LocationManager.swift in Sources */,
 				C056104B2A5C78CA007FB970 /* RootView.swift in Sources */,
 				44B4300B2A83DAF9005D9326 /* Color.swift in Sources */,
-				442F90BF2A95037F005983B6 /* TypeButtonInToolbar.swift in Sources */,
+				442F90BF2A95037F005983B6 /* ToolbarButtonWithKindView.swift in Sources */,
 				44DBA79A2AA87509001A9C23 /* SearchBarView.swift in Sources */,
 				4483CD5B2A700352004614DF /* PlacesView.swift in Sources */,
 				C05610492A5C78CA007FB970 /* DevAcademyApp.swift in Sources */,
 				4441E2622A9234D0006C9A62 /* String.swift in Sources */,
 				44CDD1782A941A6200452808 /* ToolbarButtonView.swift in Sources */,
-				44145C5E2A86880E007D4265 /* PlaceMapAnnotationView.swift in Sources */,
+				44145C5E2A86880E007D4265 /* MapWithAnnotationView.swift in Sources */,
 				445DBDDB2A82789900B01FAA /* PlacesObservableObject.swift in Sources */,
 				4483CD5D2A7004E3004614DF /* PlacesRow.swift in Sources */,
 				4499C7982A7106FA007F6C1C /* Kind.swift in Sources */,
 				44C649D72A9087DD00A5369F /* PlaceInfoRow.swift in Sources */,
-				44EA42812A7AE502008DB6C3 /* FavoritesPlacesView.swift in Sources */,
+				44EA42812A7AE502008DB6C3 /* FavoritePlacesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,7 +515,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "berankovap-hotmail.com";
+				PRODUCT_BUNDLE_IDENTIFIER = com.berankovap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -523,7 +549,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "berankovap-hotmail.com";
+				PRODUCT_BUNDLE_IDENTIFIER = com.berankovap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

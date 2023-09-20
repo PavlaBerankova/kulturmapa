@@ -1,13 +1,13 @@
-import SwiftUI
 import MapKit
+import SwiftUI
 
 struct PlacesViewModel: DynamicProperty {
     @EnvironmentObject private var placesObservableObject: PlacesObservableObject
+
     @State var selectedPlace: Place?
-    @State var buttonKind = "Vše"
+    @State var placeKind = "Vše"
     @State var searchText = ""
-    // Brno coordinates
-    @State var region = MKCoordinateRegion(
+    @State var region = MKCoordinateRegion( // Brno coordinates
         center: CLLocationCoordinate2D(
             latitude: 49.19522264287748,
             longitude: 16.605414965101804),
@@ -18,13 +18,13 @@ struct PlacesViewModel: DynamicProperty {
     var places: [Place] {
         placesObservableObject.places
     }
-    
+
     var favPlaces: [Int] {
         placesObservableObject.favouritePlaces ?? []
     }
 
     func showFavoritePlaces() -> [Place] {
-        places.filter { favPlaces.contains($0.attributes.ogcFid)}
+        places.filter { favPlaces.contains($0.attributes.ogcFid) }
     }
 
     var placesAreFetched: Bool {

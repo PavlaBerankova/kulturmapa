@@ -2,9 +2,10 @@ import SwiftUI
 
 struct ToolbarButtonView: View {
     // MARK: PROPERTIES
+    let title: String
     let iconName: String
 
-    // MARK: BODY
+    // MARK: - BODY
     var body: some View {
         Image(systemName: iconName)
             .font(.headline)
@@ -18,12 +19,12 @@ struct ToolbarButtonView: View {
     }
 }
 
-// MARK: PREVIEW
+// MARK: - PREVIEW
 struct ToolbarButtonView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             Color.gray
-            ToolbarButtonView(iconName: "star")
+            ToolbarButtonView(title: "Oblíbené", iconName: "star")
         }
         .previewLayout(.sizeThatFits)
     }

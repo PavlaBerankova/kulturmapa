@@ -17,16 +17,16 @@ class ProductionPlacesService: PlacesService {
         guard let url = url else {
             throw APIError.invalidURL
         }
-        
+
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
-        
+
         let (data, response) = try await session.data(for: request)
-        
+
         guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
             throw APIError.invalidResponse
         }
-        
+
         do {
             return try JSONDecoder().decode(Places.self, from: data)
         } catch {

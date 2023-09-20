@@ -1,17 +1,8 @@
-//
-//  FavoritePlaces.swift
-//  DevAcademy
-//
-//  Created by Pavla Beránková on 01.08.2023.
-//
-
 import SwiftUI
 
 struct FavoritePlaces: View {
     var body: some View {
-       
             Text("Zatím tady nic není")
-        
     }
 }
 

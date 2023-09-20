@@ -4,14 +4,16 @@ import SwiftUI
 struct Place: Codable, Equatable, Identifiable {
     var geometry: Point?
     var attributes: Attributes
-    
+
     static func == (lhs: Place, rhs: Place) -> Bool {
         lhs.attributes.ogcFid == rhs.attributes.ogcFid
     }
+
     // read only - computed properties, not decoding from API
     var id: Int {
         attributes.ogcFid
     }
+
     // symbol for pin on map view
     var symbol: Image {
         switch attributes.kind {

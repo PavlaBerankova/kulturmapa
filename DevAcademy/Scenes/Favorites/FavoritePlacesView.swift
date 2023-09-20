@@ -5,7 +5,7 @@ struct FavoritePlacesView: View {
     @EnvironmentObject private var coordinator: Coordinator
     let model = PlacesViewModel()
 
-    // MARK: BODY
+    // MARK: - BODY
     var body: some View {
         NavigationStack {
             if !model.favPlaces.isEmpty {
@@ -27,7 +27,7 @@ struct FavoritePlacesView: View {
     }
 }
 
-//MARK: EXTENSION
+// MARK: - EXTENSION
 extension FavoritePlacesView {
     private var placeholderScreen: some View {
         ZStack {
@@ -56,7 +56,7 @@ extension FavoritePlacesView {
     }
 }
 
-// MARK: PREVIEW
+// MARK: - PREVIEW
 struct FavoritePlacesView_Previews: PreviewProvider {
     static var previews: some View {
         FavoritePlacesView()

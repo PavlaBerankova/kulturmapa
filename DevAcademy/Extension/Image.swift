@@ -37,6 +37,7 @@ struct MapImageSymbol {
     let other = Image("other")
     let unknown = Image("other")
 }
+
 struct OtherAppSymbol {
     let imagePlaceholder = Image(systemName: "photo.artframe")
     let navigateArrow = Image(systemName: "arrow.triangle.turn.up.right.diamond.fill")

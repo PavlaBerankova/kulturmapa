@@ -1,15 +1,10 @@
-//
-//  SearchBarView.swift
-//  DevAcademy
-//
-//  Created by Pavla Beránková on 06.09.2023.
-//
-
 import SwiftUI
 
 struct SearchBarView: View {
+    // MARK: PROPERTIES
     @Binding var searchText: String
-    
+
+    // MARK: - BODY
     var body: some View {
         HStack {
             Image.otherSymbol.search
@@ -28,7 +23,6 @@ struct SearchBarView: View {
                         },
                     alignment: .trailing
                 )
-            
         }
         .font(.headline)
         .padding()
@@ -42,6 +36,7 @@ struct SearchBarView: View {
     }
 }
 
+// MARK: - PREVIEW
 struct SearchBarView_Previews: PreviewProvider {
     static var previews: some View {
             SearchBarView(searchText: .constant(""))

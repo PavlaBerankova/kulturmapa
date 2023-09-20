@@ -10,6 +10,7 @@ final class PlacesObservableObject: ObservableObject {
     }
 
     private let service: PlacesService
+
     init(service: PlacesService) {
         self.service = service
     }

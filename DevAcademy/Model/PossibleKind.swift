@@ -6,8 +6,8 @@ enum PossibleKind: RawRepresentable, Codable {
 
     typealias RawValue = String
     init?(rawValue: String) {
-        if let x = Kind.init(rawValue: rawValue) {
-            self = .kind(x)
+        if let type = Kind(rawValue: rawValue) {
+            self = .kind(type)
         } else {
             self = .unknown(rawValue)
         }

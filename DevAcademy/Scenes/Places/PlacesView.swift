@@ -1,18 +1,18 @@
-import SwiftUI
 import ActivityIndicatorView
+import SwiftUI
 
 struct PlacesView: View {
     // MARK: PROPERTIES
     @EnvironmentObject private var coordinator: Coordinator
     let model = PlacesViewModel()
 
-    // MARK: BODY
+    // MARK: - BODY
     var body: some View {
         NavigationStack {
             Group {
                 if model.placesAreFetched {
-                    customToolbar
-                    if model.buttonKind == "Vše" {
+                    customNavigationToolbarWithPlaceType
+                    if model.placeKind == "Vše" {
                         List(model.places, id: \.attributes.ogcFid) { place in
                             NavigationLink {
                                 coordinator.placeDetailScene(with: place)
@@ -21,7 +21,7 @@ struct PlacesView: View {
                             }
                         }
                     } else {
-                        List(model.placesFilter(with: model.buttonKind), id: \.attributes.ogcFid) { place in
+                        List(model.placesFilter(with: model.placeKind), id: \.attributes.ogcFid) { place in
                             NavigationLink {
                                 coordinator.placeDetailScene(with: place)
                             } label: {
@@ -45,21 +45,22 @@ struct PlacesView: View {
     }
 }
 
+// MARK: - EXTENSION
 extension PlacesView {
-    private var customToolbar: some View {
+    private var customNavigationToolbarWithPlaceType: some View {
         VStack {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
                     Button {
-                        model.buttonKind = "Vše"
+                        model.placeKind = "Vše"
                     } label: {
-                        TypeButtonInToolbar(title: "Vše", isSelected: model.buttonKind == "Vše")
+                        ToolbarButtonWithKindView(title: "Vše", isSelected: model.placeKind == "Vše")
                     }
                     ForEach(Kind.allCases, id: \.self) { kind in
                         Button {
-                            model.buttonKind = kind.rawValue
+                            model.placeKind = kind.rawValue
                         } label: {
-                            TypeButtonInToolbar(title: kind.rawValue, isSelected: model.buttonKind == kind.rawValue)
+                            ToolbarButtonWithKindView(title: kind.rawValue, isSelected: model.placeKind == kind.rawValue)
                         }
                     }
                 }
@@ -76,7 +77,7 @@ extension PlacesView {
     }
 }
 
-// MARK: PREVIEW
+// MARK: - PREVIEW
 struct PlacesView_Previews: PreviewProvider {
     static var previews: some View {
         PlacesView()

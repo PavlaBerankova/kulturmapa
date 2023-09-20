@@ -1,10 +1,10 @@
 import SwiftUI
 
-struct PlaceMapAnnotationView: View {
+struct MapWithAnnotationView: View {
     // MARK: PROPERTIES
     let kindSymbol: Image
 
-    // MARK: BODY
+    // MARK: - BODY
     var body: some View {
         VStack(spacing: 0) {
             ZStack {
@@ -26,10 +26,10 @@ struct PlaceMapAnnotationView: View {
     }
 }
 
-// MARK: PREVIEW
-struct PlaceMapAnnotationView_Previews: PreviewProvider {
+// MARK: - PREVIEW
+struct MapWithAnnotationView_Previews: PreviewProvider {
     static var previews: some View {
-        PlaceMapAnnotationView(kindSymbol: Image.mapSymbol.cinema)
+        MapWithAnnotationView(kindSymbol: Image.mapSymbol.cinema)
             .previewLayout(.sizeThatFits)
     }
 }
