@@ -8,7 +8,7 @@ struct FavoritePlacesView: View {
     // MARK: - BODY
     var body: some View {
         NavigationStack {
-            if !model.favPlaces.isEmpty {
+            if model.favPlaces.isNotEmpty {
                 List(model.showFavoritePlaces(), id: \.attributes.ogcFid) { place in
                     NavigationLink {
                         coordinator.placeDetailScene(with: place)

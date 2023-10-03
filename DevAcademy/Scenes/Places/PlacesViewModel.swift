@@ -27,9 +27,9 @@ struct PlacesViewModel: DynamicProperty {
         places.filter { favPlaces.contains($0.attributes.ogcFid) }
     }
 
-    var placesAreFetched: Bool {
-        !places.isEmpty
-    }
+//    var placesAreFetched: Bool {
+//        !places.isEmpty
+//    }
 
     func fetchData() async {
         await placesObservableObject.fetchPlacesData()

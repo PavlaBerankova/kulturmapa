@@ -1,7 +1,13 @@
+import CoreLocation
 import Foundation
 
 final class PlacesObservableObject: ObservableObject {
     @Published var places: [Place] = []
+    @Published var location: CLLocation?
+//    //@Published var region = MKCoordinateRegion(
+//        center: location.coordinate,
+//        latitudinalMeters: 5_000,
+//        longitudinalMeters: 5_000)
 
     private var rawPlaces: [Place] = [] {
         didSet {
@@ -10,6 +16,7 @@ final class PlacesObservableObject: ObservableObject {
     }
 
     private let service: PlacesService
+    //private let locationService: UserLocationService
 
     init(service: PlacesService) {
         self.service = service

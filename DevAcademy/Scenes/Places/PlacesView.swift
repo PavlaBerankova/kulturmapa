@@ -10,7 +10,7 @@ struct PlacesView: View {
     var body: some View {
         NavigationStack {
             Group {
-                if model.placesAreFetched {
+                if model.places.isNotEmpty {
                     CustomNavigationToolbarWithPlaceType(selectedKind: model.$selectedKind)
                     if model.selectedKind == "Vše" {
                         List(model.places, id: \.attributes.ogcFid) { place in
