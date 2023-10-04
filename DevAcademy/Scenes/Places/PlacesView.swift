@@ -49,7 +49,7 @@ struct PlacesView: View {
 struct PlacesView_Previews: PreviewProvider {
     static var previews: some View {
         PlacesView()
-            .environmentObject(PlacesObservableObject(service: ProductionPlacesService()))
+            .environmentObject(PlacesObservableObject(placesService: ProductionPlacesService(), userLocationService: ProductionUserLocationService()))
             .environmentObject(Coordinator())
     }
 }

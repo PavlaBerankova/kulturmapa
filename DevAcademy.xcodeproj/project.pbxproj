@@ -33,7 +33,6 @@
 		44C649D72A9087DD00A5369F /* PlaceInfoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C649D62A9087DD00A5369F /* PlaceInfoRow.swift */; };
 		44C93BCD2A79335A00DD287B /* PlaceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C93BCC2A79335A00DD287B /* PlaceDetailView.swift */; };
 		44CDD1782A941A6200452808 /* ToolbarButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CDD1772A941A6200452808 /* ToolbarButtonView.swift */; };
-		44D2CBD62A996D6C00373DAD /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D2CBD52A996D6C00373DAD /* LocationManager.swift */; };
 		44DBA79A2AA87509001A9C23 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DBA7992AA87509001A9C23 /* SearchBarView.swift */; };
 		44EA42812A7AE502008DB6C3 /* FavoritePlacesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EA42802A7AE502008DB6C3 /* FavoritePlacesView.swift */; };
 		44F23DDF2ABAF7D300CB1C21 /* CustomNavigationToolbarWithPlaceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F23DDE2ABAF7D300CB1C21 /* CustomNavigationToolbarWithPlaceType.swift */; };
@@ -70,7 +69,6 @@
 		44C649D62A9087DD00A5369F /* PlaceInfoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceInfoRow.swift; sourceTree = "<group>"; };
 		44C93BCC2A79335A00DD287B /* PlaceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailView.swift; sourceTree = "<group>"; };
 		44CDD1772A941A6200452808 /* ToolbarButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarButtonView.swift; sourceTree = "<group>"; };
-		44D2CBD52A996D6C00373DAD /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		44DBA7992AA87509001A9C23 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		44EA42802A7AE502008DB6C3 /* FavoritePlacesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePlacesView.swift; sourceTree = "<group>"; };
 		44F23DDE2ABAF7D300CB1C21 /* CustomNavigationToolbarWithPlaceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationToolbarWithPlaceType.swift; sourceTree = "<group>"; };
@@ -107,7 +105,6 @@
 			children = (
 				445DBDDA2A82789900B01FAA /* PlacesObservableObject.swift */,
 				445DBDDE2A8283D800B01FAA /* Coordinator.swift */,
-				44D2CBD52A996D6C00373DAD /* LocationManager.swift */,
 			);
 			path = ObservableObjects;
 			sourceTree = "<group>";
@@ -360,7 +357,6 @@
 				4499C7922A71062F007F6C1C /* Place.swift in Sources */,
 				445DBDDF2A8283D800B01FAA /* Coordinator.swift in Sources */,
 				445DBDDD2A827D3600B01FAA /* PlaceDetailViewModel.swift in Sources */,
-				44D2CBD62A996D6C00373DAD /* LocationManager.swift in Sources */,
 				C056104B2A5C78CA007FB970 /* RootView.swift in Sources */,
 				44B4300B2A83DAF9005D9326 /* Color.swift in Sources */,
 				442F90BF2A95037F005983B6 /* ToolbarButtonWithKindView.swift in Sources */,

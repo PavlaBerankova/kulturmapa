@@ -4,10 +4,8 @@ import SwiftUI
 struct PlaceDetailViewModel: DynamicProperty {
     // MARK: PROPERTIES
     @EnvironmentObject private var placesObservableObject: PlacesObservableObject
-    @EnvironmentObject private var locationManager: LocationManager
 
     var place: Place
-
     init(place: Place) {
         self.place = place
     }
@@ -85,15 +83,12 @@ struct PlaceDetailViewModel: DynamicProperty {
         return CLLocation(latitude: placeLatitude, longitude: placeLongitude)
     }
 
-    var userLocation: CLLocation {
-        let coordinateLatitude: Double = locationManager.location?.coordinate.latitude ?? 0.0
-        let coordinateLongitude: Double = locationManager.location?.coordinate.longitude ?? 0.0
-        return CLLocation(latitude: coordinateLatitude, longitude: coordinateLongitude)
-    }
-
     // MARK: - FUNCTIONS
     func getDistance() -> String {
-        Int(currentPlaceCoordinate.distance(from: userLocation)).convertDistance()
+        if let userLocation = placesObservableObject.lastUpdatedLocation {
+            return Int(currentPlaceCoordinate.distance(from: userLocation)).convertDistance()
+        }
+        return "-"
     }
 
     func openAppleMaps() {

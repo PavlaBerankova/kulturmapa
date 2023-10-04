@@ -61,6 +61,6 @@ struct FavoritePlacesView_Previews: PreviewProvider {
     static var previews: some View {
         FavoritePlacesView()
             .environmentObject(Coordinator())
-            .environmentObject(PlacesObservableObject(service: ProductionPlacesService()))
+            .environmentObject(PlacesObservableObject(placesService: ProductionPlacesService(), userLocationService: ProductionUserLocationService()))
     }
 }

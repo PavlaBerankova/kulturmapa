@@ -4,7 +4,6 @@ import SwiftUI
 struct PlacesMapView: View {
     // MARK: PROPERTIES
     @EnvironmentObject private var coordinator: Coordinator
-    @EnvironmentObject private var locationManager: LocationManager
     let model = PlacesViewModel()
 
     // MARK: - BODY
@@ -47,15 +46,5 @@ extension PlacesMapView {
                 }
         }
         .ignoresSafeArea(edges: .top)
-    }
-}
-
-// MARK: - PREVIEW
-struct PlacesMapView_Previews: PreviewProvider {
-    static var previews: some View {
-        PlacesMapView()
-            .environmentObject(PlacesObservableObject(service: ProductionPlacesService()))
-            .environmentObject(Coordinator())
-            .environmentObject(LocationManager())
     }
 }

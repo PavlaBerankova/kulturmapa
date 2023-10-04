@@ -18,6 +18,7 @@ final class ProductionUserLocationService: NSObject, UserLocationService {
     override init() {
         super.init()
         manager.delegate = self
+        manager.desiredAccuracy = kCLLocationAccuracyBest
     }
 
     func requestAuthorization() {

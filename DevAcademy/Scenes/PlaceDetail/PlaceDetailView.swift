@@ -158,7 +158,6 @@ extension PlaceDetailView {
 struct PlaceDetailView_Previews: PreviewProvider {
     static var previews: some View {
         PlaceDetailView(model: PlaceDetailViewModel(place: Places.mock.places[0]))
-            .environmentObject(LocationManager())
-            .environmentObject(PlacesObservableObject(service: ProductionPlacesService()))
+            .environmentObject(PlacesObservableObject(placesService: ProductionPlacesService(), userLocationService: ProductionUserLocationService()))
     }
 }
