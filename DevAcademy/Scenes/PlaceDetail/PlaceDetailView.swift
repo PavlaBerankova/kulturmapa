@@ -113,10 +113,12 @@ extension PlaceDetailView {
                     .lineLimit(2)
                     .opacity(0.7)
                 Spacer()
-                Image.otherSymbol.locationArrow
-                    .foregroundColor(Color.theme.accent)
-                Text(model.getDistance())
-                    .opacity(0.7)
+                if model.getDistance() != "-" {
+                    Image.otherSymbol.locationArrow
+                        .foregroundColor(Color.theme.accent)
+                    Text(model.getDistance())
+                        .opacity(0.7)
+                }
             }
         }
         .padding(.top, 15)

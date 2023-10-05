@@ -31,7 +31,7 @@ extension PlacesMapView {
     private func mapViewWithPinOfKind(_ kind: String) -> some View {
         Map(coordinateRegion: model.$region,
             showsUserLocation: true,
-            annotationItems: model.placesFilter(with: kind)) { place in
+            annotationItems: model.filterPlaces(by: kind)) { place in
                 MapAnnotation(
                     coordinate: CLLocationCoordinate2D(
                         latitude: CLLocationDegrees(place.geometry?.latitude ?? 0.0),

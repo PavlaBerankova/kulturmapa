@@ -6,7 +6,6 @@ struct PlacesViewModel: DynamicProperty {
 
     @State var selectedPlace: Place?
     @State var selectedKind = "Vše"
-    @State var searchText = ""
     @State var region = MKCoordinateRegion( // Brno coordinates
         center: CLLocationCoordinate2D(
             latitude: 49.19522264287748,
@@ -14,6 +13,7 @@ struct PlacesViewModel: DynamicProperty {
         span: MKCoordinateSpan(
             latitudeDelta: 0.1,
             longitudeDelta: 0.1))
+    @State var searchQuery = ""
 
     var places: [Place] {
         placesObservableObject.places
@@ -27,19 +27,27 @@ struct PlacesViewModel: DynamicProperty {
         places.filter { favPlaces.contains($0.attributes.ogcFid) }
     }
 
-//    var placesAreFetched: Bool {
-//        !places.isEmpty
-//    }
-
     func fetchData() async {
         await placesObservableObject.fetchPlacesData()
     }
 
-    func placesFilter(with kind: String) -> [Place] {
+    func filterPlaces(by kind: String) -> [Place] {
         if kind == "Vše" {
-            return placesObservableObject.places
+            return searchedPlaces()
         } else {
-            return placesObservableObject.places.filter { $0.attributes.kind.rawValue == kind }
+            return searchedPlaces().filter { $0.attributes.kind.rawValue == kind }
+        }
+    }
+
+    func searchedPlaces() -> [Place] {
+        if searchQuery.isEmpty {
+            return places
+        } else {
+            let searchedPlaces = places.filter {
+                $0.attributes.title.localizedCaseInsensitiveContains(searchQuery) ||
+                $0.attributes.kind.rawValue.localizedCaseInsensitiveContains(searchQuery)
+            }
+            return searchedPlaces
         }
     }
 }

@@ -6,6 +6,7 @@ struct PlaceDetailViewModel: DynamicProperty {
     @EnvironmentObject private var placesObservableObject: PlacesObservableObject
 
     var place: Place
+
     init(place: Place) {
         self.place = place
     }
