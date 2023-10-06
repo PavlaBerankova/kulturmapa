@@ -12,7 +12,11 @@ struct PlacesMapView: View {
             ZStack {
                 mapViewWithPinOfKind(model.selectedKind)
                 VStack {
-                    CustomNavigationToolbarWithPlaceType(selectedKind: model.$selectedKind)
+                    VStack {
+                        SearchBarView(searchText: model.$searchQuery)
+                        CustomNavigationToolbarWithPlaceType(selectedKind: model.$selectedKind)
+                    }
+                    .backgroundStyle()
                     Spacer()
                 }
             }

@@ -10,12 +10,12 @@ struct PlacesView: View {
     var body: some View {
         NavigationStack {
             Group {
-                CustomNavigationToolbarWithPlaceType(selectedKind: model.$selectedKind)
                 if model.places.isNotEmpty {
+                   navigationToolbar
                     if model.selectedKind == "Vše" {
-                       placesList
+                        placesList
                     } else {
-                       filteredPlacesList
+                        filteredPlacesList
                     }
                 } else {
                     loadingIndicator
@@ -26,12 +26,18 @@ struct PlacesView: View {
         .task {
             await model.fetchData()
         }
-        .searchable(text: model.$searchQuery, prompt: "vyhledat místo")
     }
 }
 
 // MARK: - EXTENSION
 extension PlacesView {
+    private var navigationToolbar: some View {
+        VStack {
+            SearchBarView(searchText: model.$searchQuery)
+            CustomNavigationToolbarWithPlaceType(selectedKind: model.$selectedKind)
+        }
+        .backgroundStyle()
+    }
     private var placesList: some View {
         List(model.searchedPlaces(), id: \.attributes.ogcFid) { place in
             NavigationLink {

@@ -12,7 +12,8 @@ struct ToolbarButtonWithKindView: View {
             .padding(.horizontal, 10)
             .font(.subheadline)
             .fontWeight(.bold)
-            .foregroundColor(isSelected ? Color.theme.accent : Color.theme.secondaryTextColor)
+            .foregroundColor(isSelected ? Color.theme.accent : Color.theme.secondaryTextColor.opacity(0.5)
+            )
     }
 }
 

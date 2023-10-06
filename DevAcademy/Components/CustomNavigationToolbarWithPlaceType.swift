@@ -6,7 +6,6 @@ struct CustomNavigationToolbarWithPlaceType: View {
 
     // MARK: - BODY
     var body: some View {
-        VStack {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
                     Button {
@@ -24,14 +23,8 @@ struct CustomNavigationToolbarWithPlaceType: View {
                 }
                 .padding(5)
             }
-        }
-        .padding(.horizontal)
-        .background(
-            RoundedRectangle(cornerRadius: 0)
-                .ignoresSafeArea(edges: .top)
-                .foregroundColor(Color.theme.search)
-                .shadow(color: Color.theme.secondaryTextColor, radius: 2)
-        )
+            .padding(.horizontal)
+            .padding(.bottom, 5)
     }
 }
 
