@@ -3,7 +3,7 @@ import SwiftUI
 final class Coordinator: ObservableObject {
     // MARK: Places scenes
     var placesScene: some View {
-        PlacesView()
+        PlacesListView()
     }
 
     func placeDetailScene(with place: Place) -> some View {

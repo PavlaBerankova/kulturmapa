@@ -10,13 +10,10 @@ struct PlacesMapView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                mapViewWithPinOfKind(model.selectedKind)
+                mapViewWithPinByKind(model.selectedKind)
                 VStack {
-                    VStack {
-                        SearchBarView(searchText: model.$searchQuery)
-                        CustomNavigationToolbarWithPlaceType(selectedKind: model.$selectedKind)
-                    }
-                    .backgroundStyle()
+                    ToolbarWithFilterByKind(selectedKind: model.$selectedKind)
+                        .backgroundStyle()
                     Spacer()
                 }
             }
@@ -32,7 +29,7 @@ struct PlacesMapView: View {
 
 // MARK: - EXTENSION
 extension PlacesMapView {
-    private func mapViewWithPinOfKind(_ kind: String) -> some View {
+    private func mapViewWithPinByKind(_ kind: String) -> some View {
         Map(coordinateRegion: model.$region,
             showsUserLocation: true,
             annotationItems: model.filterPlaces(by: kind)) { place in
@@ -40,7 +37,7 @@ extension PlacesMapView {
                     coordinate: CLLocationCoordinate2D(
                         latitude: CLLocationDegrees(place.geometry?.latitude ?? 0.0),
                         longitude: CLLocationDegrees(place.geometry?.longitude ?? 0.0))) {
-                            PlaceKindSymbol(symbol: place.symbol)
+                            SymbolByPlaceKind(symbol: place.symbol)
                                 .scaleEffect(model.selectedPlace == place ? 1 : 0.7)
                                 .onTapGesture {
                                     withAnimation(.easeInOut) {
@@ -50,5 +47,15 @@ extension PlacesMapView {
                 }
         }
         .ignoresSafeArea(edges: .top)
+    }
+}
+
+// MARK: - PREVIEW
+
+struct PlacesMapView_Previews: PreviewProvider {
+    static var previews: some View {
+        PlacesMapView()
+            .environmentObject(PlacesObservableObject(placesService: ProductionPlacesService(), userLocationService: ProductionUserLocationService()))
+            .environmentObject(Coordinator())
     }
 }

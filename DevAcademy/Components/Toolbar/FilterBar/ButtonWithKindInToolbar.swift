@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ToolbarButtonWithKindView: View {
+struct ButtonWithKindInToolbar: View {
     // MARK: PROPERTIES
     let title: String
     var isSelected = false
@@ -18,13 +18,13 @@ struct ToolbarButtonWithKindView: View {
 }
 
 // MARK: - PREVIEW
-struct ToolbarButtonWithKindView_Previews: PreviewProvider {
+struct ButtonWithKindInToolbar_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             VStack {
-                ToolbarButtonWithKindView(title: "Vše")
-                ToolbarButtonWithKindView(title: "Podnik s kulturním programem")
-                ToolbarButtonWithKindView(title: "Divadlo")
+                ButtonWithKindInToolbar(title: "Vše")
+                ButtonWithKindInToolbar(title: "Podnik s kulturním programem")
+                ButtonWithKindInToolbar(title: "Divadlo")
             }
         }
     }

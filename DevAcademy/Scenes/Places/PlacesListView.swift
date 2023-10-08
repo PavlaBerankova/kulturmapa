@@ -1,7 +1,7 @@
 import ActivityIndicatorView
 import SwiftUI
 
-struct PlacesView: View {
+struct PlacesListView: View {
     // MARK: PROPERTIES
     @EnvironmentObject private var coordinator: Coordinator
     let model = PlacesViewModel()
@@ -30,11 +30,11 @@ struct PlacesView: View {
 }
 
 // MARK: - EXTENSION
-extension PlacesView {
+extension PlacesListView {
     private var navigationToolbar: some View {
         VStack {
             SearchBarView(searchText: model.$searchQuery)
-            CustomNavigationToolbarWithPlaceType(selectedKind: model.$selectedKind)
+            ToolbarWithFilterByKind(selectedKind: model.$selectedKind)
         }
         .backgroundStyle()
     }
@@ -70,7 +70,7 @@ extension PlacesView {
 // MARK: - PREVIEW
 struct PlacesView_Previews: PreviewProvider {
     static var previews: some View {
-        PlacesView()
+        PlacesListView()
             .environmentObject(PlacesObservableObject(placesService: ProductionPlacesService(), userLocationService: ProductionUserLocationService()))
             .environmentObject(Coordinator())
     }

@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct PlaceKindSymbol: View {
+struct SymbolByPlaceKind: View {
     // MARK: PROPERTIES
     let symbol: Image
 
@@ -27,9 +27,9 @@ struct PlaceKindSymbol: View {
 }
 
 // MARK: - PREVIEW
-struct PlaceKindSymbolView_Previews: PreviewProvider {
+struct SymbolByPlaceKindView_Previews: PreviewProvider {
     static var previews: some View {
-        PlaceKindSymbol(symbol: Image.mapSymbol.cinema)
+        SymbolByPlaceKind(symbol: Image.mapSymbol.cinema)
             .previewLayout(.sizeThatFits)
     }
 }

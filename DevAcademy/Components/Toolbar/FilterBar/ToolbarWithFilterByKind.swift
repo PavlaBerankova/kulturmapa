@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct CustomNavigationToolbarWithPlaceType: View {
+struct ToolbarWithFilterByKind: View {
     // MARK: PROPERTIES
     @Binding var selectedKind: String
 
@@ -11,13 +11,13 @@ struct CustomNavigationToolbarWithPlaceType: View {
                     Button {
                        selectedKind = "Vše"
                     } label: {
-                        ToolbarButtonWithKindView(title: "Vše", isSelected: selectedKind == "Vše")
+                        ButtonWithKindInToolbar(title: "Vše", isSelected: selectedKind == "Vše")
                     }
                     ForEach(Kind.allCases, id: \.self) { kind in
                         Button {
                             selectedKind = kind.rawValue
                         } label: {
-                            ToolbarButtonWithKindView(title: kind.rawValue, isSelected: selectedKind == kind.rawValue)
+                            ButtonWithKindInToolbar(title: kind.rawValue, isSelected: selectedKind == kind.rawValue)
                         }
                     }
                 }
@@ -29,8 +29,8 @@ struct CustomNavigationToolbarWithPlaceType: View {
 }
 
 // MARK: - PREVIEW
-struct CustomNavigationToolbarWithPlaceType_Previews: PreviewProvider {
+struct ToolbarWithFilterByKind_Previews: PreviewProvider {
     static var previews: some View {
-        CustomNavigationToolbarWithPlaceType(selectedKind: .constant("Vše"))
+        ToolbarWithFilterByKind(selectedKind: .constant("Vše"))
     }
 }

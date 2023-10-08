@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ToolbarBackgroundFrame: ViewModifier {
+struct BackgroundForToolbar: ViewModifier {
     func body(content: Content) -> some View {
         content
             .background(
@@ -14,6 +14,6 @@ struct ToolbarBackgroundFrame: ViewModifier {
 
 extension View {
     func backgroundStyle() -> some View {
-        modifier(ToolbarBackgroundFrame())
+        modifier(BackgroundForToolbar())
     }
 }
