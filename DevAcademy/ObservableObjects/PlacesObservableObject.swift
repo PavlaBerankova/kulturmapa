@@ -35,8 +35,9 @@ final class PlacesObservableObject: ObservableObject {
 
     func set(place: Place, favourite: Bool) {
         var favouritePlaces = self.favouritePlaces ?? []
-        let placeId = place.attributes.ogcFid
 
+        let placeId = place.attributes.ogcFid
+        
         switch favourite {
         case true:
             if !favouritePlaces.contains(placeId) {
