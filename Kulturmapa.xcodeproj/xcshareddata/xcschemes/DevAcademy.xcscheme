@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C05610442A5C78CA007FB970"
-               BuildableName = "DevAcademy.app"
-               BlueprintName = "DevAcademy"
-               ReferencedContainer = "container:DevAcademy.xcodeproj">
+               BuildableName = "Kulturmapa.app"
+               BlueprintName = "Kulturmapa"
+               ReferencedContainer = "container:Kulturmapa.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -44,9 +44,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C05610442A5C78CA007FB970"
-            BuildableName = "DevAcademy.app"
-            BlueprintName = "DevAcademy"
-            ReferencedContainer = "container:DevAcademy.xcodeproj">
+            BuildableName = "Kulturmapa.app"
+            BlueprintName = "Kulturmapa"
+            ReferencedContainer = "container:Kulturmapa.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -61,9 +61,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C05610442A5C78CA007FB970"
-            BuildableName = "DevAcademy.app"
-            BlueprintName = "DevAcademy"
-            ReferencedContainer = "container:DevAcademy.xcodeproj">
+            BuildableName = "Kulturmapa.app"
+            BlueprintName = "Kulturmapa"
+            ReferencedContainer = "container:Kulturmapa.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

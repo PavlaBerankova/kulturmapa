@@ -38,7 +38,7 @@
 		44EA42812A7AE502008DB6C3 /* FavoritePlacesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EA42802A7AE502008DB6C3 /* FavoritePlacesView.swift */; };
 		44F23DDF2ABAF7D300CB1C21 /* ToolbarWithFilterByKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F23DDE2ABAF7D300CB1C21 /* ToolbarWithFilterByKind.swift */; };
 		44F66E702AC0CF4C00912D70 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F66E6F2AC0CF4C00912D70 /* Collection.swift */; };
-		C05610492A5C78CA007FB970 /* DevAcademyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05610482A5C78CA007FB970 /* DevAcademyApp.swift */; };
+		C05610492A5C78CA007FB970 /* KulturmapaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05610482A5C78CA007FB970 /* KulturmapaApp.swift */; };
 		C056104B2A5C78CA007FB970 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C056104A2A5C78CA007FB970 /* RootView.swift */; };
 		C056104D2A5C78CB007FB970 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C056104C2A5C78CB007FB970 /* Assets.xcassets */; };
 		C05610502A5C78CB007FB970 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C056104F2A5C78CB007FB970 /* Preview Assets.xcassets */; };
@@ -75,8 +75,8 @@
 		44EA42802A7AE502008DB6C3 /* FavoritePlacesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePlacesView.swift; sourceTree = "<group>"; };
 		44F23DDE2ABAF7D300CB1C21 /* ToolbarWithFilterByKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarWithFilterByKind.swift; sourceTree = "<group>"; };
 		44F66E6F2AC0CF4C00912D70 /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
-		C05610452A5C78CA007FB970 /* DevAcademy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevAcademy.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C05610482A5C78CA007FB970 /* DevAcademyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevAcademyApp.swift; sourceTree = "<group>"; };
+		C05610452A5C78CA007FB970 /* Kulturmapa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kulturmapa.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C05610482A5C78CA007FB970 /* KulturmapaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KulturmapaApp.swift; sourceTree = "<group>"; };
 		C056104A2A5C78CA007FB970 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		C056104C2A5C78CB007FB970 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C056104F2A5C78CB007FB970 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -247,7 +247,7 @@
 		C056103C2A5C78CA007FB970 = {
 			isa = PBXGroup;
 			children = (
-				C05610472A5C78CA007FB970 /* DevAcademy */,
+				C05610472A5C78CA007FB970 /* Kulturmapa */,
 				C05610462A5C78CA007FB970 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -255,15 +255,15 @@
 		C05610462A5C78CA007FB970 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C05610452A5C78CA007FB970 /* DevAcademy.app */,
+				C05610452A5C78CA007FB970 /* Kulturmapa.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C05610472A5C78CA007FB970 /* DevAcademy */ = {
+		C05610472A5C78CA007FB970 /* Kulturmapa */ = {
 			isa = PBXGroup;
 			children = (
-				C05610482A5C78CA007FB970 /* DevAcademyApp.swift */,
+				C05610482A5C78CA007FB970 /* KulturmapaApp.swift */,
 				C056104A2A5C78CA007FB970 /* RootView.swift */,
 				445DBDD92A82787500B01FAA /* ObservableObjects */,
 				44B430092A83DAEC005D9326 /* Extension */,
@@ -276,7 +276,7 @@
 				C056104C2A5C78CB007FB970 /* Assets.xcassets */,
 				C056104E2A5C78CB007FB970 /* Preview Content */,
 			);
-			path = DevAcademy;
+			path = Kulturmapa;
 			sourceTree = "<group>";
 		};
 		C056104E2A5C78CB007FB970 /* Preview Content */ = {
@@ -290,9 +290,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C05610442A5C78CA007FB970 /* DevAcademy */ = {
+		C05610442A5C78CA007FB970 /* Kulturmapa */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C05610532A5C78CB007FB970 /* Build configuration list for PBXNativeTarget "DevAcademy" */;
+			buildConfigurationList = C05610532A5C78CB007FB970 /* Build configuration list for PBXNativeTarget "Kulturmapa" */;
 			buildPhases = (
 				C05610412A5C78CA007FB970 /* Sources */,
 				C05610422A5C78CA007FB970 /* Frameworks */,
@@ -303,12 +303,12 @@
 			);
 			dependencies = (
 			);
-			name = DevAcademy;
+			name = Kulturmapa;
 			packageProductDependencies = (
 				4465315B2A7ACE58001DF5C4 /* ActivityIndicatorView */,
 			);
 			productName = DevAcademy;
-			productReference = C05610452A5C78CA007FB970 /* DevAcademy.app */;
+			productReference = C05610452A5C78CA007FB970 /* Kulturmapa.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -326,7 +326,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C05610402A5C78CA007FB970 /* Build configuration list for PBXProject "DevAcademy" */;
+			buildConfigurationList = C05610402A5C78CA007FB970 /* Build configuration list for PBXProject "Kulturmapa" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -342,7 +342,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C05610442A5C78CA007FB970 /* DevAcademy */,
+				C05610442A5C78CA007FB970 /* Kulturmapa */,
 			);
 		};
 /* End PBXProject section */
@@ -407,7 +407,7 @@
 				44DBA79A2AA87509001A9C23 /* SearchBarView.swift in Sources */,
 				4483CD5B2A700352004614DF /* PlacesListView.swift in Sources */,
 				4496A2CD2ABDB166008AD762 /* UserLocationService.swift in Sources */,
-				C05610492A5C78CA007FB970 /* DevAcademyApp.swift in Sources */,
+				C05610492A5C78CA007FB970 /* KulturmapaApp.swift in Sources */,
 				44F66E702AC0CF4C00912D70 /* Collection.swift in Sources */,
 				4441E2622A9234D0006C9A62 /* String.swift in Sources */,
 				44CDD1782A941A6200452808 /* ToolbarButtonView.swift in Sources */,
@@ -546,7 +546,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"DevAcademy/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Kulturmapa/Preview Content\"";
 				DEVELOPMENT_TEAM = WJ82JM369V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -580,7 +580,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"DevAcademy/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Kulturmapa/Preview Content\"";
 				DEVELOPMENT_TEAM = WJ82JM369V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -610,7 +610,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C05610402A5C78CA007FB970 /* Build configuration list for PBXProject "DevAcademy" */ = {
+		C05610402A5C78CA007FB970 /* Build configuration list for PBXProject "Kulturmapa" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C05610512A5C78CB007FB970 /* Debug */,
@@ -619,7 +619,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C05610532A5C78CB007FB970 /* Build configuration list for PBXNativeTarget "DevAcademy" */ = {
+		C05610532A5C78CB007FB970 /* Build configuration list for PBXNativeTarget "Kulturmapa" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C05610542A5C78CB007FB970 /* Debug */,
