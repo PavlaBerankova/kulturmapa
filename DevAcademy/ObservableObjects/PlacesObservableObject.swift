@@ -37,7 +37,7 @@ final class PlacesObservableObject: ObservableObject {
         var favouritePlaces = self.favouritePlaces ?? []
 
         let placeId = place.attributes.ogcFid
-        
+
         switch favourite {
         case true:
             if !favouritePlaces.contains(placeId) {
