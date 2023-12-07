@@ -27,8 +27,8 @@ struct PlaceDetailView: View {
             Spacer()
                 .navigationBarBackButtonHidden(true)
                 .toolbar {
-                    customNavigationToolbarBackButton
-                    customNavigationToolbarFavoriteButton
+                    navigationToolbarBackButton
+                    navigationToolbarFavoriteButton
                 }
         }
     }
@@ -36,7 +36,7 @@ struct PlaceDetailView: View {
 
 // MARK: - EXTENSION
 extension PlaceDetailView {
-    private var customNavigationToolbarBackButton: some ToolbarContent {
+    private var navigationToolbarBackButton: some ToolbarContent {
         ToolbarItem(placement: .navigationBarLeading) {
             Button {
                 dismiss()
@@ -46,7 +46,7 @@ extension PlaceDetailView {
         }
     }
 
-    private var customNavigationToolbarFavoriteButton: some ToolbarContent {
+    private var navigationToolbarFavoriteButton: some ToolbarContent {
         ToolbarItem(placement: .navigationBarTrailing) {
             Button {
                 model.isFavourite.wrappedValue.toggle()
@@ -57,49 +57,7 @@ extension PlaceDetailView {
     }
 
     private var placeImage: some View {
-        Group {
-            if let placeImageUrl = model.placeImage {
-                StoredAsyncImage(url: placeImageUrl) { image in
-                    image
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 300)
-                        .cornerRadius(2)
-                        .shadow(radius: 4)
-                } placeholder: {
-                    // placeholder for image is available, but loading
-                    RoundedRectangle(cornerRadius: 2)
-                        .foregroundColor(Color.theme.ink)
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 300)
-                        .shadow(color: Color.theme.shadow, radius: 3)
-                        .overlay(
-                            ProgressView()
-                        )
-                }
-            } else {
-                // placeholder for image is missing
-                placeImagePlaceholder
-            }
-        }
-    }
-
-    private var placeImagePlaceholder: some View {
-        RoundedRectangle(cornerRadius: 2)
-            .foregroundColor(Color.theme.light)
-            .frame(maxWidth: .infinity)
-            .frame(height: 300)
-            .shadow(color: Color.theme.shadow, radius: 3)
-            .overlay(
-                Image.otherSymbol.imagePlaceholder
-                    .renderingMode(.template)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .foregroundColor(Color.theme.accent)
-                    .padding(70)
-                    .opacity(0.3)
-            )
+        ImageView(imageURL: model.placeImage)
     }
 
     private var placeTitleWithAddressAndDistance: some View {
@@ -146,11 +104,27 @@ extension PlaceDetailView {
 
     private var placeLinks: some View {
         VStack {
-            PlaceInfoRow(header: "Web", link: model.placeWeb, linkPlaceholder: model.webPlaceholder)
-            PlaceInfoRow(header: "Telefon", link: "tel://" + model.placePhone, linkPlaceholder: model.phonePlaceholder)
-            PlaceInfoRow(header: "E-mail", link: "mailto:" + model.placeEmail, linkPlaceholder: model.placeEmail)
+            RowDetailView(
+                header: "Web",
+                link: model.placeWeb,
+                linkPlaceholder: model.webPlaceholder,
+                text: nil)
+            RowDetailView(
+                header: "Telefon",
+                link: "tel://" + model.placePhone,
+                linkPlaceholder: model.phonePlaceholder,
+                text: nil)
+            RowDetailView(
+                header: "E-mail",
+                link: "mailto:" + model.placeEmail,
+                linkPlaceholder: model.placeEmail,
+                text: nil)
             if model.programmeIsAvailable {
-                PlaceInfoRow(header: "Program", link: model.placeProgramme, linkPlaceholder: "přejít na program")
+                RowDetailView(
+                    header: "Program",
+                    link: model.placeProgramme,
+                    linkPlaceholder: "přejít na program",
+                    text: nil)
             }
         }
     }
@@ -160,6 +134,9 @@ extension PlaceDetailView {
 struct PlaceDetailView_Previews: PreviewProvider {
     static var previews: some View {
         PlaceDetailView(model: PlaceDetailViewModel(place: Places.mock.places[0]))
-            .environmentObject(PlacesObservableObject(placesService: ProductionPlacesService(), userLocationService: ProductionUserLocationService()))
+            .injectPreviewEnvironment()
+//            .environmentObject(PlacesObservableObject(
+//                placesService: ProductionPlacesService(),
+//                userLocationService: ProductionUserLocationService()))
     }
 }

@@ -11,6 +11,7 @@ struct TabViewImageSymbol {
     let list = Image(systemName: "list.bullet")
     let map = Image(systemName: "map")
     let star = Image(systemName: "star")
+    let calendar = Image(systemName: "calendar")
 }
 
 struct ContactsImageSymbol {

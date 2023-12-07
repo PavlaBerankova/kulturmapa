@@ -1,7 +1,7 @@
 import SwiftUI
 
 final class Coordinator: ObservableObject {
-    // MARK: Places scenes
+    // MARK: - Places scenes
     var placesScene: some View {
         PlacesListView()
     }
@@ -11,13 +11,22 @@ final class Coordinator: ObservableObject {
             .presentationDragIndicator(.visible)
     }
 
-    // MARK: Favorite scenes
+    // MARK: - Favorite scene
     var favoritesScene: some View {
         FavoritePlacesView()
     }
 
-    // MARK: Map scenes
+    // MARK: - Map scene
     var placesMapScene: some View {
         PlacesMapView()
+    }
+
+    // MARK: - Events scenes
+        var eventsScene: some View {
+            EventsListView()
+        }
+
+    func eventDetailScene(with event: Event) -> some View {
+        EventDetailView(model: EventDetailViewModel(event: event))
     }
 }

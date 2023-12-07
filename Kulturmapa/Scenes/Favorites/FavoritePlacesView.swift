@@ -60,7 +60,6 @@ extension FavoritePlacesView {
 struct FavoritePlacesView_Previews: PreviewProvider {
     static var previews: some View {
         FavoritePlacesView()
-            .environmentObject(Coordinator())
-            .environmentObject(PlacesObservableObject(placesService: ProductionPlacesService(), userLocationService: ProductionUserLocationService()))
+            .inject(objects: ObservableObjects(services: Services()), coordinator: Coordinator())
     }
 }

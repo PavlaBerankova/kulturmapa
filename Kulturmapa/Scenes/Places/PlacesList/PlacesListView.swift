@@ -1,4 +1,3 @@
-import ActivityIndicatorView
 import SwiftUI
 
 struct PlacesListView: View {
@@ -18,13 +17,13 @@ struct PlacesListView: View {
                         filteredPlacesList
                     }
                 } else {
-                    loadingIndicator
+                    LoadingIndicator()
                 }
             }
             .listStyle(.plain)
         }
         .task {
-            await model.fetchData()
+            await model.fetchPlacesData()
         }
     }
 }
@@ -57,21 +56,12 @@ extension PlacesListView {
             }
         }
     }
-
-    private var loadingIndicator: some View {
-        VStack {
-            ActivityIndicatorView(isVisible: .constant(true), type: .arcs(count: 3, lineWidth: 1.5))
-                .foregroundColor(Color.theme.accent)
-                .frame(width: 150, height: 150)
-        }
-    }
 }
 
 // MARK: - PREVIEW
 struct PlacesView_Previews: PreviewProvider {
     static var previews: some View {
         PlacesListView()
-            .environmentObject(PlacesObservableObject(placesService: ProductionPlacesService(), userLocationService: ProductionUserLocationService()))
-            .environmentObject(Coordinator())
+            .inject(objects: ObservableObjects(services: Services()), coordinator: Coordinator())
     }
 }

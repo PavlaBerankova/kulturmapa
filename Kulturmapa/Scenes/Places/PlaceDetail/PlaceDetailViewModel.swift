@@ -38,36 +38,36 @@ struct PlaceDetailViewModel: DynamicProperty {
     // MARK: - PLACE LINKS
     // WEB
     var placeWeb: String {
-        guard let web = place.attributes.web else {
-            return "-"
+        if let placeWeb = place.attributes.web {
+            return placeWeb.checkAndFixHasprefix()
         }
-        return checkAndFixHasprefix(link: web).filteringWhiteSpace()
+        return "-"
     }
 
     var webPlaceholder: String {
-        simpleStringUrl(from: placeWeb)
+        placeWeb.simpleStringFromUrl()
     }
 
     // PHONE
     var placePhone: String { // place phone return "123456789", "0", "-"
-        place.attributes.phone?.filteringWhiteSpace() ?? "-"
+        place.attributes.phone?.filterWhiteSpace() ?? "-"
     }
 
     var phonePlaceholder: String {
-        formatPhoneNumber(placePhone)
+        placePhone.formatPhoneNumber()
     }
 
     // EMAIL
     var placeEmail: String {
-        place.attributes.email?.filteringWhiteSpace() ?? "-"
+        place.attributes.email?.filterWhiteSpace() ?? "-"
     }
 
     // PROGRAMME
     var placeProgramme: String {
-        guard let programme = place.attributes.programme else {
-            return "-"
+        if let placeProgramme = place.attributes.programme {
+            return placeProgramme.checkAndFixHasprefix()
         }
-        return checkAndFixHasprefix(link: programme)
+        return "-"
     }
 
     var programmeIsAvailable: Bool {
@@ -100,41 +100,5 @@ struct PlaceDetailViewModel: DynamicProperty {
         mapItem.phoneNumber = placePhone
         mapItem.url = URL(string: placeWeb)
         mapItem.openInMaps(launchOptions: nil)
-    }
-
-    private func checkAndFixHasprefix(link: String) -> String {
-        let httpProtocol = "https://"
-        if link.hasPrefix("http://") || link.hasPrefix("https://") {
-            return link.filteringWhiteSpace()
-        } else {
-            return httpProtocol + link.filteringWhiteSpace()
-        }
-    }
-
-    private func simpleStringUrl(from urlString: String) -> String {
-        if urlString == "-" {
-            return urlString
-        } else {
-            let urlComponents = URLComponents(string: urlString)! // --> http//www.example.com
-            let prefixToRemove = "www."
-            let relativeURL = urlComponents.host ?? "" // --> www.example.com
-            if relativeURL.hasPrefix(prefixToRemove) {
-                return String(relativeURL.dropFirst(prefixToRemove.count)) // --> example.com
-            }
-            return relativeURL
-        }
-    }
-
-    private func formatPhoneNumber(_ number: String) -> String {
-        if number == "0" || number == "-" {
-            return "-"
-        } else {
-            let numberToInt = Int(number)
-            let numberFormatter = NumberFormatter()
-            numberFormatter.numberStyle = .decimal
-            numberFormatter.groupingSeparator = " " // --> 123 456 789
-            let formattedNumber = numberFormatter.string(from: NSNumber(value: numberToInt!)) ?? "-"
-            return formattedNumber
-        }
     }
 }

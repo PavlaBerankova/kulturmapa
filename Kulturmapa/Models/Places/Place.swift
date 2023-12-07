@@ -47,6 +47,8 @@ struct Place: Codable, Equatable, Identifiable {
             return Image.mapSymbol.other
         case .unknown:
             return Image.mapSymbol.other
+        case .kind(.allKinds):
+            return Image.mapSymbol.other
         }
     }
 }
