@@ -1,3 +1,3 @@
-# Kulturmapa 
+# Kulturmapa - mobilní aplikace pro iOS
 
-###Mobilní aplikace pro iOS
+
