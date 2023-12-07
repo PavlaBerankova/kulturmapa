@@ -3,41 +3,19 @@ import SwiftUI
 
 struct PlaceDetailView: View {
     // MARK: PROPERTIES
-    @Environment(\.dismiss) private var dismiss
+    @Environment(\.dismiss)
+    private var dismiss
     let model: PlaceDetailViewModel
 
-    // MARK: BODY
+    // MARK: - BODY
     var body: some View {
         NavigationStack {
             ZStack {
                 VStack {
-                    if let placeImageUrl = model.placeImage {
-                        StoredAsyncImage(url: placeImageUrl) { image in
-                            image
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(maxWidth: .infinity)
-                                .frame(height: 300)
-                                .cornerRadius(2)
-                                .shadow(radius: 4)
-                        } placeholder: {
-                            // placeholder for image is available, but loading
-                            RoundedRectangle(cornerRadius: 2)
-                                .foregroundColor(Color.theme.ink)
-                                .frame(maxWidth: .infinity)
-                                .frame(height: 300)
-                                .shadow(color: Color.theme.shadow, radius: 3)
-                                .overlay(
-                                    ProgressView()
-                                )
-                        }
-                    } else {
-                        // placeholder for image is missing
-                        imagePlaceholder
-                    }
+                    placeImage
                     LazyVStack(alignment: .leading, spacing: 10) {
-                        mainInformation
-                        buttonShowOnMap
+                        placeTitleWithAddressAndDistance
+                        navigateButton
                         ScrollView {
                             placeLinks
                         }
@@ -49,28 +27,65 @@ struct PlaceDetailView: View {
             Spacer()
                 .navigationBarBackButtonHidden(true)
                 .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button {
-                            model.isFavourite.wrappedValue.toggle()
-                        } label: {
-                            ToolbarButtonView(iconName: model.isFavourite.wrappedValue ? "star.fill" : "star")
-                        }
-                    }
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        Button {
-                            dismiss()
-                        } label: {
-                            ToolbarButtonView(iconName: "chevron.left")
-                        }
-                    }
+                    customNavigationToolbarBackButton
+                    customNavigationToolbarFavoriteButton
                 }
         }
     }
 }
 
-// MARK: EXTENSION
+// MARK: - EXTENSION
 extension PlaceDetailView {
-    private var imagePlaceholder: some View {
+    private var customNavigationToolbarBackButton: some ToolbarContent {
+        ToolbarItem(placement: .navigationBarLeading) {
+            Button {
+                dismiss()
+            } label: {
+                ToolbarButtonView(title: "Back button", iconName: "chevron.left")
+            }
+        }
+    }
+
+    private var customNavigationToolbarFavoriteButton: some ToolbarContent {
+        ToolbarItem(placement: .navigationBarTrailing) {
+            Button {
+                model.isFavourite.wrappedValue.toggle()
+            } label: {
+                ToolbarButtonView(title: "Favorite button", iconName: model.isFavourite.wrappedValue ? "star.fill" : "star")
+            }
+        }
+    }
+
+    private var placeImage: some View {
+        Group {
+            if let placeImageUrl = model.placeImage {
+                StoredAsyncImage(url: placeImageUrl) { image in
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 300)
+                        .cornerRadius(2)
+                        .shadow(radius: 4)
+                } placeholder: {
+                    // placeholder for image is available, but loading
+                    RoundedRectangle(cornerRadius: 2)
+                        .foregroundColor(Color.theme.ink)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 300)
+                        .shadow(color: Color.theme.shadow, radius: 3)
+                        .overlay(
+                            ProgressView()
+                        )
+                }
+            } else {
+                // placeholder for image is missing
+                placeImagePlaceholder
+            }
+        }
+    }
+
+    private var placeImagePlaceholder: some View {
         RoundedRectangle(cornerRadius: 2)
             .foregroundColor(Color.theme.light)
             .frame(maxWidth: .infinity)
@@ -87,7 +102,7 @@ extension PlaceDetailView {
             )
     }
 
-    private var mainInformation: some View {
+    private var placeTitleWithAddressAndDistance: some View {
         VStack(alignment: .leading) {
             Text(model.placeName)
                 .lineLimit(2)
@@ -98,16 +113,18 @@ extension PlaceDetailView {
                     .lineLimit(2)
                     .opacity(0.7)
                 Spacer()
-                Image.otherSymbol.locationArrow
-                    .foregroundColor(Color.theme.accent)
-                Text(model.getDistance())
-                    .opacity(0.7)
+                if model.getDistance() != "-" {
+                    Image.otherSymbol.locationArrow
+                        .foregroundColor(Color.theme.accent)
+                    Text(model.getDistance())
+                        .opacity(0.7)
+                }
             }
         }
         .padding(.top, 15)
     }
 
-    private var buttonShowOnMap: some View {
+    private var navigateButton: some View {
         Button {
             model.openAppleMaps()
         } label: {
@@ -139,11 +156,10 @@ extension PlaceDetailView {
     }
 }
 
-// MARK: PREVIEW
+// MARK: - PREVIEW
 struct PlaceDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        PlaceDetailView(model: PlaceDetailViewModel(place: Places.mock.places.first!))
-            .environmentObject(LocationManager())
-            .environmentObject(PlacesObservableObject(service: ProductionPlacesService()))
+        PlaceDetailView(model: PlaceDetailViewModel(place: Places.mock.places[0]))
+            .environmentObject(PlacesObservableObject(placesService: ProductionPlacesService(), userLocationService: ProductionUserLocationService()))
     }
 }

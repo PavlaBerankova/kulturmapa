@@ -4,21 +4,23 @@ import SwiftUI
 struct Place: Codable, Equatable, Identifiable {
     var geometry: Point?
     var attributes: Attributes
-    
+
     static func == (lhs: Place, rhs: Place) -> Bool {
         lhs.attributes.ogcFid == rhs.attributes.ogcFid
     }
+
     // read only - computed properties, not decoding from API
     var id: Int {
         attributes.ogcFid
     }
+
     // symbol for pin on map view
     var symbol: Image {
         switch attributes.kind {
         case .kind(.cinema):
             return Image.mapSymbol.cinema
         case .kind(.theatre):
-            return Image.mapSymbol.theatre
+            return Image.mapSymbol.theater
         case .kind(.gallery):
             return Image.mapSymbol.gallery
         case .kind(.hub):
@@ -44,7 +46,7 @@ struct Place: Codable, Equatable, Identifiable {
         case .kind(.other):
             return Image.mapSymbol.other
         case .unknown:
-            return Image.mapSymbol.unknown
+            return Image.mapSymbol.other
         }
     }
 }

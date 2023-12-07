@@ -4,9 +4,19 @@ struct PlacesRow: View {
     // MARK: PROPERTIES
     let place: Place
 
-    // MARK: BODY
+    // MARK: - BODY
     var body: some View {
         HStack {
+            placeImage
+            placeTitleWithType
+        }
+    }
+}
+
+// MARK: - EXTENSION
+extension PlacesRow {
+    private var placeImage: some View {
+        Group {
             if let imageUrl = place.attributes.imageURL {
                 StoredAsyncImage(url: imageUrl) { image in
                     image
@@ -16,17 +26,15 @@ struct PlacesRow: View {
                         .clipShape(RoundedRectangle(cornerRadius: 8))
                         .shadow(radius: 4)
                 } placeholder: {
-                    // placeholder for image is available, but loading
+                    // image is available, but loading
                     RoundedRectangle(cornerRadius: 8)
                         .foregroundColor(Color.theme.ink)
                         .frame(width: 60, height: 60)
                         .shadow(color: Color.theme.shadow, radius: 2, x: 3, y: 3)
                         .overlay(
-                            ProgressView()
-                        )
+                            ProgressView())
                 }
-            } else {
-                // placeholder for image is missing
+            } else { // placeholder: image is missing
                 RoundedRectangle(cornerRadius: 8)
                     .foregroundColor(Color.theme.accent)
                     .frame(width: 60, height: 60)
@@ -37,25 +45,28 @@ struct PlacesRow: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .foregroundColor(Color.theme.ink)
-                            .padding(.horizontal, 6)
-                    )
+                            .padding(.horizontal, 6))
             }
-            VStack(alignment: .leading) {
-                Text(place.attributes.title)
-                    .font(.title3)
-                    .fontWeight(.semibold)
-                    .lineLimit(3)
-                Text(place.attributes.kind.rawValue)
-                    .font(.footnote)
-                    .opacity(0.7)
-            }
+        }
+    }
+
+    private var placeTitleWithType: some View {
+        VStack(alignment: .leading) {
+            Text(place.attributes.title)
+                .font(.title3)
+                .fontWeight(.semibold)
+                .lineLimit(3)
+
+            Text(place.attributes.kind.rawValue)
+                .font(.footnote)
+                .opacity(0.7)
         }
     }
 }
 
-// MARK: PREVIEW
+// MARK: - PREVIEW
 struct PlacesRow_Previews: PreviewProvider {
     static var previews: some View {
-        PlacesRow(place: Places.mock.places.first!)
+        PlacesRow(place: Places.mock.places[0])
     }
 }

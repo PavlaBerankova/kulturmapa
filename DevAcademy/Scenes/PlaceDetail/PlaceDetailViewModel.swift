@@ -4,22 +4,22 @@ import SwiftUI
 struct PlaceDetailViewModel: DynamicProperty {
     // MARK: PROPERTIES
     @EnvironmentObject private var placesObservableObject: PlacesObservableObject
-    @EnvironmentObject private var locationManager: LocationManager
 
     var place: Place
+
     init(place: Place) {
         self.place = place
     }
 
     var isFavourite: Binding<Bool> {
-            .init {
-                placesObservableObject.favouritePlaces?.contains(place.attributes.ogcFid) ?? false
-            } set: { newValue in
-                placesObservableObject.set(place: place, favourite: newValue)
-            }
+        .init {
+            placesObservableObject.favouritePlaces?.contains(place.attributes.ogcFid) ?? false
+        } set: { newValue in
+            placesObservableObject.set(place: place, favourite: newValue)
         }
+    }
 
-    // MARK: PLACE MAIN INFORMATION
+    // MARK: - PLACE MAIN INFORMATION
     // IMAGE
     var placeImage: URL? {
         place.attributes.imageURL
@@ -35,7 +35,7 @@ struct PlaceDetailViewModel: DynamicProperty {
         (place.attributes.street ?? "") + " " + (place.attributes.streetNo ?? "")
     }
 
-    // MARK: PLACE LINKS
+    // MARK: - PLACE LINKS
     // WEB
     var placeWeb: String {
         guard let web = place.attributes.web else {
@@ -77,22 +77,19 @@ struct PlaceDetailViewModel: DynamicProperty {
         return true
     }
 
-    // MARK: PLACE AND USER COORDINATE
+    // MARK: - PLACE AND USER COORDINATE
     var currentPlaceCoordinate: CLLocation {
         let placeLatitude: Double = place.geometry?.latitude ?? 0.0
         let placeLongitude: Double = place.geometry?.longitude ?? 0.0
         return CLLocation(latitude: placeLatitude, longitude: placeLongitude)
     }
-    
-    var userLocation: CLLocation {
-        let coordinateLatitude: Double = locationManager.location?.coordinate.latitude ?? 0.0
-        let coordinateLongitude: Double = locationManager.location?.coordinate.longitude ?? 0.0
-        return CLLocation(latitude: coordinateLatitude, longitude: coordinateLongitude)
-    }
 
-    // MARK: FUNCTIONS
+    // MARK: - FUNCTIONS
     func getDistance() -> String {
-        return Int(currentPlaceCoordinate.distance(from: userLocation)).convertDistance()
+        if let userLocation = placesObservableObject.lastUpdatedLocation {
+            return Int(currentPlaceCoordinate.distance(from: userLocation)).convertDistance()
+        }
+        return "-"
     }
 
     func openAppleMaps() {
@@ -104,10 +101,6 @@ struct PlaceDetailViewModel: DynamicProperty {
         mapItem.url = URL(string: placeWeb)
         mapItem.openInMaps(launchOptions: nil)
     }
-
-//    func addFavorites() {
-//        isTappedFavorite.toggle()
-//    }
 
     private func checkAndFixHasprefix(link: String) -> String {
         let httpProtocol = "https://"

@@ -1,17 +1,17 @@
 import SwiftUI
 
-struct PlaceMapAnnotationView: View {
+struct SymbolByPlaceKind: View {
     // MARK: PROPERTIES
-    let kindSymbol: Image
+    let symbol: Image
 
-    // MARK: BODY
+    // MARK: - BODY
     var body: some View {
         VStack(spacing: 0) {
             ZStack {
                 Circle()
                     .frame(width: 45, height: 45)
                     .foregroundColor(.black)
-                kindSymbol
+                symbol
                     .renderingMode(.template)
                     .resizable()
                     .scaledToFit()
@@ -26,10 +26,10 @@ struct PlaceMapAnnotationView: View {
     }
 }
 
-// MARK: PREVIEW
-struct PlaceMapAnnotationView_Previews: PreviewProvider {
+// MARK: - PREVIEW
+struct SymbolByPlaceKindView_Previews: PreviewProvider {
     static var previews: some View {
-        PlaceMapAnnotationView(kindSymbol: Image.mapSymbol.cinema)
+        SymbolByPlaceKind(symbol: Image.mapSymbol.cinema)
             .previewLayout(.sizeThatFits)
     }
 }

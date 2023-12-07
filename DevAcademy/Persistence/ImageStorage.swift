@@ -1,5 +1,5 @@
-import SwiftUI
 import CryptoKit
+import SwiftUI
 
 class ImageStorage {
     static let shared: ImageStorage = ImageStorage()
@@ -10,7 +10,7 @@ class ImageStorage {
     init() {
         if FileManager.default.fileExists(atPath: defaultPath.path(percentEncoded: false)) {
         } else {
-            try! FileManager.default.createDirectory(at: defaultPath, withIntermediateDirectories: true)
+            try? FileManager.default.createDirectory(at: defaultPath, withIntermediateDirectories: true)
         }
     }
 
@@ -24,7 +24,6 @@ class ImageStorage {
         let path = url.description.data(using: .utf8)!
         return SHA256.hash(data: path).compactMap { String(format: "%02x", $0) }.joined()
     }
-
 
     /// Check, whether file is already cached and if so, returns an Image.
     ///
@@ -66,7 +65,9 @@ class ImageStorage {
         if FileManager.default.fileExists(atPath: pathHash) {
             try? FileManager.default.removeItem(atPath: pathHash)
         }
-        guard let bytes = image.jpegData(compressionQuality: 1.0) else { return }
+        guard let bytes = image.jpegData(compressionQuality: 1.0) else {
+            return
+        }
         do {
             try bytes.write(to: URL(filePath: pathHash))
         } catch {
@@ -88,7 +89,6 @@ struct StoredAsyncImage<I: View, P: View>: View {
     private let url: URL
     private let imageBuilder: (Image) -> I
     private let placeholderBuilder: () -> P
-
 
     init(url: URL, image: @escaping (Image) -> I, placeholder: @escaping () -> P) {
         self.url = url
@@ -140,5 +140,3 @@ struct StoredAsyncImage<I: View, P: View>: View {
         }
     }
 }
-
-

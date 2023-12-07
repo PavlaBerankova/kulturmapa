@@ -1,17 +1,22 @@
-//  Brno - 49.19522264287748, 16.605414965101804
-import SwiftUI
 import MapKit
+import SwiftUI
 
 struct PlacesMapView: View {
     // MARK: PROPERTIES
     @EnvironmentObject private var coordinator: Coordinator
-    @EnvironmentObject private var locationManager: LocationManager
     let model = PlacesViewModel()
 
-    // MARK: BODY
+    // MARK: - BODY
     var body: some View {
         NavigationStack {
-            mapViewWithAnnotations
+            ZStack {
+                mapViewWithPinByKind(model.selectedKind)
+                VStack {
+                    ToolbarWithFilterByKind(selectedKind: model.$selectedKind)
+                        .backgroundStyle()
+                    Spacer()
+                }
+            }
         }
         .task {
             await model.fetchData()
@@ -22,29 +27,35 @@ struct PlacesMapView: View {
     }
 }
 
-// MARK: EXTENSION
+// MARK: - EXTENSION
 extension PlacesMapView {
-    private var mapViewWithAnnotations: some View {
-        Map(coordinateRegion: model.$region, showsUserLocation: true, annotationItems: model.places, annotationContent: { place in
-            MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: CLLocationDegrees(place.geometry?.latitude ?? 0.0), longitude: CLLocationDegrees(place.geometry?.longitude ?? 0.0))) {
-                PlaceMapAnnotationView(kindSymbol: place.symbol)
-                    .scaleEffect(model.selectedPlace == place ? 1 : 0.7)
-                    .animation(.easeInOut)
-                    .onTapGesture {
-                        model.selectedPlace = place
-                    }
-            }
-        })
+    private func mapViewWithPinByKind(_ kind: String) -> some View {
+        Map(coordinateRegion: model.$region,
+            showsUserLocation: true,
+            annotationItems: model.filterPlaces(by: kind)) { place in
+                MapAnnotation(
+                    coordinate: CLLocationCoordinate2D(
+                        latitude: CLLocationDegrees(place.geometry?.latitude ?? 0.0),
+                        longitude: CLLocationDegrees(place.geometry?.longitude ?? 0.0))) {
+                            SymbolByPlaceKind(symbol: place.symbol)
+                                .scaleEffect(model.selectedPlace == place ? 1 : 0.7)
+                                .onTapGesture {
+                                    withAnimation(.easeInOut) {
+                                        model.selectedPlace = place
+                                    }
+                                }
+                }
+        }
         .ignoresSafeArea(edges: .top)
     }
 }
 
-// MARK: PREVIEW
+// MARK: - PREVIEW
+
 struct PlacesMapView_Previews: PreviewProvider {
     static var previews: some View {
         PlacesMapView()
-            .environmentObject(PlacesObservableObject(service: ProductionPlacesService()))
+            .environmentObject(PlacesObservableObject(placesService: ProductionPlacesService(), userLocationService: ProductionUserLocationService()))
             .environmentObject(Coordinator())
-            .environmentObject(LocationManager())
     }
 }

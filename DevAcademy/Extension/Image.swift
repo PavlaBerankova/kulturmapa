@@ -22,7 +22,7 @@ struct ContactsImageSymbol {
 // symbol for map pin
 struct MapImageSymbol {
     let cinema = Image("cinema")
-    let theatre = Image("theater")
+    let theater = Image("theater")
     let gallery = Image("gallery")
     let hub = Image("hub")
     let musicClub = Image("musicClub")
@@ -37,8 +37,11 @@ struct MapImageSymbol {
     let other = Image("other")
     let unknown = Image("other")
 }
+
 struct OtherAppSymbol {
     let imagePlaceholder = Image(systemName: "photo.artframe")
     let navigateArrow = Image(systemName: "arrow.triangle.turn.up.right.diamond.fill")
     let locationArrow = Image(systemName: "location.fill")
+    let search = Image(systemName: "magnifyingglass")
+    let xmark = Image(systemName: "xmark.circle.fill")
 }
