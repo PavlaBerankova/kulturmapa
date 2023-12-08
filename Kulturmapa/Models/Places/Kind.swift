@@ -1,7 +1,7 @@
 import Foundation
 
 enum Kind: String, CaseIterable {
-    case allKinds = "Vše"
+    case all = "Vše"
     case theatre = "Divadlo"
     case gallery = "Galerie"
     case hub = "Hub"

@@ -45,4 +45,6 @@ struct OtherAppSymbol {
     let locationArrow = Image(systemName: "location.fill")
     let search = Image(systemName: "magnifyingglass")
     let xmark = Image(systemName: "xmark.circle.fill")
+    let info = Image(systemName: "info.circle")
+    let gitHub = Image("github")
 }

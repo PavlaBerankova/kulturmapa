@@ -4,6 +4,7 @@ struct PlacesListView: View {
     // MARK: PROPERTIES
     @EnvironmentObject private var coordinator: Coordinator
     let model = PlacesViewModel()
+    @State private var showInfo = false
 
     // MARK: - BODY
     var body: some View {
@@ -11,7 +12,7 @@ struct PlacesListView: View {
             Group {
                 if model.places.isNotEmpty {
                    navigationToolbar
-                    if model.selectedKind == "Vše" {
+                    if model.selectedKind == Kind.all.rawValue {
                         placesList
                     } else {
                         filteredPlacesList
@@ -21,6 +22,9 @@ struct PlacesListView: View {
                 }
             }
             .listStyle(.plain)
+        }
+        .sheet(isPresented: $showInfo) {
+            coordinator.infoAboutApp
         }
         .task {
             await model.fetchPlacesData()
@@ -32,11 +36,18 @@ struct PlacesListView: View {
 extension PlacesListView {
     private var navigationToolbar: some View {
         VStack {
-            SearchBarView(searchText: model.$searchQuery)
-            ToolbarWithFilterByKind(selectedKind: model.$selectedKind)
+            HStack {
+                SearchBarView(searchText: model.$searchQuery)
+                InfoButtonView {
+                    showInfo.toggle()
+                }
+                Spacer()
+            }
+            FilterToolbarView(selectedKind: model.$selectedKind)
         }
         .backgroundStyle()
     }
+
     private var placesList: some View {
         List(model.searchedPlaces(), id: \.attributes.ogcFid) { place in
             NavigationLink {

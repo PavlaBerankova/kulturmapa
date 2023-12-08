@@ -29,4 +29,10 @@ final class Coordinator: ObservableObject {
     func eventDetailScene(with event: Event) -> some View {
         EventDetailView(model: EventDetailViewModel(event: event))
     }
+
+    var infoAboutApp: some View {
+        InfoView()
+            .presentationDetents([.fraction(0.4)])
+            .presentationDragIndicator(.visible)
+    }
 }

@@ -41,7 +41,7 @@ extension PlaceDetailView {
             Button {
                 dismiss()
             } label: {
-                ToolbarButtonView(title: "Back button", iconName: "chevron.left")
+                CircleButtonView(title: "Back button", iconName: "chevron.left")
             }
         }
     }
@@ -51,7 +51,7 @@ extension PlaceDetailView {
             Button {
                 model.isFavourite.wrappedValue.toggle()
             } label: {
-                ToolbarButtonView(title: "Favorite button", iconName: model.isFavourite.wrappedValue ? "star.fill" : "star")
+                CircleButtonView(title: "Favorite button", iconName: model.isFavourite.wrappedValue ? "star.fill" : "star")
             }
         }
     }

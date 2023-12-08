@@ -51,7 +51,7 @@ extension EventDetailView {
             Button {
                 dismiss()
             } label: {
-                ToolbarButtonView(title: "Back button", iconName: "chevron.left")
+                CircleButtonView(title: "Back button", iconName: "chevron.left")
             }
         }
     }

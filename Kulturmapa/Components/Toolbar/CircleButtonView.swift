@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ToolbarButtonView: View {
+struct CircleButtonView: View {
     // MARK: PROPERTIES
     let title: String
     let iconName: String
@@ -20,11 +20,11 @@ struct ToolbarButtonView: View {
 }
 
 // MARK: - PREVIEW
-struct ToolbarButtonView_Previews: PreviewProvider {
+struct CircleButtonView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             Color.gray
-            ToolbarButtonView(title: "Oblíbené", iconName: "star")
+            CircleButtonView(title: "Oblíbené", iconName: "star")
         }
         .previewLayout(.sizeThatFits)
     }

@@ -27,9 +27,9 @@ struct KindToolbarButton_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             VStack {
-                KindToolbarButton(title: Kind.allKinds.rawValue, action: {})
-                KindToolbarButton(title: Kind.entrepriseWithCulturalProgramme.rawValue, action: {})
-                KindToolbarButton(title: Kind.theatre.rawValue, isSelected: true, action: {})
+                KindToolbarButton(title: Kind.all.rawValue) { }
+                KindToolbarButton(title: Kind.entrepriseWithCulturalProgramme.rawValue) { }
+                KindToolbarButton(title: Kind.theatre.rawValue, isSelected: true) { }
             }
         }
     }
