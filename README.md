@@ -25,7 +25,3 @@
 https://github.com/PavlaBerankova/kulturmapa/assets/107038196/4c317023-1e3f-4c50-9814-9aafce372d2c
 
 
-
-
-
-

@@ -12,14 +12,14 @@ struct PlacesMapView: View {
             ZStack {
                 mapViewWithPinByKind(model.selectedKind)
                 VStack {
-                    ToolbarWithFilterByKind(selectedKind: model.$selectedKind)
+                    FilterToolbarView(selectedKind: model.$selectedKind)
                         .backgroundStyle()
                     Spacer()
                 }
             }
         }
         .task {
-            await model.fetchData()
+            await model.fetchPlacesData()
         }
         .sheet(item: model.$selectedPlace) { place in
             coordinator.placeDetailScene(with: place)
@@ -37,7 +37,7 @@ extension PlacesMapView {
                     coordinate: CLLocationCoordinate2D(
                         latitude: CLLocationDegrees(place.geometry?.latitude ?? 0.0),
                         longitude: CLLocationDegrees(place.geometry?.longitude ?? 0.0))) {
-                            SymbolByPlaceKind(symbol: place.symbol)
+                            PlaceMapAnnotationView(symbol: place.symbol)
                                 .scaleEffect(model.selectedPlace == place ? 1 : 0.7)
                                 .onTapGesture {
                                     withAnimation(.easeInOut) {
@@ -55,7 +55,6 @@ extension PlacesMapView {
 struct PlacesMapView_Previews: PreviewProvider {
     static var previews: some View {
         PlacesMapView()
-            .environmentObject(PlacesObservableObject(placesService: ProductionPlacesService(), userLocationService: ProductionUserLocationService()))
-            .environmentObject(Coordinator())
+            .inject(objects: ObservableObjects(services: Services()), coordinator: Coordinator())
     }
 }

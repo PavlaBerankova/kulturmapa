@@ -10,6 +10,7 @@ struct RootView: View {
             placesTab
             mapTab
             favoritesTab
+            eventsTab
         }
     }
 }
@@ -45,13 +46,22 @@ extension RootView {
                 }
             }
     }
+
+    private var eventsTab: some View {
+        coordinator.eventsScene
+            .tabItem {
+                VStack {
+                    Image.tabSymbol.calendar
+                    Text("Akce")
+                }
+            }
+    }
 }
 
 // MARK: PREVIEW
 struct RootView_Previews: PreviewProvider {
     static var previews: some View {
         RootView()
-            .environmentObject(PlacesObservableObject(placesService: ProductionPlacesService(), userLocationService: ProductionUserLocationService()))
-            .environmentObject(Coordinator())
+            .inject(objects: ObservableObjects(services: Services()), coordinator: Coordinator())
     }
 }
