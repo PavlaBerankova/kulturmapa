@@ -15,7 +15,11 @@ struct PlaceDetailView: View {
                     placeImage
                     LazyVStack(alignment: .leading, spacing: 10) {
                         placeTitleWithAddressAndDistance
-                        navigateButton
+                        if model.placeCoordinateIsAvailable {
+                            navigateButton
+                        } else {
+                            CustomDivider()
+                        }
                         ScrollView {
                             placeLinks
                         }
@@ -71,7 +75,7 @@ extension PlaceDetailView {
                     .lineLimit(2)
                     .opacity(0.7)
                 Spacer()
-                if model.getDistance() != "-" {
+                if model.placeCoordinateIsAvailable {
                     Image.otherSymbol.locationArrow
                         .foregroundColor(Color.theme.accent)
                     Text(model.getDistance())
@@ -80,6 +84,7 @@ extension PlaceDetailView {
             }
         }
         .padding(.top, 15)
+        .padding(.bottom, model.placeCoordinateIsAvailable ? 0 : 10)
     }
 
     private var navigateButton: some View {
@@ -135,8 +140,5 @@ struct PlaceDetailView_Previews: PreviewProvider {
     static var previews: some View {
         PlaceDetailView(model: PlaceDetailViewModel(place: Places.mock.places[0]))
             .injectPreviewEnvironment()
-//            .environmentObject(PlacesObservableObject(
-//                placesService: ProductionPlacesService(),
-//                userLocationService: ProductionUserLocationService()))
     }
 }

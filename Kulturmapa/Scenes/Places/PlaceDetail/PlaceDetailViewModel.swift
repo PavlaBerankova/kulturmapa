@@ -84,6 +84,14 @@ struct PlaceDetailViewModel: DynamicProperty {
         return CLLocation(latitude: placeLatitude, longitude: placeLongitude)
     }
 
+    var placeCoordinateIsAvailable: Bool {
+        if ((place.geometry?.latitude) != nil), place.geometry?.longitude != nil ||
+            ((place.geometry?.latitude) != 0.0), place.geometry?.longitude != 0.0 {
+            return true
+        }
+        return false
+    }
+
     // MARK: - FUNCTIONS
     func getDistance() -> String {
         if let userLocation = placesObservableObject.lastUpdatedLocation {

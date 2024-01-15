@@ -12,7 +12,7 @@ extension Places {
     static let mock: Places = Places(
         places: [
             Place(
-                geometry: Point(latitude: 49.1913, longitude: 16.6115),
+                geometry: Point(latitude: 0.0, longitude: 0.0),
                 attributes: Attributes(
                     ogcFid: 1,
                     imageURL: nil,

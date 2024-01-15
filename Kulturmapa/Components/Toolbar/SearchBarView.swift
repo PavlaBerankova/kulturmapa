@@ -39,9 +39,12 @@ struct SearchBarView: View {
 }
 
 // MARK: - PREVIEW
-struct SearchBarView_Previews: PreviewProvider {
-    static var previews: some View {
-            SearchBarView(searchText: .constant(""))
-                .previewLayout(.sizeThatFits)
-    }
+#Preview("Dark") {
+    SearchBarView(searchText: .constant("Galerie"))
+        .preferredColorScheme(.dark)
+}
+
+#Preview("Light") {
+    SearchBarView(searchText: .constant("Galerie"))
+        .preferredColorScheme(.light)
 }
