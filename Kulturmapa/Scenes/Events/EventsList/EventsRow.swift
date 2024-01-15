@@ -30,15 +30,15 @@ extension EventsRow {
                     RoundedRectangle(cornerRadius: 8)
                         .foregroundColor(Color.theme.ink)
                         .frame(width: 60, height: 60)
-                        .shadow(color: Color.theme.shadow, radius: 2, x: 3, y: 3)
+                        .shadow(color: Color.theme.shadow, radius: 3, x: 2, y: 2)
                         .overlay(
-                            ProgressView())
+                            LoadingIndicator(widthFrame: 30, heightFrame: 30))
                 }
             } else { // placeholder: image is missing
                 RoundedRectangle(cornerRadius: 8)
                     .foregroundColor(Color.theme.accent)
                     .frame(width: 60, height: 60)
-                    .shadow(color: Color.theme.shadow, radius: 2, x: 3, y: 3)
+                    .shadow(color: Color.theme.shadow, radius: 3, x: 2, y: 2)
                     .overlay(
                         Image.otherSymbol.imagePlaceholder
                             .renderingMode(.template)

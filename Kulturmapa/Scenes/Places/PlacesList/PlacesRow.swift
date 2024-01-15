@@ -26,19 +26,21 @@ extension PlacesRow {
                         .clipShape(RoundedRectangle(cornerRadius: 8))
                         .shadow(radius: 4)
                 } placeholder: {
-                    // image is available, but loading
+                     // image is available, but loading
                     RoundedRectangle(cornerRadius: 8)
                         .foregroundColor(Color.theme.ink)
                         .frame(width: 60, height: 60)
-                        .shadow(color: Color.theme.shadow, radius: 2, x: 3, y: 3)
+                        .shadow(color: Color.theme.shadow, radius: 3, x: 2, y: 2)
                         .overlay(
-                            ProgressView())
+                            LoadingIndicator(
+                                widthFrame: 25,
+                                heightFrame: 25))
                 }
             } else { // placeholder: image is missing
                 RoundedRectangle(cornerRadius: 8)
                     .foregroundColor(Color.theme.accent)
                     .frame(width: 60, height: 60)
-                    .shadow(color: Color.theme.shadow, radius: 2, x: 3, y: 3)
+                    .shadow(color: Color.theme.shadow, radius: 3, x: 2, y: 2)
                     .overlay(
                         Image.otherSymbol.imagePlaceholder
                             .renderingMode(.template)
