@@ -7,7 +7,7 @@ protocol EventsService {
 class ProductionEventsService: EventsService {
     func fetchEvents() async throws -> Events {
         let session = URLSession.shared
-        let url = URL(string: "https://services6.arcgis.com/fUWVlHWZNxUvTUh8/arcgis/rest/services/Events/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json")
+        let url = URL(string: UrlStrings.eventsUrl.rawValue)
         guard let url = url else {
             throw APIError.invalidURL
         }

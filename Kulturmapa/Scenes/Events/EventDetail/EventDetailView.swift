@@ -2,7 +2,7 @@ import MapKit
 import SwiftUI
 
 struct EventDetailView: View {
-    // MARK: PROPERTIES
+    // MARK: - PROPERTIES
     @Environment(\.dismiss)
     private var dismiss
     let model: EventDetailViewModel
@@ -11,30 +11,30 @@ struct EventDetailView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                VStack {
-                    eventImage
-                    eventTitle
-                    ScrollView {
-                        LazyVStack(alignment: .leading, spacing: 10) {
-                            eventDate
-                            eventTickets
-                            if model.ticketWebIsAvailable {
-                                eventTicketWeb
-                            }
-                            if model.emailIsAvailable {
-                                eventEmail
-                            }
-                            if model.webIsAvailable {
-                                eventWeb
-                            }
-                            if model.notesIsAvailable {
-                                eventNotes
-                            }
+                    VStack {
+                        eventImage
+                        ScrollView {
+                            eventTitle
+                                VStack(alignment: .leading, spacing: 10) {
+                                    eventDate
+                                    eventTickets
+                                    if model.ticketWebIsAvailable {
+                                        eventTicketWeb
+                                    }
+                                    if model.emailIsAvailable {
+                                        eventEmail
+                                    }
+                                    if model.webIsAvailable {
+                                        eventWeb
+                                    }
+                                    if model.notesIsAvailable {
+                                        eventNotes
+                                    }
+                                }
+                                .padding(.horizontal)
                         }
-                        .padding(.horizontal)
                     }
-                }
-                .ignoresSafeArea(edges: .top)
+                    .ignoresSafeArea(edges: .top)
             }
             Spacer()
                 .navigationBarBackButtonHidden(true)
@@ -45,6 +45,7 @@ struct EventDetailView: View {
     }
 }
 
+// MARK: - EXTENSION
 extension EventDetailView {
     private var toolbarBackButton: some ToolbarContent {
         ToolbarItem(placement: .navigationBarLeading) {
