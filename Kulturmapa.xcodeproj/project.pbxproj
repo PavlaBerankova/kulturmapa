@@ -54,6 +54,7 @@
 		4499C79A2A710712007F6C1C /* PossibleKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4499C7992A710712007F6C1C /* PossibleKind.swift */; };
 		44B4300B2A83DAF9005D9326 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B4300A2A83DAF9005D9326 /* Color.swift */; };
 		44C431922AD13B79006EB111 /* BackgroundForToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C431912AD13B79006EB111 /* BackgroundForToolbar.swift */; };
+		44C797B62B5E7BFD00A1BE90 /* SizeLoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C797B52B5E7BFD00A1BE90 /* SizeLoadingIndicator.swift */; };
 		44C93BCD2A79335A00DD287B /* PlaceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C93BCC2A79335A00DD287B /* PlaceDetailView.swift */; };
 		44CDD1782A941A6200452808 /* CircleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CDD1772A941A6200452808 /* CircleButtonView.swift */; };
 		44D34C552B2352F700637603 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 44D34C542B2352F700637603 /* README.md */; };
@@ -116,6 +117,7 @@
 		4499C7992A710712007F6C1C /* PossibleKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PossibleKind.swift; sourceTree = "<group>"; };
 		44B4300A2A83DAF9005D9326 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		44C431912AD13B79006EB111 /* BackgroundForToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundForToolbar.swift; sourceTree = "<group>"; };
+		44C797B52B5E7BFD00A1BE90 /* SizeLoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeLoadingIndicator.swift; sourceTree = "<group>"; };
 		44C93BCC2A79335A00DD287B /* PlaceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailView.swift; sourceTree = "<group>"; };
 		44CDD1772A941A6200452808 /* CircleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonView.swift; sourceTree = "<group>"; };
 		44D34C542B2352F700637603 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				44402A8F2B220573000B409E /* BrnoCoordinates.swift */,
 				44402ABE2B2210E7000B409E /* APIError.swift */,
 				44402AC02B221122000B409E /* UrlStrings.swift */,
+				44C797B52B5E7BFD00A1BE90 /* SizeLoadingIndicator.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -596,6 +599,7 @@
 				44402AC12B221122000B409E /* UrlStrings.swift in Sources */,
 				4496A2CD2ABDB166008AD762 /* UserLocationService.swift in Sources */,
 				44D34C572B2359D000637603 /* InfoButtonView.swift in Sources */,
+				44C797B62B5E7BFD00A1BE90 /* SizeLoadingIndicator.swift in Sources */,
 				C05610492A5C78CA007FB970 /* KulturmapaApp.swift in Sources */,
 				44402AAD2B220BD0000B409E /* EventsViewModel.swift in Sources */,
 				44F66E702AC0CF4C00912D70 /* Collection.swift in Sources */,

@@ -18,6 +18,7 @@ class ProductionEventsService: EventsService {
         let (data, response) = try await session.data(for: request)
 
         guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+            print(response.description)
             throw APIError.invalidResponse
         }
 

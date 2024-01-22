@@ -32,9 +32,7 @@ extension PlacesRow {
                         .frame(width: 60, height: 60)
                         .shadow(color: Color.theme.shadow, radius: 3, x: 2, y: 2)
                         .overlay(
-                            LoadingIndicator(
-                                widthFrame: 25,
-                                heightFrame: 25))
+                            LoadingIndicator(width: .smallSize, height: .smallSize))
                 }
             } else { // placeholder: image is missing
                 RoundedRectangle(cornerRadius: 8)

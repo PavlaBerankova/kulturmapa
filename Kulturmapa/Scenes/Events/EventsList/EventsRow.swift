@@ -32,7 +32,7 @@ extension EventsRow {
                         .frame(width: 60, height: 60)
                         .shadow(color: Color.theme.shadow, radius: 3, x: 2, y: 2)
                         .overlay(
-                            LoadingIndicator(widthFrame: 30, heightFrame: 30))
+                            LoadingIndicator(width: .smallSize, height: .smallSize))
                 }
             } else { // placeholder: image is missing
                 RoundedRectangle(cornerRadius: 8)

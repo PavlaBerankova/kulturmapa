@@ -18,7 +18,7 @@ struct PlacesListView: View {
                         filteredPlacesList
                     }
                 } else {
-                    LoadingIndicator(widthFrame: 150, heightFrame: 150)
+                    LoadingIndicator(width: .bigSize, height: .bigSize)
                 }
             }
             .listStyle(.plain)
