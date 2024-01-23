@@ -12,12 +12,14 @@ struct TabViewImageSymbol {
     let map = Image(systemName: "map")
     let star = Image(systemName: "star")
     let calendar = Image(systemName: "calendar")
+    let info = Image(systemName: "info.circle")
 }
 
 struct ContactsImageSymbol {
     let web = Image(systemName: "network")
     let phone = Image(systemName: "phone")
     let email = Image(systemName: "envelope")
+    let atSymbol = Image(systemName: "at")
 }
 
 // symbol for map pin

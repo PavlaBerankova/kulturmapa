@@ -14,7 +14,7 @@ struct EventsListView: View {
                         NavigationLink {
                             coordinator.eventDetailScene(with: event)
                         } label: {
-                            EventsRow(event: event)
+                            EventsRowView(event: event)
                         }
                     }
                 } else {
@@ -31,6 +31,7 @@ struct EventsListView: View {
     }
 }
 
+// MARK: - PREVIEW
 #Preview {
     EventsListView()
         .inject(objects: ObservableObjects(services: Services()), coordinator: Coordinator())

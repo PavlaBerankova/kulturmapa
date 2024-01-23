@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "Snímek obrazovky 2024-01-22 v 21.38.47.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

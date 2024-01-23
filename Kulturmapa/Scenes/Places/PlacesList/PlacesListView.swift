@@ -4,7 +4,6 @@ struct PlacesListView: View {
     // MARK: PROPERTIES
     @EnvironmentObject private var coordinator: Coordinator
     let model = PlacesViewModel()
-    @State private var showInfo = false
 
     // MARK: - BODY
     var body: some View {
@@ -23,9 +22,6 @@ struct PlacesListView: View {
             }
             .listStyle(.plain)
         }
-        .sheet(isPresented: $showInfo) {
-            coordinator.infoAboutApp
-        }
         .task {
             await model.fetchPlacesData()
         }
@@ -36,13 +32,7 @@ struct PlacesListView: View {
 extension PlacesListView {
     private var navigationToolbar: some View {
         VStack {
-            HStack {
-                SearchBarView(searchText: model.$searchQuery)
-                InfoButtonView {
-                    showInfo.toggle()
-                }
-                Spacer()
-            }
+            SearchBarView(searchText: model.$searchQuery)
             FilterToolbarView(selectedKind: model.$selectedKind)
         }
         .backgroundStyle()
@@ -53,7 +43,7 @@ extension PlacesListView {
             NavigationLink {
                 coordinator.placeDetailScene(with: place)
             } label: {
-                PlacesRow(place: place)
+                PlacesRowView(place: place)
             }
         }
     }
@@ -63,7 +53,7 @@ extension PlacesListView {
             NavigationLink {
                 coordinator.placeDetailScene(with: place)
             } label: {
-                PlacesRow(place: place)
+                PlacesRowView(place: place)
             }
         }
     }
@@ -74,5 +64,6 @@ struct PlacesView_Previews: PreviewProvider {
     static var previews: some View {
         PlacesListView()
             .inject(objects: ObservableObjects(services: Services()), coordinator: Coordinator())
+            .preferredColorScheme(.dark)
     }
 }

@@ -13,7 +13,7 @@ struct FavoritePlacesView: View {
                     NavigationLink {
                         coordinator.placeDetailScene(with: place)
                     } label: {
-                        PlacesRow(place: place)
+                        PlacesRowView(place: place)
                     }
                 }
                 .animation(.default, value: model.places)

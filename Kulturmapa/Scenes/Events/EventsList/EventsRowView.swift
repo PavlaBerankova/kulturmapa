@@ -1,23 +1,23 @@
 import SwiftUI
 
-struct PlacesRow: View {
+struct EventsRowView: View {
     // MARK: PROPERTIES
-    let place: Place
+    let event: Event
 
     // MARK: - BODY
     var body: some View {
-        HStack {
-            placeImage
-            placeTitleWithType
+        HStack(alignment: .top) {
+            eventImage
+            eventTitleWithCategory
         }
     }
 }
 
 // MARK: - EXTENSION
-extension PlacesRow {
-    private var placeImage: some View {
+extension EventsRowView {
+    private var eventImage: some View {
         Group {
-            if let imageUrl = place.attributes.imageURL {
+            if let imageUrl = event.attributes.image {
                 StoredAsyncImage(url: imageUrl) { image in
                     image
                         .resizable()
@@ -26,7 +26,7 @@ extension PlacesRow {
                         .clipShape(RoundedRectangle(cornerRadius: 8))
                         .shadow(radius: 4)
                 } placeholder: {
-                     // image is available, but loading
+                    // image is available, but loading
                     RoundedRectangle(cornerRadius: 8)
                         .foregroundColor(Color.theme.ink)
                         .frame(width: 60, height: 60)
@@ -50,23 +50,24 @@ extension PlacesRow {
         }
     }
 
-    private var placeTitleWithType: some View {
+    private var eventTitleWithCategory: some View {
         VStack(alignment: .leading) {
-            Text(place.attributes.title)
+            Text(event.attributes.name.filterHtmlCharacters())
                 .font(.headline)
                 .fontWeight(.semibold)
-                .lineLimit(3)
+                .lineLimit(4)
 
-            Text(place.attributes.kind.rawValue)
+            Text(event.attributes.categories ?? "")
                 .font(.footnote)
                 .opacity(0.7)
+                .lineLimit(2)
+            Text("\(event.attributes.dateFrom.dateFormat()) - \(event.attributes.dateTo.dateFormat())")
+                .font(.footnote)
         }
     }
 }
 
 // MARK: - PREVIEW
-struct PlacesRow_Previews: PreviewProvider {
-    static var previews: some View {
-        PlacesRow(place: Places.mock.places[0])
-    }
+#Preview {
+    EventsRowView(event: Events.mock.events[10])
 }

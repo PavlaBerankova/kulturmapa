@@ -11,6 +11,7 @@ struct RootView: View {
             mapTab
             favoritesTab
             eventsTab
+            infoTab
         }
     }
 }
@@ -56,6 +57,16 @@ extension RootView {
                 }
             }
     }
+
+    private var infoTab: some View {
+        coordinator.infoAboutApp
+            .tabItem {
+                VStack {
+                    Image.tabSymbol.info
+                    Text("Info")
+                }
+            }
+    }
 }
 
 // MARK: PREVIEW
@@ -63,5 +74,6 @@ struct RootView_Previews: PreviewProvider {
     static var previews: some View {
         RootView()
             .inject(objects: ObservableObjects(services: Services()), coordinator: Coordinator())
+            .preferredColorScheme(.light)
     }
 }

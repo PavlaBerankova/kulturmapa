@@ -1,21 +1,55 @@
 import SwiftUI
 
 struct InfoView: View {
+    // MARK: - PROPERTIES
     let gitHubUrl = UrlStrings.sourceCodeUrl.rawValue
+    let dataBrnoUrl = UrlStrings.dataBrnoUrl.rawValue
+    let email = UrlStrings.emailInfo.rawValue
 
+    // MARK: - BODY
     var body: some View {
-        VStack(spacing: 30) {
-            Text("Zdrojový kód aplikace najdeš na GitHubu.")
-            Link(destination: URL(string: gitHubUrl)!) {
-                Image.otherSymbol.gitHub
-                    .resizable()
-                    .frame(width: 50, height: 50)
+        NavigationStack {
+            VStack(alignment: .leading) {
+                linkToGitHub
+                linkToDataBrno
+                linkToEmail
+                Divider()
+                Spacer()
             }
+            .padding(.top, 20)
+            .padding(.horizontal)
+            .navigationTitle("O aplikaci")
         }
-        .padding(.horizontal)
     }
 }
 
+// MARK: - EXTENSION
+extension InfoView {
+    private var linkToGitHub: some View {
+        InfoRowView(
+            infoImage: .otherSymbol.gitHub,
+            infoText: "Zdrojový kód aplikace najdeš na GitHubu.",
+            urlString: gitHubUrl)
+    }
+
+    private var linkToDataBrno: some View {
+        InfoRowView(
+            infoImage: Image(.dataBrno),
+            infoText: "Veškerá data jsou převzata z data.brno.cz",
+            urlString: dataBrnoUrl)
+    }
+
+    private var linkToEmail: some View {
+        InfoRowView(
+            infoImage: .contactsSymbol.atSymbol,
+            infoText: "Máš nápad na vylepšení nebo jsi našel/našla chybu? Napiš mi na e-mail \(email)",
+            urlString: "mailto:" + email)
+    }
+}
+
+// MARK: - PREVIEW
 #Preview {
-    InfoView()
+    NavigationStack {
+        InfoView()
+    }
 }
