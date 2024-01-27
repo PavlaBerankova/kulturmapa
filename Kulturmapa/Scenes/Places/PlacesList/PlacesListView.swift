@@ -33,7 +33,7 @@ extension PlacesListView {
     private var navigationToolbar: some View {
         VStack {
             SearchBarView(searchText: model.$searchQuery)
-            FilterToolbarView(selectedKind: model.$selectedKind)
+            KindFilterToolbarView(selectedKind: model.$selectedKind)
         }
         .backgroundStyle()
     }

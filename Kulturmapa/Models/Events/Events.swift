@@ -214,7 +214,7 @@ extension Events {
                     email: "info@javornikbrno.cz",
                     ticketsUrl: "https://goout.net/cs/listky/javornik/vhbt/",
                     timeStampFrom: 1_623_974_400_000,
-                    timeStampTo: 1_861_920_000_000),
+                    timeStampTo: 1_623_974_400_000),
                 geometry:
                     EventPoint(
                         latitude: 49.2095699547947,

@@ -12,7 +12,7 @@ struct PlacesMapView: View {
             ZStack {
                 mapViewWithPinByKind(model.selectedKind)
                 VStack {
-                    FilterToolbarView(selectedKind: model.$selectedKind)
+                    KindFilterToolbarView(selectedKind: model.$selectedKind)
                         .backgroundStyle()
                     Spacer()
                 }

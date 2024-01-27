@@ -5,6 +5,7 @@ struct InfoRowView: View {
     let infoImage: Image
     let infoText: String
     let urlString: String
+    @State private var isTapped = false
 
     // MARK: - BODY
     var body: some View {
@@ -28,11 +29,13 @@ struct InfoRowView: View {
                 .foregroundColor(Color.theme.accent)
         }
         .onTapGesture {
+            isTapped.toggle()
             if let url = URL(string: urlString), UIApplication.shared.canOpenURL(url) {
                 UIApplication.shared.open(url)
             }
         }
         .padding(5)
+        .background(isTapped ? .gray.opacity(0.1) : .clear)
     }
 }
 

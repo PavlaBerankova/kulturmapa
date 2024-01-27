@@ -11,4 +11,8 @@ struct Event: Identifiable, Codable, Equatable {
     var id: Int {
         attributes.id
     }
+
+    var allDaysOfEvent: TimeInterval {
+        attributes.dateFrom.timeIntervalSince(attributes.dateTo)
+    }
 }

@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct FilterToolbarView: View {
+struct KindFilterToolbarView: View {
     // MARK: PROPERTIES
     @Binding var selectedKind: String
 
@@ -24,6 +24,6 @@ struct FilterToolbarView: View {
 // MARK: - PREVIEW
 struct FilterToolbarView_Previews: PreviewProvider {
     static var previews: some View {
-        FilterToolbarView(selectedKind: .constant(Kind.theatre.rawValue))
+        KindFilterToolbarView(selectedKind: .constant(Kind.theatre.rawValue))
     }
 }

@@ -61,8 +61,13 @@ extension EventsRowView {
                 .font(.footnote)
                 .opacity(0.7)
                 .lineLimit(2)
-            Text("\(event.attributes.dateFrom.dateFormat()) - \(event.attributes.dateTo.dateFormat())")
-                .font(.footnote)
+            if event.attributes.dateFrom == event.attributes.dateTo {
+                Text("\(event.attributes.dateFrom.dateFormat())")
+                    .font(.footnote)
+            } else {
+                Text("\(event.attributes.dateFrom.dateFormat()) - \(event.attributes.dateTo.dateFormat())")
+                    .font(.footnote)
+            }
         }
     }
 }

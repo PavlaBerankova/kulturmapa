@@ -7,6 +7,7 @@ final class EventsObservableObject: ObservableObject {
 
     init(eventsService: EventsService) {
         self.eventsService = eventsService
+        print(events.count)
     }
 
     @MainActor
