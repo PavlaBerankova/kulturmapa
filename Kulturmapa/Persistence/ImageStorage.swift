@@ -4,6 +4,8 @@ import SwiftUI
 class ImageStorage {
     static let shared: ImageStorage = ImageStorage()
 
+    private static let cachedImagesLimit = 250
+    
     /// Select an folder in this application bundle. We want ideally an "Application Support" directory. In this directory, we want to store our images in subdirectory called "imageCache",
     private let defaultPath: URL = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!.appendingPathComponent("imageCache")
     /// Initializer first checks, whether folder for `defaultPath` exists. If not, it creates a new one.
@@ -60,6 +62,8 @@ class ImageStorage {
     ///   - image: Image to be stored
     ///   - url: The URL that was executed upon the server to get this image.
     func update(image: UIImage, at url: URL) {
+        try? clearStorage()
+        
         let urlHash = hash(of: url)
         let pathHash = defaultPath.appendingPathComponent(urlHash).path(percentEncoded: false)
         if FileManager.default.fileExists(atPath: pathHash) {
@@ -75,6 +79,40 @@ class ImageStorage {
         }
         // HINT: UIImage -> Data
         // guard let bytes = image.jpegData(compressionQuality: 1.0) else { return }
+    }
+
+    // @PavlaBerankova I have pitched this solution which reads "last access date" of all files and removes the oldest.
+    // We need to clear storage once upon the time, so the files won't accumulate. I would like to call this function
+    // when the app is going to shut down, but ATM I just placed it into update(image:at:) function...
+    private func clearStorage() throws {
+        let files = try FileManager.default.contentsOfDirectory(at: defaultPath, includingPropertiesForKeys: [.contentAccessDateKey])
+        guard files.count > Self.cachedImagesLimit else {
+            return
+        }
+        
+        let sortedFilesWithDates = files
+            .map { ($0, try? $0.resourceValues(forKeys: [.contentAccessDateKey])) }
+            .sorted { lhs, rhs -> Bool in
+                guard let lhsDate = lhs.1?.contentAccessDate else {
+                    return true
+                }
+                
+                guard let rhsDate = rhs.1?.contentAccessDate else {
+                    return false
+                }
+                
+                return lhsDate < rhsDate
+            }
+        
+        sortedFilesWithDates.forEach {
+            print($0)
+        }
+        print("del")
+        sortedFilesWithDates.prefix( files.count - Self.cachedImagesLimit ).forEach { item in
+            try? FileManager.default.removeItem(at: item.0)
+            
+                print(item)
+        }
     }
 }
 
