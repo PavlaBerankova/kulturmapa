@@ -1,11 +1,5 @@
 import SwiftUI
 
-enum APIError: Error {
-    case invalidURL
-    case invalidResponse
-    case decodingError(Error)
-}
-
 protocol PlacesService {
     func fetchPlaces() async throws -> Places
 }
@@ -13,7 +7,7 @@ protocol PlacesService {
 class ProductionPlacesService: PlacesService {
     func fetchPlaces() async throws -> Places {
         let session = URLSession.shared
-        let url = URL(string: "https://gis.brno.cz/ags1/rest/services/OMI/omi_ok_kulturni_instituce/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json")
+        let url = URL(string: UrlStrings.placesUrl.rawValue)
         guard let url = url else {
             throw APIError.invalidURL
         }
@@ -24,6 +18,7 @@ class ProductionPlacesService: PlacesService {
         let (data, response) = try await session.data(for: request)
 
         guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+            print(response.description)
             throw APIError.invalidResponse
         }
 
