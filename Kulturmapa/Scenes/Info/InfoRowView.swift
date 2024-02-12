@@ -33,8 +33,13 @@ struct InfoRowView: View {
             if let url = URL(string: urlString), UIApplication.shared.canOpenURL(url) {
                 UIApplication.shared.open(url)
             }
+
+            // Set a timer to revert the background color back to clear after a brief period
+                       DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                           isTapped = false
+                       }
         }
-        .padding(5)
+        .padding(10)
         .background(isTapped ? .gray.opacity(0.1) : .clear)
     }
 }

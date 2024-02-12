@@ -42,14 +42,22 @@ extension InfoView {
     private var linkToEmail: some View {
         InfoRowView(
             infoImage: .contactsSymbol.atSymbol,
-            infoText: "Máš nápad na vylepšení nebo jsi našel/našla chybu? Napiš mi na e-mail \(email)",
+            infoText: "Máš nápad na vylepšení nebo jsi našel/našla chybu? Napiš mi na email \(email)",
             urlString: "mailto:" + email)
     }
 }
 
 // MARK: - PREVIEW
-#Preview {
+#Preview("Light mode") {
     NavigationStack {
         InfoView()
+            .preferredColorScheme(.light)
+    }
+}
+
+#Preview("Dark mode") {
+    NavigationStack {
+        InfoView()
+            .preferredColorScheme(.dark)
     }
 }

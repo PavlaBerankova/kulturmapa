@@ -5,5 +5,5 @@ enum UrlStrings: String {
     case eventsUrl = "https://services6.arcgis.com/fUWVlHWZNxUvTUh8/arcgis/rest/services/Events/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json"
     case sourceCodeUrl = "https://github.com/PavlaBerankova/kulturmapa/tree/main"
     case dataBrnoUrl = "https://data.brno.cz/search?collection=Dataset"
-    case emailInfo = "bershee@gmail.com"
+    case emailInfo = "berankovap90@gmail.com"
 }

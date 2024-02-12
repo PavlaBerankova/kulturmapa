@@ -19,9 +19,3 @@
   <img src="https://github.com/PavlaBerankova/kulturmapa/assets/107038196/ebbdaa95-d931-446a-80f0-36ea3fa423b8" alt="DarkDetail" width="300" />
   <img src="https://github.com/PavlaBerankova/kulturmapa/assets/107038196/d305a00f-441c-4980-a83f-7863b3d48333" alt="DarkMap" width="300" />
 </div>
-
-
-## Video
-https://github.com/PavlaBerankova/kulturmapa/assets/107038196/4c317023-1e3f-4c50-9814-9aafce372d2c
-
-
