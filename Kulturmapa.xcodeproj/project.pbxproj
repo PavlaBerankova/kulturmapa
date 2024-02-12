@@ -103,6 +103,7 @@
 		44402AC02B221122000B409E /* UrlStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlStrings.swift; sourceTree = "<group>"; };
 		4441E2612A9234D0006C9A62 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		4441F5472A8F699B00E90519 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		445340E82B7A18B7005E72E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		445DBDD72A82755400B01FAA /* PlacesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesViewModel.swift; sourceTree = "<group>"; };
 		445DBDDA2A82789900B01FAA /* PlacesObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesObservableObject.swift; sourceTree = "<group>"; };
 		445DBDDC2A827D3600B01FAA /* PlaceDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewModel.swift; sourceTree = "<group>"; };
@@ -445,6 +446,7 @@
 		C05610472A5C78CA007FB970 /* Kulturmapa */ = {
 			isa = PBXGroup;
 			children = (
+				445340E82B7A18B7005E72E0 /* Info.plist */,
 				C05610482A5C78CA007FB970 /* KulturmapaApp.swift */,
 				C056104A2A5C78CA007FB970 /* RootView.swift */,
 				44402A852B2203C9000B409E /* Environment */,
@@ -762,13 +764,13 @@
 				DEVELOPMENT_TEAM = WJ82JM369V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Kulturmapa/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Kultůrmapa";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Povolení polohy k zobrazení míst kolem vás.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Povolení polohy k zobrazení míst kolem vás.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
@@ -796,13 +798,13 @@
 				DEVELOPMENT_TEAM = WJ82JM369V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Kulturmapa/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Kultůrmapa";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Povolení polohy k zobrazení míst kolem vás.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Povolení polohy k zobrazení míst kolem vás.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
