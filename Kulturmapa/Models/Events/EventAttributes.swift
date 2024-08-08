@@ -12,19 +12,23 @@ struct EventAttributes: Codable {
     var text: String?
     var tickets: String?
     var ticketsInfo: String?
-    var image: URL?
+    var imageString: String?
     var url: String?
     var email: String?
     var ticketsUrl: String?
     var timeStampFrom: Int
     var timeStampTo: Int
+    
+    var image: URL? {
+        imageString.flatMap(URL.init(string:))
+    }
 
     enum CodingKeys: String, CodingKey {
         case categories
         case id = "ID"
         case name, text, tickets
         case ticketsInfo = "tickets_info"
-        case image = "first_image"
+        case imageString = "first_image"
         case url
         case email = "organizer_email"
         case ticketsUrl = "tickets_url"
