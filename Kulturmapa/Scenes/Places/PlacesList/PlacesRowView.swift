@@ -6,7 +6,7 @@ struct PlacesRowView: View {
 
     // MARK: - BODY
     var body: some View {
-        HStack(alignment: .top) {
+        HStack(alignment: .center) {
             placeImage
             placeTitleWithType
         }
